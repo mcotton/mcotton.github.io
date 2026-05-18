@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deploying with Git — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Deploying with Git</h1>
+    <p class="article-meta">
+      
+      <time datetime="2013-05-02T20:56:29+00:00">2013-05-02</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>I want to deploy new code to using a simple command like</p>
+
+<pre><code>git push stage master
+</code></pre>
+
+<p>or </p>
+
+<pre><code>git push prod master
+</code></pre>
+
+<p>On the server, make a new git repository</p>
+
+<pre><code>git init
+</code></pre>
+
+<p>Edit the config file inside of .git/</p>
+
+<pre><code>[core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+
+[receive]
+    denyCurrentBranch = ignore
+</code></pre>
+
+<p>Make a post-receive hook with these commands</p>
+
+<pre><code>#!/bin/sh
+cd .. 
+GIT_DIR='.git' 
+umask 002 &amp;&amp; git reset --hard
+</code></pre>
+
+<p>Make that hook exacutable</p>
+
+<pre><code>chmod +x post-receive
+</code></pre>
+
+<p>On your machine (not the server)</p>
+
+<p>Add the a new git remote, I edited my local copy and duplicated what I had setup for origin</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxAwM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

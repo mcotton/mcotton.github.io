@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blinking a light when Eagle Eye camera detects motion — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Blinking a light when Eagle Eye camera detects motion</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2019-10-24T00:00:00+00:00">2019-10-24</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <iframe allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/dQq4EPSQkS0" style="width:100%; height:500px; min-height:400px;"></iframe>
+<p>
+This is a quick video on how to blink a light when an Eagle Eye camera detects motion.  There are plenty of ways to do this, and this is just the way I decided based on what I had available on my desk.
+</p>
+<p>
+I used the following parts:
+<ul>
+<li>Raspberry Pi 2B</li>
+<li>Arduino Uno</li>
+<li>one red LED</li>
+<li>3D printed Eagle Eye logo</li>
+<li><a href="https://github.com/mcotton/EE-blinker">EE-blinker</a> that runs on the Raspberry Pi</li>
+<li><a href="https://github.com/mcotton/EE-blinker/tree/master/blink_sketch">blink_sketch</a> that runs on the Arduino</li>
+</ul>
+</p>
+<p>
+The Arduino was configured with the red LED on pin 13.  The sketch looks for serial communication (over the USB port from the Raspberry Pi) of an ASCII character.  If the character is '1' then it turns on, if it is '2' then it turns off.
+</p>
+<p>
+As an aside, why didn't I make it 1 or 0?  Because originally I was planning on having multiple states and the states did a sequence of things.
+</p>
+<p>
+The Raspberry Pi is just running a Node.js program and it could be replace by any other computer.  The program itself could also be replaced with any other language to subscribe to the Eagle Eye API.
+</p>
+<p>
+You can see the code for the entire project <a href="https://github.com/mcotton/EE-blinker">here</a>.  Make sure to read the README file and follow the instructions to create an appropriate `config.js` file.  It also contains the correct serial port for connecting to the Arduino so make sure you have that correct.
+</p>
+<p>
+The above example is listening for motion events.  Specifically it is listening for <a href="https://apidocs.eagleeyenetworks.com/apidocs/#event-objects">ROMS and ROME events</a> (ROI motion start, ROI motion end).  It could easily be adapted to use other events.
+</p>
+<p>
+If you are monitoring for status changes (camera online/offline, recording on/off, streaming on/off) you most likely want to listen the <a href="https://apidocs.eagleeyenetworks.com/apidocs/#status-bitmask"> status bitmask</a> directly.  The events are delayed because we go through our own internal heuristics to filter out false positives.
+</p>
+<p>
+You can find an example of subscribing to the poll stream, getting the status bitmask, and parsing it in this <a href="https://github.com/mcotton/EE-API-examples/blob/master/Listen_for_status_changes.py">example project</a>.
+</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID02K6NCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

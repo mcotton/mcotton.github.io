@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why are coders afraid of writing code? — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Why are coders afraid of writing code?</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2016-10-23T00:00:00+00:00">2016-10-23</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>At a previous startup, I had a great idea that we could improve our product with realtime updates from the server.  At the time we had implemented long-polling in the client. After failing to get everyone on board I decided to take a weekend to create an example with socket.io and Node.js.</p>
+<p>On Monday morning I was proud to show it off around the company.  The CEO liked the idea and agreed with me. Yay! We got on a call with the CTO and I proudly explained my work. </p>
+<p>He looked at it, then asked me to go into further detail about my choices. How did I implement this?  Tell him about websockets?  How can we roll it into productions?  What does it look like at the HTTP layer?  Well, I could sort of answer his questions.  I had to confess that I really didn't  know and I used socket.io and it uses websockets. </p>
+<p>He probed a little more and then started to get impatient. I couldn't believe that he had become dismissive. And worse, the CEO followed his lead. I hadn't figured it out yet but I had made a critical mistake.</p>
+<p>Would we now be implementing the socket.io abstraction?  Is this what we want?  What trade off does that mean for us?  Is this the only way?</p>
+<p>I was afraid to learn how the technology actually worked and I was asking the company to take in several major dependencies in order to implement this. </p>
+<p>I stubbornly maintained my position. Why would we skip over an existing answer?  I had proved it was working. They could see it working. <i>Why were they not as excited as I am?</i></p>
+<p>We were at an impasse and I still hadn't figured it out yet. </p>
+<p>Fast-forward to now, and I am a first time CTO.  I've spent a lot of time thinking about lessons learned from my friend, the CTO in the previous story.   I do my best to consider why he made the choices he did. </p>
+<p>I'm interviewing candidates and I'm starting to see a similar pattern with other developers. They gladly accept dependencies and baggage that limits options and forces a direction.   They'll make a terrible choice to avoid doing something that makes then uncomfortable. </p>
+<p><i>Coders are afraid of writing code. </i></p>
+<p>A fiend of mine recently described how their company need to do multiple events from an external webhook.  Not enough people understand a simple web server so it got pushed to DevOps to build using salt.   Salt isn't a horrible answer but when he was telling me about this I could see a little of my inexperienced self in the story. </p>
+<p>On another project I was dealing with an Indian iOS developer that needed to sort an array.   They fought me when I filed a bug that the sort order wasn't correct. A week later they had it working but had implement it in the worst way possible. They had pulled in SQLite as a new dependency and were using that to sort the array. When I saw this I was furious. They were very cheap agency but after this they weren't worth keeping around at <i>any</i> price. </p>
+<p>In conclusion, we ended up implementing websockets. I was the champion for this feature and after our CTO guided me in the right direction. We read through the spec for websockets, we came up with the right fallback strategy, and the product improved significantly. We didn't have to blindly add dependencies, we understood the technology we wanted tovuse, and we found the right fit for our needs. 
+</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAncCaCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

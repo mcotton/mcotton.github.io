@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inputs, Outputs, Analog Sensors, oh my! — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Inputs, Outputs, Analog Sensors, oh my!</h1>
+    <p class="article-meta">
+      
+      <time datetime="2009-03-28T05:06:07+00:00">2009-03-28</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    I'm getting into the phidgets more and more.  I'm including a sample video and the python code used in it.  
+
+Sorry for the awful narration.
+
+</pre>
+
+
+
+<pre>
+def interfaceKitSensorChanged(e):
+    #print "Sensor %i: %i" % (e.index, e.value)
+    repeatLoop(e.value)
+    return 0
+
+def interfaceKitOutputChanged(e):
+    print "Output %i: %s" % (e.index, e.state)
+    return 0
+
+def repeatLoop(num):
+    if num > 100:
+        interfaceKit.setOutputState(0,True)
+        interfaceKit.setOutputState(1,False)
+        interfaceKit.setOutputState(2,False)
+    if num > 400:
+        interfaceKit.setOutputState(0,True)
+        interfaceKit.setOutputState(1,True)
+        interfaceKit.setOutputState(2,False)
+    if num > 800:
+        interfaceKit.setOutputState(0,True)
+        interfaceKit.setOutputState(1,True)
+        interfaceKit.setOutputState(2,True)
+    if num < 101:
+        interfaceKit.setOutputState(0,False)
+        interfaceKit.setOutputState(1,False)
+        interfaceKit.setOutputState(2,False)
+    return 0
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjSQQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

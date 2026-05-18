@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}{{ app['name'] }} — mcottondesign{% endblock %}
+{% block body %}
+<div class="app-marketing">
+  <div class="app-hero-large">
+    {% if store and store['artworkUrl512'] %}
+    <img class="app-hero-icon-lg" src="{{ store['artworkUrl512'] }}" alt="{{ app['name'] }} icon">
+    {% elif app['icon_url'] %}
+    <img class="app-hero-icon-lg" src="{{ app['icon_url'] }}" alt="{{ app['name'] }} icon">
+    {% endif %}
+    <div class="app-hero-info-lg">
+      <h1 class="app-hero-name-lg">{{ app['name'] }}</h1>
+      {% if app['tagline'] %}
+      <p class="app-hero-tagline-lg">{{ app['tagline'] }}</p>
+      {% endif %}
+      {% if store %}
+      <div class="app-meta-row">
+        {% if store['sellerName'] %}
+        <span class="app-meta-item">{{ store['sellerName'] }}</span>
+        {% endif %}
+        {% if store['formattedPrice'] %}
+        <span class="app-meta-item">{{ store['formattedPrice'] }}</span>
+        {% endif %}
+        {% if store['averageUserRating'] %}
+        <span class="app-meta-item app-rating">
+          <span class="stars">
+            {%- for i in range(5) -%}
+              {%- if store['averageUserRating'] >= i + 0.75 -%}&#9733;
+              {%- elif store['averageUserRating'] >= i + 0.25 -%}&#9734;
+              {%- else -%}&#9734;
+              {%- endif -%}
+            {%- endfor -%}
+          </span>
+          <span class="rating-count">({{ store['userRatingCount'] | default(0) }})</span>
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% if app['app_store_url'] %}
+      <a class="app-store-badge" href="{{ store['trackViewUrl'] if store and store['trackViewUrl'] else app['app_store_url'] }}" rel="noopener">
+        Download on the App Store
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if store and store['screenshotUrls'] %}
+  <div class="app-screenshots">
+    <div class="app-screenshots-scroll">
+      {% for url in store['screenshotUrls'][:5] %}
+      <img class="app-screenshot" src="{{ url }}" alt="Screenshot" loading="lazy">
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if store and store['description'] %}
+  <div class="app-store-description">
+    <h2 class="section-heading">About this app</h2>
+    <div class="app-desc-text">{{ store['description'] | replace('\n', '<br>') | safe }}</div>
+  </div>
+  {% elif app['description'] %}
+  <div class="app-store-description">
+    <h2 class="section-heading">About this app</h2>
+    <div class="app-desc-text prose">{{ app['description'] | safe }}</div>
+  </div>
+  {% endif %}
+
+  {% if store %}
+  <div class="app-info-grid">
+    {% if store['version'] %}
+    <div class="app-info-item">
+      <span class="app-info-label">Version</span>
+      <span class="app-info-value">{{ store['version'] }}</span>
+    </div>
+    {% endif %}
+    {% if store['genres'] %}
+    <div class="app-info-item">
+      <span class="app-info-label">Category</span>
+      <span class="app-info-value">{{ store['genres'] | join(', ') }}</span>
+    </div>
+    {% endif %}
+    {% if store['minimumOsVersion'] %}
+    <div class="app-info-item">
+      <span class="app-info-label">Requires</span>
+      <span class="app-info-value">iOS {{ store['minimumOsVersion'] }}+</span>
+    </div>
+    {% endif %}
+    {% if store['formattedPrice'] %}
+    <div class="app-info-item">
+      <span class="app-info-label">Price</span>
+      <span class="app-info-value">{{ store['formattedPrice'] }}</span>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+{% if posts %}
+<div class="app-posts-section">
+  <h2 class="section-heading">Blog posts</h2>
+  <ul class="post-list">
+    {% for p in posts %}
+    <li class="post-list-item">
+      <a class="post-list-link" href="{{ url_for('post', key=p['slug']) }}">{{ p['title'] }}</a>
+      <div class="post-list-meta">
+        <time datetime="{{ p['published_at'] }}">{{ p['published_at'][:10] }}</time>
+      </div>
+      {% if p['summary'] %}
+      <p class="post-list-summary">{{ p['summary'] }}</p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endblock %}

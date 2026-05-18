@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C-Store POS Fraud — Impact & Detection Calculator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --ink: #0e1a2b;
+  --ink-2: #1c2c45;
+  --paper: #f6f3ec;
+  --paper-2: #ffffff;
+  --accent: #d8423a;
+  --accent-2: #f0a830;
+  --teal: #1f7a8c;
+  --green: #2f7d4f;
+  --ml: #4f46c4;
+  --rule: #d9d2c2;
+  --muted: #5a6271;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+.page { max-width: 1300px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* ── Header ───────────────────────────────────────────────── */
+header {
+  background: var(--ink-2);
+  padding: 26px 24px 22px;
+  margin-bottom: 22px;
+  border-bottom: 4px solid var(--accent-2);
+}
+.kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-2); font-weight: 700; margin-bottom: 7px; }
+h1 { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.01em; margin-bottom: 6px; }
+.dek { font-size: 13px; color: #8b9fc0; max-width: 760px; line-height: 1.6; }
+.header-meta { display: flex; gap: 22px; margin-top: 12px; flex-wrap: wrap; }
+.header-meta span { font-size: 10px; color: #8b9fc0; text-transform: uppercase; letter-spacing: .08em; }
+.header-meta strong { color: var(--accent-2); }
+
+/* ── Section card ─────────────────────────────────────────── */
+.section {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+.section-head {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ml); margin-bottom: 20px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.step-badge {
+  width: 22px; height: 22px; background: var(--ml); color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; flex-shrink: 0;
+}
+.section-note { font-size: 10px; color: var(--muted); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 4px; }
+
+/* ── Input grid ───────────────────────────────────────────── */
+.input-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.input-group label { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 8px; }
+.input-hint { font-size: 10px; color: var(--muted); margin-top: 5px; font-style: italic; line-height: 1.5; }
+.divider { border: none; border-top: 1px solid var(--rule); margin: 20px 0; }
+
+.num-row { display: flex; align-items: center; gap: 8px; }
+.unit-pre, .unit-suf { font-size: 16px; font-weight: 700; color: var(--muted); }
+
+input[type="number"] {
+  padding: 8px 10px; border: 1.5px solid var(--rule); border-radius: 4px;
+  font-size: 16px; font-weight: 700; color: var(--ink); background: #fff; width: 140px;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type="number"]:focus { outline: none; border-color: var(--ml); }
+
+.slider-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.slider-display { font-size: 22px; font-weight: 800; color: var(--ink); min-width: 48px; text-align: right; line-height: 1; }
+.slider-unit { font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+input[type="range"] {
+  flex: 1; -webkit-appearance: none; height: 5px;
+  background: var(--rule); border-radius: 3px; outline: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 18px; height: 18px;
+  background: var(--ml); border-radius: 50%; cursor: pointer;
+  border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.22);
+  transition: transform .1s;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+input[type="range"].red-thumb::-webkit-slider-thumb  { background: var(--accent); }
+input[type="range"].gold-thumb::-webkit-slider-thumb { background: var(--accent-2); }
+input[type="range"].green-thumb::-webkit-slider-thumb { background: var(--green); }
+input[type="range"].ml-thumb::-webkit-slider-thumb { background: var(--ml); }
+
+/* ── Metric cards ─────────────────────────────────────────── */
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.metric-card { border-radius: 6px; padding: 16px 18px; border-left: 4px solid; }
+.metric-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px; }
+.metric-value { font-size: 26px; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.metric-sub { font-size: 11px; margin-top: 5px; opacity: .8; line-height: 1.4; }
+.metric-card.rev  { background: #e4f3f7; border-color: var(--teal);   color: var(--teal); }
+.metric-card.exp  { background: #fde8e6; border-color: var(--accent);  color: var(--accent); }
+.metric-card.base { background: #fff8ec; border-color: var(--accent-2); color: #8a5b08; }
+.metric-card.opp  { background: #eceafb; border-color: var(--ml);      color: var(--ml); }
+
+/* ── Category layout ──────────────────────────────────────── */
+.cat-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 26px; align-items: start; }
+
+table.cat { width: 100%; border-collapse: collapse; }
+table.cat th {
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted); padding: 6px 8px; text-align: left;
+  border-bottom: 1.5px solid var(--rule); white-space: nowrap;
+}
+table.cat th.r { text-align: right; }
+table.cat td { padding: 9px 8px; vertical-align: middle; border-bottom: 1px solid #f0ede5; }
+table.cat tbody tr:last-child td { border-bottom: none; }
+table.cat tbody tr.total-row td {
+  background: #f6f3ec; border-top: 1.5px solid var(--rule);
+  border-bottom: none; font-weight: 700; font-size: 12px; padding-top: 10px;
+}
+
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; margin-top: 3px; }
+.cat-name-wrap { display: flex; align-items: flex-start; gap: 7px; }
+.cat-name { font-size: 12px; font-weight: 700; line-height: 1.3; }
+.cat-sub-text { font-size: 9.5px; color: var(--muted); line-height: 1.3; margin-top: 1px; }
+.amt-val { font-size: 12px; font-weight: 700; text-align: right; }
+.amt-sub { font-size: 9px; color: var(--muted); text-align: right; }
+
+/* mini slider in table */
+input.mini[type="range"] {
+  width: 62px; height: 3px; flex: none;
+}
+input.mini[type="range"]::-webkit-slider-thumb { width: 11px; height: 11px; box-shadow: none; border-width: 1.5px; }
+input.mini.base-thumb::-webkit-slider-thumb { background: var(--accent-2); }
+input.mini.ml-thumb::-webkit-slider-thumb { background: var(--ml); }
+
+.pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+.pill-b { background: #fff8ec; color: #8a5b08; }
+.pill-m { background: #eceafb; color: var(--ml); }
+.detect-controls { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+.detect-pills { display: flex; align-items: center; gap: 4px; }
+.detect-sliders { display: flex; align-items: center; gap: 3px; }
+.detect-sliders span { font-size: 9px; color: var(--muted); }
+.share-col { text-align: right; }
+.share-pct { font-size: 13px; font-weight: 800; }
+.share-ctrl { display: flex; align-items: center; justify-content: flex-end; gap: 4px; margin-top: 3px; }
+
+/* ── Chart containers ─────────────────────────────────────── */
+.chart-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 10px; }
+.chart-wrap { position: relative; }
+
+.chart-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+.chart-legend span { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.legend-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+
+/* ── Period toggle ────────────────────────────────────────── */
+.toggle-row { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.toggle-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; margin-right: 2px; }
+.period-btn {
+  padding: 5px 16px; border: 1.5px solid var(--rule); border-radius: 20px;
+  font-size: 12px; font-weight: 700; cursor: pointer; background: #fff;
+  color: var(--muted); transition: all .15s;
+}
+.period-btn.active { background: var(--ml); color: #fff; border-color: var(--ml); }
+
+/* ── ROI cards ────────────────────────────────────────────── */
+.roi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+.roi-card { background: var(--ink-2); border-radius: 6px; padding: 22px 18px; text-align: center; }
+.roi-lbl { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; color: #8b9fc0; margin-bottom: 10px; }
+.roi-val { font-size: 32px; font-weight: 800; color: var(--accent-2); letter-spacing: -.02em; line-height: 1; }
+.roi-sign { font-size: 22px; margin-right: 1px; }
+.roi-sub { font-size: 11px; color: #8b9fc0; margin-top: 8px; line-height: 1.4; }
+.roi-card.pos-card .roi-val { color: #4ade80; }
+.roi-card.neg-card .roi-val { color: #f87171; }
+
+.roi-detail-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.roi-detail {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 14px 12px; text-align: center;
+}
+.d-lbl { font-size: 9.5px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+.d-val { font-size: 22px; font-weight: 800; color: var(--ink); line-height: 1; }
+.d-sub { font-size: 10px; color: var(--muted); margin-top: 5px; line-height: 1.4; }
+
+/* ── Reset btn ────────────────────────────────────────────── */
+.btn-reset {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border: 1.5px solid var(--rule); border-radius: 4px;
+  font-size: 12px; font-weight: 700; cursor: pointer; background: #fff;
+  color: var(--muted); margin: 0 0 0 auto;
+}
+.btn-reset:hover { border-color: var(--ml); color: var(--ml); }
+.top-bar { display: flex; align-items: center; margin-bottom: 18px; }
+.top-bar-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-layout { grid-template-columns: 1fr; }
+  .roi-detail-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .input-grid-3 { grid-template-columns: 1fr 1fr; }
+  .metric-grid { grid-template-columns: 1fr 1fr; }
+  .roi-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .input-grid-3 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="page">
+    <div class="kicker">Interactive Calculator &middot; C-Store POS Fraud Detection Program</div>
+    <h1>Fraud Impact &amp; Detection ROI</h1>
+    <p class="dek">Model fraud exposure, detection rates by category, and the financial impact of the ML-assisted detection program. All calculations update as you adjust parameters — start with your store parameters, then tune each fraud category.</p>
+    <div class="header-meta">
+      <span><strong>Architecture:</strong> IForest + LOF + Rules (v1)</span>
+      <span><strong>CV:</strong> Phase 2 (reserved in formula)</span>
+      <span><strong>Scoring:</strong> Per transaction</span>
+      <span><strong>Pilot:</strong> 200 stores</span>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: PORTFOLIO PARAMETERS                        -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-badge">1</div>
+    Portfolio Parameters
+    <span class="section-note">— set your store baseline; all downstream figures update automatically</span>
+  </div>
+
+  <div class="input-grid-3" style="grid-template-columns:1fr 1fr;">
+    <div class="input-group">
+      <label>Daily Revenue per Store</label>
+      <div class="num-row">
+        <span class="unit-pre">$</span>
+        <input type="number" id="dailyRevenue" value="3000" min="500" max="500000" step="500">
+      </div>
+      <div class="input-hint" id="dailyRevenueHint">—</div>
+    </div>
+    <div class="input-group">
+      <label>Number of Stores</label>
+      <div class="num-row">
+        <input type="number" id="numStores" value="200" min="1" max="15000" step="10">
+        <span class="unit-suf" style="margin-left:4px">stores</span>
+      </div>
+      <div class="input-hint">Pilot: 200 stores &nbsp;·&nbsp; Full rollout target: 13,000</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="input-grid-3">
+    <!-- Col 1: how much fraud exists -->
+    <div class="input-group">
+      <label>Fraud Rate (% of Revenue)</label>
+      <div class="slider-row">
+        <input type="range" id="fraudRate" class="red-thumb" min="0.1" max="5" step="0.1" value="1.5">
+        <span class="slider-display" id="fraudRateVal">1.5</span>
+        <span class="slider-unit">%</span>
+      </div>
+      <div class="input-hint">Industry range: 0.5–2% for C-store &amp; quick-serve. Calibrate after distribution analysis.</div>
+    </div>
+
+    <!-- Col 2: baseline detection -->
+    <div class="input-group">
+      <label>Baseline Detection Rate</label>
+      <div class="slider-row">
+        <input type="range" id="baselineDetect" class="gold-thumb" min="0" max="100" step="1" value="80">
+        <span class="slider-display" id="baselineDetectVal">80</span>
+        <span class="slider-unit">%</span>
+      </div>
+      <div class="input-hint">% of fraud currently caught <em>without</em> ML</div>
+    </div>
+
+    <!-- Col 3: what ML adds -->
+    <div class="input-group">
+      <label>ML Detection Rate</label>
+      <div class="slider-row">
+        <input type="range" id="mlDetect" class="ml-thumb" min="0" max="100" step="1" value="85">
+        <span class="slider-display" id="mlDetectVal">85</span>
+        <span class="slider-unit">%</span>
+      </div>
+      <div class="input-hint">Expected % of fraud caught <em>with</em> ML active. Must be ≥ baseline. Drives "Additional Fraud Found by ML" directly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: PORTFOLIO OVERVIEW                          -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-badge">2</div> Portfolio Overview
+    <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+      <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0">Show:</span>
+      <button class="period-btn active" data-s2="monthly" onclick="setS2Period('monthly')">Monthly</button>
+      <button class="period-btn" data-s2="annual" onclick="setS2Period('annual')">Annual</button>
+    </div>
+  </div>
+  <div class="metric-grid">
+    <div class="metric-card rev">
+      <div class="metric-label" id="m-rev-lbl">—</div>
+      <div class="metric-value" id="m-rev">—</div>
+      <div class="metric-sub" id="m-rev-sub">—</div>
+    </div>
+    <div class="metric-card exp">
+      <div class="metric-label" id="m-exp-lbl">—</div>
+      <div class="metric-value" id="m-exp">—</div>
+      <div class="metric-sub" id="m-exp-sub">—</div>
+    </div>
+    <div class="metric-card base">
+      <div class="metric-label" id="m-base-lbl">—</div>
+      <div class="metric-value" id="m-base">—</div>
+      <div class="metric-sub" id="m-base-sub">—</div>
+    </div>
+    <div class="metric-card opp">
+      <div class="metric-label" id="m-uplift-lbl">—</div>
+      <div class="metric-value" id="m-uplift">—</div>
+      <div class="metric-sub" id="m-uplift-sub">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: FRAUD CATEGORY BREAKDOWN                    -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-badge">3</div>
+    Fraud Category Breakdown
+    <span class="section-note">— adjust share, baseline detection %, and ML detection % per category</span>
+  </div>
+  <div class="cat-layout">
+
+    <!-- Left: table -->
+    <div>
+      <table class="cat">
+        <thead>
+          <tr>
+            <th style="width:36%">Category</th>
+            <th class="r" style="width:14%">Share</th>
+            <th class="r" style="width:14%">Annual $</th>
+            <th class="r" style="width:36%">Detection &nbsp; Baseline → ML</th>
+          </tr>
+        </thead>
+        <tbody id="catTbody"></tbody>
+      </table>
+      <div style="font-size:10px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.5;">
+        Share sliders are proportional — categories auto-normalize to their relative weight.
+        ML detection % represents total caught with the ML system active (must be ≥ baseline).
+      </div>
+    </div>
+
+    <!-- Right: chart -->
+    <div>
+      <div class="chart-label">Annual Fraud Exposure by Category ($)</div>
+      <div class="chart-wrap" style="height:310px">
+        <canvas id="catChart"></canvas>
+      </div>
+      <div class="chart-legend" id="catLegend"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: DETECTION COMPARISON                        -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-badge">4</div>
+    Detection Status per Category — Annual Dollars
+    <span class="section-note">— baseline detected · ML additional · still undetected</span>
+  </div>
+  <div class="chart-wrap" style="height:300px">
+    <canvas id="detChart"></canvas>
+  </div>
+  <div class="chart-legend">
+    <span><span class="legend-swatch" style="background:#f0a830"></span>Baseline Detected</span>
+    <span><span class="legend-swatch" style="background:#4f46c4"></span>ML Additional Detection</span>
+    <span><span class="legend-swatch" style="background:#e8d2d0"></span>Still Undetected</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: ROI                                         -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head"><div class="step-badge">5</div> Financial Impact &amp; Program ROI</div>
+
+  <div style="display:flex;align-items:flex-end;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+    <div class="input-group" style="margin:0">
+      <label>Monthly System Cost <span style="font-weight:400;color:var(--muted)">per Store</span></label>
+      <div class="num-row">
+        <span class="unit-pre">$</span>
+        <input type="number" id="systemCost" value="100" min="0" max="2000000" step="50">
+      </div>
+      <div class="input-hint" id="systemCostHint">Compute, licensing, AP analyst time — per store, per month</div>
+    </div>
+    <div style="padding:10px 16px;background:#f4f1e8;border:1px solid var(--rule);border-radius:5px;min-width:180px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px;" id="totalCostLbl">Total Portfolio Cost</div>
+      <div style="font-size:20px;font-weight:700;color:var(--ink)" id="totalCostDisplay">—</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px" id="totalCostSub">per month across all stores</div>
+    </div>
+  </div>
+
+  <div class="toggle-row">
+    <span class="toggle-label">Period:</span>
+    <button class="period-btn active" data-p="monthly" onclick="setPeriod('monthly')">Monthly</button>
+    <button class="period-btn" data-p="annual" onclick="setPeriod('annual')">Annual</button>
+  </div>
+
+  <div class="roi-row">
+    <div class="roi-card">
+      <div class="roi-lbl">Baseline Detected</div>
+      <div class="roi-val" id="roi-base">—</div>
+      <div class="roi-sub" id="roi-base-sub">Fraud flagged without ML system</div>
+    </div>
+    <div class="roi-card" style="border-top:3px solid #4f46c4">
+      <div class="roi-lbl" style="color:#4f46c4">ML Additional Detected</div>
+      <div class="roi-val" id="roi-add-det">—</div>
+      <div class="roi-sub" id="roi-add-det-sub">Additional fraud flagged above baseline</div>
+    </div>
+
+    <div class="roi-card" id="roi-net-card">
+      <div class="roi-lbl">Net Program Benefit</div>
+      <div class="roi-val" id="roi-net">—</div>
+      <div class="roi-sub" id="roi-net-sub">ML detected minus system cost</div>
+    </div>
+  </div>
+
+  <div class="roi-detail-row">
+    <div class="roi-detail">
+      <div class="d-lbl">System Cost</div>
+      <div class="d-val" id="det-cost">—</div>
+      <div class="d-sub" id="det-cost-sub">—</div>
+    </div>
+    <div class="roi-detail">
+      <div class="d-lbl">Program ROI</div>
+      <div class="d-val" id="det-roi">—</div>
+      <div class="d-sub">net benefit ÷ system cost</div>
+    </div>
+    <div class="roi-detail">
+      <div class="d-lbl">Payback Period</div>
+      <div class="d-val" id="det-payback">—</div>
+      <div class="d-sub">months to break even</div>
+    </div>
+    <div class="roi-detail">
+      <div class="d-lbl">Per-Store Net</div>
+      <div class="d-val" id="det-perstore">—</div>
+      <div class="d-sub" id="det-perstore-sub">—</div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px; padding:14px 16px; background:#f6f3ec; border-radius:4px; border-left:3px solid var(--muted);">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:5px;">About the estimates</div>
+    <div style="font-size:11px;color:var(--muted);line-height:1.6;">
+      Detection rates are starting-point estimates for program planning — calibrate against real data distributions before setting targets.
+      ML detection % per category reflects total caught with the system active, not just the incremental lift.
+      <strong>Sweethearting</strong> shows limited ML lift in v1 — CV (Phase 2) is required for meaningful detection of that scheme.
+    </div>
+  </div>
+</div>
+
+<div class="top-bar">
+  <span class="top-bar-title">Estimates only — calibrate with real data before program reporting</span>
+  <button class="btn-reset" onclick="resetDefaults()">↺ Reset to Defaults</button>
+</div>
+
+</div><!-- .page -->
+
+<script>
+// ── Default state ─────────────────────────────────────────────────────────
+const DEFAULTS = {
+  dailyRevenue: 10000,
+  numStores: 200,
+  systemCost: 100,
+  fraudRate: 1.5,
+  baselineDetect: 80,
+  mlDetect: 85,
+  period: 'monthly',
+  s2period: 'monthly',
+  cats: [
+    { id:'void',       name:'Void Cycling',             sub:'itemsVoided · CartChangeTrail',         color:'#d8423a', share:28, base:12, ml:42 },
+    { id:'refund',     name:'Fictitious Refunds',        sub:'refund without receipt · LOF refund cohort', color:'#f0a830', share:22, base:8,  ml:33 },
+    { id:'nosale',     name:'No-Sale / Drawer',          sub:'transactionType:"noSale" · inferred',   color:'#4f46c4', share:15, base:18, ml:40 },
+    { id:'discount',   name:'Discount & Override Abuse', sub:'percDiscount · override flags',         color:'#1f7a8c', share:18, base:10, ml:30 },
+    { id:'restricted', name:'Restricted Items',          sub:'lottery · tobacco · restrictionCode',   color:'#2f7d4f', share:12, base:22, ml:50 },
+    { id:'sweet',      name:'Sweethearting',             sub:'limited v1 — requires CV (Phase 2)',    color:'#8b5e3c', share:5,  base:4,  ml:9  },
+  ]
+};
+
+let S = JSON.parse(JSON.stringify(DEFAULTS));
+let charts = {};
+
+// ── Format helpers ────────────────────────────────────────────────────────
+function fmt$(n, compact) {
+  const sign = n < 0 ? '-' : '';
+  n = Math.abs(n);
+  if (n >= 1e9) return sign + '$' + (n/1e9).toFixed(2) + 'B';
+  if (n >= 1e6) return sign + '$' + (n/1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return sign + '$' + (n/1e3).toFixed(compact ? 0 : 1) + 'K';
+  return sign + '$' + Math.round(n).toLocaleString();
+}
+function fmtShort$(n) { return fmt$(n, true); }
+function fmtPct(n) { return n.toFixed(1) + '%'; }
+function fmtPctInt(n) { return Math.round(n) + '%'; }
+
+// ── Core calculations ─────────────────────────────────────────────────────
+function calc() {
+  const s = S;
+  const dailyTotal  = s.dailyRevenue * s.numStores;
+  const annualRev   = dailyTotal * 365;
+  const monthlyRev  = dailyTotal * 30;
+  const annualFraud = annualRev * (s.fraudRate / 100);
+
+  const totalShare = s.cats.reduce((a,c) => a + c.share, 0) || 1;
+
+  // Global rates — these drive the headline metric cards directly
+  const globalBasePct = s.baselineDetect / 100;
+  const globalMLPct   = Math.max(s.mlDetect, s.baselineDetect) / 100;
+
+  const cats = s.cats.map(c => {
+    const norm    = c.share / totalShare;
+    const aExp    = annualFraud * norm;
+    const aBase   = aExp * globalBasePct;
+    const aML     = aExp * globalMLPct;
+    const aAdd    = Math.max(0, aML - aBase);
+    const aMissed = Math.max(0, aExp - aML);
+    return { ...c, norm, aExp, aBase, aML, aAdd, aMissed };
+  });
+
+  // Headline totals — derived from global sliders, fully transparent
+  const totBase   = annualFraud * globalBasePct;
+  const totML     = annualFraud * globalMLPct;
+  const totAdd    = Math.max(0, totML - totBase);
+  const totMissed = Math.max(0, annualFraud - totML);
+
+  const monthlyCostTotal = s.systemCost * s.numStores;
+  const annualCost = monthlyCostTotal * 12;
+  const annualNet  = totAdd - annualCost;
+  const roi        = annualCost > 0 ? (annualNet / annualCost) * 100 : 0;
+  const payback    = totAdd > 0 ? monthlyCostTotal / (totAdd / 12) : Infinity;
+  const perStore   = s.numStores > 0 ? annualNet / s.numStores : 0;
+
+  return {
+    annualRev, monthlyRev, annualFraud,
+    cats, totBase, totML, totAdd, totMissed,
+    monthlyCostTotal, annualCost, annualNet, roi, payback, perStore
+  };
+}
+
+// ── Render metrics ────────────────────────────────────────────────────────
+function renderMetrics(r) {
+  const s = S;
+  document.getElementById('dailyRevenueHint').textContent =
+    `${fmt$(s.dailyRevenue * 30)}/month · ${fmt$(s.dailyRevenue * 365)}/year per store`;
+
+  const isMonthly = s.s2period === 'monthly';
+  const mult      = isMonthly ? 1/12 : 1;
+  const period    = isMonthly ? 'Monthly' : 'Annual';
+  const perLabel  = isMonthly ? '/month' : '/year';
+
+  document.getElementById('m-rev-lbl').textContent     = `${period} Portfolio Revenue`;
+  document.getElementById('m-rev').textContent          = fmt$(r.annualRev * mult);
+  document.getElementById('m-rev-sub').textContent      = `${s.numStores} stores · $${(s.dailyRevenue * (isMonthly ? 30 : 365)).toLocaleString()} per store${perLabel}`;
+
+  const fpct = r.annualRev > 0 ? (r.annualFraud / r.annualRev * 100).toFixed(2) : 0;
+  document.getElementById('m-exp-lbl').textContent     = `${period} Fraud Exposure`;
+  document.getElementById('m-exp').textContent          = fmt$(r.annualFraud * mult);
+  document.getElementById('m-exp-sub').textContent      = `${fpct}% of portfolio revenue · ${s.fraudRate}% fraud rate`;
+
+  document.getElementById('m-base-lbl').textContent    = `${period} Baseline Detection`;
+  document.getElementById('m-base').textContent         = fmt$(r.totBase * mult);
+  document.getElementById('m-base-sub').textContent     = `${s.baselineDetect}% of fraud detected without ML`;
+
+  const liftPts = Math.max(0, s.mlDetect - s.baselineDetect);
+  document.getElementById('m-uplift-lbl').textContent  = `${period} ML Additional Detection`;
+  document.getElementById('m-uplift').textContent       = fmt$(r.totAdd * mult);
+  document.getElementById('m-uplift-sub').textContent   = `${s.baselineDetect}% → ${Math.max(s.mlDetect,s.baselineDetect)}% (+${liftPts}pt lift)`;
+}
+
+// ── Render ROI ────────────────────────────────────────────────────────────
+function renderROI(r) {
+  const s = S;
+  const M = s.period === 'annual' ? 1 : 1/12;
+  const periodLabel = s.period === 'annual' ? '/year' : '/month';
+  const mult = s.period === 'annual' ? 1 : 1/12;
+
+  document.getElementById('roi-base').textContent     = fmt$(r.totBase * mult);
+  document.getElementById('roi-base-sub').textContent = `${s.baselineDetect}% detection rate · fraud flagged without ML${periodLabel}`;
+
+  document.getElementById('roi-add-det').textContent     = fmt$(r.totAdd * mult);
+  document.getElementById('roi-add-det-sub').textContent = `+${Math.max(0, s.mlDetect - s.baselineDetect)}pt lift above baseline${periodLabel}`;
+
+
+  const netPeriod = r.annualNet * mult;
+  document.getElementById('roi-net').textContent     = fmt$(Math.abs(netPeriod));
+  document.getElementById('roi-net-sub').textContent = `${netPeriod >= 0 ? 'Positive return' : 'Investment deficit'} · ML detected minus system cost${periodLabel}`;
+  const nc = document.getElementById('roi-net-card');
+  nc.classList.toggle('pos-card', netPeriod >= 0);
+  nc.classList.toggle('neg-card', netPeriod < 0);
+
+  // System cost display
+  const costPeriod = s.period === 'annual' ? r.annualCost : r.monthlyCostTotal;
+  document.getElementById('det-cost').textContent     = fmt$(costPeriod);
+  document.getElementById('det-cost-sub').textContent = s.period === 'annual'
+    ? `per year · ${fmt$(r.monthlyCostTotal)}/mo total · $${s.systemCost.toLocaleString()}/store`
+    : `per month total · $${s.systemCost.toLocaleString()}/store × ${s.numStores} stores`;
+
+  // Portfolio cost hint box — follows period toggle
+  const isAnnual = s.period === 'annual';
+  document.getElementById('totalCostLbl').textContent     = isAnnual ? 'Total Portfolio Cost / Year' : 'Total Portfolio Cost / Month';
+  document.getElementById('totalCostDisplay').textContent = fmt$(isAnnual ? r.annualCost : r.monthlyCostTotal);
+  document.getElementById('totalCostSub').textContent     = isAnnual
+    ? `per year · ${fmt$(r.monthlyCostTotal)}/mo across ${s.numStores} stores`
+    : `per month · ${fmt$(r.annualCost)}/year across ${s.numStores} stores`;
+  document.getElementById('systemCostHint').textContent   = `$${s.systemCost.toLocaleString()}/store · compute, licensing, AP analyst time`;
+
+  document.getElementById('det-roi').textContent = isFinite(r.roi) ? (r.roi >= 0 ? '+' : '') + Math.round(r.roi) + '%' : '—';
+
+  if (!isFinite(r.payback) || r.totAdd <= 0) {
+    document.getElementById('det-payback').textContent = '∞';
+  } else if (r.payback < 1) {
+    document.getElementById('det-payback').textContent = '<1 mo';
+  } else if (r.payback > 120) {
+    document.getElementById('det-payback').textContent = '>10 yr';
+  } else {
+    document.getElementById('det-payback').textContent = r.payback.toFixed(1) + ' mo';
+  }
+
+  const psMult = s.period === 'annual' ? 1 : 1/12;
+  document.getElementById('det-perstore').textContent     = fmt$(Math.abs(r.perStore * psMult));
+  document.getElementById('det-perstore-sub').textContent = `${r.perStore >= 0 ? 'net benefit' : 'net cost'} per store (detected basis)${periodLabel}`;
+}
+
+// ── Render category table ─────────────────────────────────────────────────
+function renderCatTable(r) {
+  const tbody = document.getElementById('catTbody');
+  tbody.innerHTML = '';
+
+  r.cats.forEach((c, i) => {
+    const pct = (c.norm * 100).toFixed(1);
+    const globalML  = Math.max(S.mlDetect, S.baselineDetect);
+    const liftPts   = Math.max(0, globalML - S.baselineDetect);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="cat-name-wrap">
+          <span class="dot" style="background:${c.color}"></span>
+          <div>
+            <div class="cat-name">${c.name}</div>
+            <div class="cat-sub-text">${c.sub}</div>
+          </div>
+        </div>
+      </td>
+      <td class="share-col">
+        <div class="share-pct">${pct}%</div>
+        <div class="share-ctrl">
+          <input type="range" class="mini" min="0" max="80" step="1" value="${c.share}"
+            title="Adjust share of total fraud"
+            oninput="updateCat(${i},'share',+this.value)">
+        </div>
+      </td>
+      <td>
+        <div class="amt-val">${fmtShort$(c.aExp)}</div>
+        <div class="amt-sub">annual</div>
+      </td>
+      <td>
+        <div class="detect-controls">
+          <div class="detect-pills">
+            <span class="pill pill-b">${S.baselineDetect}%</span>
+            <span style="font-size:10px;color:var(--muted);padding:0 2px">→</span>
+            <span class="pill pill-m">${globalML}%</span>
+            <span style="font-size:9px;color:var(--green);font-weight:700;margin-left:4px">+${liftPts}pt</span>
+          </div>
+          <div style="font-size:9px;color:var(--muted);text-align:right;margin-top:3px">
+            ${fmtShort$(c.aBase)} baseline · +${fmtShort$(c.aAdd)} ML
+          </div>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Total row
+  const totMLwt = Math.max(S.mlDetect, S.baselineDetect);
+  const tr2 = document.createElement('tr');
+  tr2.className = 'total-row';
+  tr2.innerHTML = `
+    <td><div class="cat-name-wrap" style="gap:7px"><div class="cat-name" style="color:var(--muted)">Portfolio Total</div></div></td>
+    <td class="share-col"><div class="share-pct" style="color:var(--muted)">100%</div></td>
+    <td><div class="amt-val">${fmt$(r.annualFraud)}</div><div class="amt-sub">annual</div></td>
+    <td>
+      <div class="detect-pills" style="justify-content:flex-end">
+        <span class="pill pill-b" style="font-size:11px">${S.baselineDetect}% (global)</span>
+        <span style="font-size:10px;color:var(--muted);padding:0 2px">→</span>
+        <span class="pill pill-m" style="font-size:11px">${totMLwt}% wtd avg</span>
+      </div>
+    </td>
+  `;
+  tbody.appendChild(tr2);
+}
+
+// ── Build category legend ─────────────────────────────────────────────────
+function renderCatLegend() {
+  const el = document.getElementById('catLegend');
+  el.innerHTML = S.cats.map(c =>
+    `<span><span class="legend-swatch" style="background:${c.color}"></span>${c.name}</span>`
+  ).join('');
+}
+
+// ── Charts ────────────────────────────────────────────────────────────────
+function initCharts() {
+  // Category doughnut
+  const ctx1 = document.getElementById('catChart').getContext('2d');
+  charts.cat = new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: S.cats.map(c => c.name),
+      datasets: [{
+        data: [],
+        backgroundColor: S.cats.map(c => c.color),
+        borderWidth: 2,
+        borderColor: '#fff',
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '58%',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const r = calc();
+              const pct = (r.cats[ctx.dataIndex].norm * 100).toFixed(1);
+              return [` ${ctx.label}`, ` ${fmt$(ctx.raw)}/yr (${pct}% of fraud)`];
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Detection stacked bar
+  const ctx2 = document.getElementById('detChart').getContext('2d');
+  charts.det = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: S.cats.map(c => c.name),
+      datasets: [
+        { label: 'Baseline Detected',    data: [], backgroundColor: '#f0a830', borderRadius: 3 },
+        { label: 'ML Additional',         data: [], backgroundColor: '#4f46c4', borderRadius: 3 },
+        { label: 'Still Undetected',      data: [], backgroundColor: '#e8d2d0', borderRadius: 3 },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${fmt$(ctx.raw)}/yr`
+          }
+        }
+      },
+      scales: {
+        x: { stacked: true, ticks: { font: { size: 10 } }, grid: { display: false } },
+        y: { stacked: true, ticks: { callback: v => fmtShort$(v), font: { size: 10 } }, grid: { color: '#f0ede5' } }
+      }
+    }
+  });
+}
+
+function updateCharts(r) {
+  charts.cat.data.datasets[0].data = r.cats.map(c => Math.round(c.aExp));
+  charts.cat.update('none');
+
+  charts.det.data.datasets[0].data = r.cats.map(c => Math.round(c.aBase));
+  charts.det.data.datasets[1].data = r.cats.map(c => Math.round(c.aAdd));
+  charts.det.data.datasets[2].data = r.cats.map(c => Math.round(c.aMissed));
+  charts.det.update('none');
+}
+
+// ── Master update ─────────────────────────────────────────────────────────
+function update() {
+  const r = calc();
+  renderMetrics(r);
+  renderROI(r);
+  renderCatTable(r);
+  updateCharts(r);
+}
+
+// ── Category input handler ────────────────────────────────────────────────
+function updateCat(i, field, val) {
+  if (field === 'ml') {
+    // ML detection can't be less than the global baseline
+    S.cats[i].ml = Math.max(val, S.baselineDetect);
+  } else {
+    S.cats[i][field] = val;
+  }
+  update();
+}
+
+// ── Period toggles ────────────────────────────────────────────────────────
+function setPeriod(p) {
+  S.period = p;
+  document.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('active', b.dataset.p === p));
+  update();
+}
+function setS2Period(p) {
+  S.s2period = p;
+  document.querySelectorAll('[data-s2]').forEach(b => b.classList.toggle('active', b.dataset.s2 === p));
+  update();
+}
+
+// ── Section 2 period toggle ───────────────────────────────────────────────
+function setS2Period(p) {
+  S.s2period = p;
+  document.querySelectorAll('[data-s2]').forEach(b => b.classList.toggle('active', b.dataset.s2 === p));
+  update();
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────
+function resetDefaults() {
+  S = JSON.parse(JSON.stringify(DEFAULTS));
+  document.getElementById('dailyRevenue').value  = S.dailyRevenue;
+  document.getElementById('numStores').value     = S.numStores;
+  document.getElementById('systemCost').value    = S.systemCost;
+  syncSlider('fraudRate',      S.fraudRate);
+  syncSlider('baselineDetect', S.baselineDetect);
+  syncSlider('mlDetect',       S.mlDetect);
+  document.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('active', b.dataset.p === 'monthly'));
+  document.querySelectorAll('[data-s2]').forEach(b => b.classList.toggle('active', b.dataset.s2 === 'monthly'));
+  update();
+}
+function syncSlider(id, val) {
+  document.getElementById(id).value = val;
+  document.getElementById(id + 'Val').textContent = val;
+}
+
+// ── Event binding ─────────────────────────────────────────────────────────
+function bindEvents() {
+  document.getElementById('dailyRevenue').addEventListener('input', e => { S.dailyRevenue = +e.target.value || 0; update(); });
+  document.getElementById('numStores').addEventListener('input',    e => { S.numStores    = +e.target.value || 0; update(); });
+  document.getElementById('systemCost').addEventListener('input',   e => { S.systemCost   = +e.target.value || 0; update(); });
+
+  [['fraudRate','fraudRate'],['baselineDetect','baselineDetect'],['mlDetect','mlDetect']].forEach(([id, key]) => {
+    document.getElementById(id).addEventListener('input', e => {
+      const v = parseFloat(e.target.value);
+      S[key] = v;
+      document.getElementById(id + 'Val').textContent = v;
+      update();
+    });
+  });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderCatLegend();
+  bindEvents();
+  initCharts();
+  syncSlider('fraudRate',      S.fraudRate);
+  syncSlider('baselineDetect', S.baselineDetect);
+  syncSlider('mlDetect',       S.mlDetect);
+  update();
+});
+</script>
+</body>
+</html>

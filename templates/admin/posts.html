@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}Posts{% endblock %}
+{% block body %}
+<div class="admin-top-bar">
+  <h1 class="page-title">Posts <span class="admin-count">{{ total }}</span></h1>
+  <a class="btn btn-primary" href="{{ url_for('admin_post_new') }}">New post</a>
+</div>
+<form class="admin-search" method="get" action="{{ url_for('admin_posts') }}">
+  <input type="search" name="q" value="{{ q }}" placeholder="Search posts..." autofocus>
+  <button type="submit" class="btn btn-sm">Search</button>
+  {% if q %}
+  <a class="btn btn-sm" href="{{ url_for('admin_posts') }}">Clear</a>
+  {% endif %}
+</form>
+{% if q %}
+<p class="admin-search-info">{{ total }} result{{ 's' if total != 1 }} for "{{ q }}"</p>
+{% endif %}
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Published</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in posts %}
+    <tr>
+      <td><a href="{{ url_for('admin_post_edit', post_id=p['id'] if p['id'] is defined else 0) }}">{{ p['title'] }}</a></td>
+      <td>{{ p['category'] or '' }}</td>
+      <td>{{ p['published_at'][:10] }}</td>
+      <td class="admin-actions">
+        <a class="btn btn-sm" href="{{ url_for('admin_post_edit', post_id=p['id'] if p['id'] is defined else 0) }}">Edit</a>
+        <form method="post" action="{{ url_for('admin_post_delete', post_id=p['id'] if p['id'] is defined else 0) }}" onsubmit="return confirm('Delete this post?')">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4" class="empty">No posts found.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+<nav class="pagination">
+  {% if page > 1 %}
+  <a class="btn" href="?page={{ page - 1 }}{% if q %}&q={{ q }}{% endif %}">&larr; Prev</a>
+  {% endif %}
+  {% if has_next %}
+  <a class="btn" href="?page={{ page + 1 }}{% if q %}&q={{ q }}{% endif %}">Next &rarr;</a>
+  {% endif %}
+</nav>
+{% endblock %}

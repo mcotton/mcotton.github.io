@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ post['title'] }} — mcottondesign{% endblock %}
+{% block body %}
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">{{ post['title'] }}</h1>
+    <p class="article-meta">
+      {% if post['category'] %}
+      <span class="cat">{{ post['category'] }}</span>
+      <span class="sep">·</span>
+      {% endif %}
+      <time datetime="{{ post['published_at'] }}">{{ post['published_at'][:10] }}</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    {{ post['body_html'] | safe }}
+  </div>
+  {% if post['source_link'] %}
+  <p class="source-link"><a href="{{ post['source_link'] }}" rel="noopener">Original URL</a></p>
+  {% endif %}
+</article>
+{% endblock %}

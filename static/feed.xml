@@ -1,0 +1,1165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>mcottondesign</title>
+    <link>https://mcottondesign.com/</link>
+    <description>Blog</description>
+    <item>
+      <title>C-Store Fraud Calculator</title>
+      <link>https://mcottondesign.com/post/c-store-fraud-calculator</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/c-store-fraud-calculator</guid>
+      <pubDate>Wed, 06 May 2026 14:47:00 -0000</pubDate>
+      <description>Quick calculator to work through saving estimates based on increased fraud detection</description>
+    </item>
+    <item>
+      <title>ML Pipeline for POS Analysis</title>
+      <link>https://mcottondesign.com/post/ml-pipline-for-pos-analysis</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ml-pipline-for-pos-analysis</guid>
+      <pubDate>Sun, 03 May 2026 14:32:00 -0000</pubDate>
+      <description>Over the years I have done multiple Point-of-Sale integrations and now  it is time to start my most ambitious integration yet.</description>
+    </item>
+    <item>
+      <title>Learn Similarity Search by Writing a Vector Database</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDM3eTOCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDM3eTOCAw</guid>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <description>I want to be technically correct.  I don’t want “You’re absolutely right…” or “That’s a great point”. The idea that I’ve stumbled on is that Claude Code can be an excellent teacher for building a vector db when given the right set of rules.  Specifically the key for me has been adding this as a ground rule Do not just write the code. I want you to ask questions to ensure I am
+learning. Do not be </description>
+    </item>
+    <item>
+      <title>How it is going AI vibe coding</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMvpPdCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMvpPdCAw</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <description>When I started experimenting with AI vibe coding, I wouldn&#x27;t have predicted that it would actually be useful.  While I am still unsure about trusting whatever is returned by Claude for professional code, it has earned its spot for personal projects. In the last couple of months, I have been able to knock off several items on my running tally of software projects.  Most of the items are silly but a</description>
+    </item>
+    <item>
+      <title>Removing YouTube Shorts (because I am old)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMvsXMCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMvsXMCAw</guid>
+      <pubDate>Sun, 22 Jun 2025 00:00:00 -0000</pubDate>
+      <description>I don&#x27;t know why I hate YouTube Shorts so much, but I do.  I find it a very user hostile feature that even with a YouTube Premium account there is no way to disable it. I get that that they can&#x27;t resist the siren song of enshittification but that doesn&#x27;t mean I have to see it. Sure I could use one of the existing extensions but I don&#x27;t like the idea of giving that much access to an unknown 3rd-par</description>
+    </item>
+    <item>
+      <title>Solving Silly Syncing Problem</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMgrjPCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMgrjPCAw</guid>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0000</pubDate>
+      <description>I&#x27;ve been dealing with an annoyance for years.  Having multiple computers means that you now need to coordinate where files are.  This is a known issue for larger, important files.  Where it is less obvious, are in the smaller transient files like screenshots. I take a lot of screenshots and screen recordings.  It is a cheap way to keep a snapshot of a moment in time.  Got a new feature working?  </description>
+    </item>
+    <item>
+      <title>Going Big by Going Small</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMwJnNCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDMwJnNCAw</guid>
+      <pubDate>Mon, 29 Jul 2024 00:00:00 +0000</pubDate>
+      <description>I am winding down the first phase of a customer pilot and wanted to celebrate a little before getting wrapped up in phase two. This project needs some AI which is really data science, computer vision, and machine learning.  There are several data sources that need to be integrated into a dashboard and data explorer.  The interesting part is that this is a great use case for my  prior classifier wo</description>
+    </item>
+    <item>
+      <title>Trophies for Day in the Dirt</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICM46jOCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICM46jOCAw</guid>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      <description>Each year we go and race in the Day in the Dirt down south race.  It is a terrific event put on by RedBull.  This year I decided to make commemorative trophies for my brothers and nephew.  I&#x27;m happy with how they turned out and for Send Cut Send for doing the machine work. It started as a quick sketch in onShape.  I exported the two files as DFXs and uploaded to SendCutSend. I order one frame in 0</description>
+    </item>
+    <item>
+      <title>AI wrote me a short children&#x27;s story</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICMkYnMCAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICMkYnMCAw</guid>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <description>First, the story Once upon a time, in a pond on the outskirts of town, there lived a duck named Julio. Julio was a bit of a goofball, but he was also a very curious duck. One day, while Julio was swimming through the pond, he overheard a group of swans talking about something called &quot;cognitive biases.&quot; Julio had no idea what that was, so he asked the swans to explain it to him. &quot;Cognitive biases a</description>
+    </item>
+    <item>
+      <title>Running AI model on Surveillance Camera</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICMstCPCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICMstCPCQw</guid>
+      <pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
+      <description>This is a follow up to my previous post on training this model.</description>
+    </item>
+    <item>
+      <title>Learning a New Skill: CNC</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0y5SfCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0y5SfCQw</guid>
+      <pubDate>Tue, 06 Apr 2021 00:00:00 +0000</pubDate>
+      <description>I have been a huge fan of 3D printing and additive manufacturing.  It is great for functional items like brackets, mounts, and replacement parts to fix a vacuum.  The only problem, is that most people don&#x27;t actual want stuff made out of plastic. Switching over to subtractive manufacturing, and step back 50 years in time, brings us to CNC.  CNC is an elegant technology in the sense that it is fairl</description>
+    </item>
+    <item>
+      <title>Where I Use Docker Containers</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICM8OGNCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICM8OGNCQw</guid>
+      <pubDate>Mon, 02 Nov 2020 00:00:00 +0000</pubDate>
+      <description>Skipping the hype around Docker, Kubernetes, and containers in general; I wanted to talk through how I use them and where they have been very helpful.  The three use cases I want to highlight are local development, API examples, and deployment. Local development with Python is a headache of dependencies and conflicting Python versions.  You can use virtual environments or Docker containers, but do</description>
+    </item>
+    <item>
+      <title>Making Python use all those Cores and  RAM</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0y8COCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0y8COCQw</guid>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      <description>It is cheap and easy to build a machine with 8/16 cores and 32GB of RAM.  It is more complicated to make Python use all those resources.  This blog post will go through strategies to use all the CPU, RAM, and the speed of your storage device. I am using the AMD 3700x from my previous post .  It has 8 cores and 16 threads.  For this post I will be treating it each thread as a core because that is h</description>
+    </item>
+    <item>
+      <title>Curating Datasets is the New Programming</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0qf6MCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0qf6MCQw</guid>
+      <pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate>
+      <description>Machine learning has changed how I approach new programming tasks. I am going to be working through an example of detecting vehicles in a specific parking space.  Traditionally this would be done by looking for motion inside of a specific ROI (region of interest).  In this blog post I will be talking through achieving better results by focusing on dataset curation and machine learning. The traditi</description>
+    </item>
+    <item>
+      <title>Building an AI/ML workstation in 2020</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID06p-PCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID06p-PCQw</guid>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      <description>The cloud is a great way to get started with AI/ML.  The going rate is around $4/hr for a GPU instance.  It might be all that you need, but if you need to maximize your personal hardware buget this is my guide to buiding workstation. Price I spent ~$1000 and you could get it even lower with the current deals.  I decided on a AMD Ryzen 3700X, Nvidia 2060 Super, 32GB of RAM, and an NVME drive.  I co</description>
+    </item>
+    <item>
+      <title>Recognizing QR Codes in Video</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0pvCeCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0pvCeCQw</guid>
+      <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+      <description>This is a quick example on how to recognize QR codes in video streams and extract the metadata.  Read the full write-up over at https://een.cloud .</description>
+    </item>
+    <item>
+      <title>Blinking a light when Eagle Eye camera detects motion</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID02K6NCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID02K6NCQw</guid>
+      <pubDate>Thu, 24 Oct 2019 00:00:00 +0000</pubDate>
+      <description>This is a quick video on how to blink a light when an Eagle Eye camera detects motion.  There are plenty of ways to do this, and this is just the way I decided based on what I had available on my desk. I used the following parts: Raspberry Pi 2B Arduino Uno one red LED 3D printed Eagle Eye logo EE-blinker that runs on the Raspberry Pi blink_sketch that runs on the Arduino The Arduino was configure</description>
+    </item>
+    <item>
+      <title>Detecting an open garage door with Machine Learning, Computer Vision, and Eagle Eye</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0u4-OCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0u4-OCQw</guid>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      <description>Introduction I wanted to know if the garage door is left open.  This is how I trained my computer to text me when it has been open for too long. Detecting if a garage door is open or closed is a surprisingly challenging problem.  It is possible to do this with contact sensors or even with a motion (PIR) sensor, but that requires running additional wires and a controller. My solution was to put a w</description>
+    </item>
+    <item>
+      <title>Apple Watch Charging Stand</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0xuePCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIC0xuePCQw</guid>
+      <pubDate>Sat, 06 Jul 2019 00:00:00 +0000</pubDate>
+      <description>This is a present I made for a friend.  It makes a handy travel stand because it is cheap to produce, light weight, and snaps together with magnets. You can download the STL files on Thingiverse</description>
+    </item>
+    <item>
+      <title>3D printed bomb drop kit</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDUl_uOCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDUl_uOCQw</guid>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      <description>This is a kit that I designed and printed.  Each bomb bay requires a channel on your RC receiver.  In this video I am using an 8-channel receiver but you easily disconnect your rudder and use that while you fly the plane with just bank and yank. You&#x27;ll be able to download the STL files.</description>
+    </item>
+    <item>
+      <title>Journey to 11,000ft</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDUtdqMCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDUtdqMCQw</guid>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Why are coders afraid of writing code?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAncCaCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAncCaCQw</guid>
+      <pubDate>Sun, 23 Oct 2016 00:00:00 +0000</pubDate>
+      <description>At a previous startup, I had a great idea that we could improve our product with realtime updates from the server.  At the time we had implemented long-polling in the client. After failing to get everyone on board I decided to take a weekend to create an example with socket.io and Node.js. On Monday morning I was proud to show it off around the company.  The CEO liked the idea and agreed with me. </description>
+    </item>
+    <item>
+      <title>What is the weirdest bug you&#x27;ve ever dealt with?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA-O2dCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA-O2dCQw</guid>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <description>I was asked this once at an informal interview and didn&#x27;t have an immediate answer.  I told a story about the time I was trying to debug RF signals and the ultimate cause was that there was another remote using the same hardware ID.  It was extremely unprobabel, but it turned out to be the cause. Since then I&#x27;ve had more time to reflect on how I would answer that question if I was asked again. The</description>
+    </item>
+    <item>
+      <title>HUVR Truck</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAr-GZCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAr-GZCQw</guid>
+      <pubDate>Thu, 03 Mar 2016 00:00:00 +0000</pubDate>
+      <description>Showing off our truck on a nice, sunny afternoon.  Shot with a Phantom 3 Pro and an Inspire 1.</description>
+    </item>
+    <item>
+      <title>Trail of Lights</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA_OKXCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA_OKXCQw</guid>
+      <pubDate>Tue, 16 Feb 2016 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Leaving Eagle Eye and moving to HUVRdata</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgNeMCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgNeMCQw</guid>
+      <pubDate>Tue, 03 Nov 2015 00:00:00 +0000</pubDate>
+      <description>I am excited to announce that I have accepted a new position with HUVRDATA .  After an eight week transition I am thrilled to get started.  I wI&#x27;ll be their CTO and will guide them into becoming the leader in drone based inspections. It was surprisingly hard to leave Eagle Eye and specifically, let the team know what was next for me.  I lost sleep over this decision but we were able to make it thr</description>
+    </item>
+    <item>
+      <title>Small Improvements Over Time</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAr4aICQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAr4aICQw</guid>
+      <pubDate>Sat, 31 Oct 2015 00:00:00 +0000</pubDate>
+      <description>Improving takes time and patience and lots of near-misses.  There is usually a narrow window in to capture the ideal scene and if you aren&#x27;t in position and ready you will miss it.  I continue to be 10 minutes late, out of battery or space on the SD card when I realize this is the shot I wanted. In this case, I wanted to try the waters before going again the next day.  The challenges of shooting d</description>
+    </item>
+    <item>
+      <title>Austin after Sunset</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgMOVCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgMOVCQw</guid>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      <description>Pushing the distance out a little further and keeping it low across the water.  Experimenting with Final Cut Pro X to get the titles and transition.</description>
+    </item>
+    <item>
+      <title>Adventure: Utah September 2015</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA_ISGCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA_ISGCQw</guid>
+      <pubDate>Mon, 05 Oct 2015 00:00:00 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Out on the a Bat Cruise</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA2fCSCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA2fCSCQw</guid>
+      <pubDate>Fri, 18 Sep 2015 00:00:00 +0000</pubDate>
+      <description>I had a terrific time with @LSRiverboats getting this footage.  This was captured in 4k@30fps but rendered to 720p for Vimeo.  The initial shot was digitally zoomed in and the reset is right off the camera.  Some minor exposure correction was done in post to make every match. This was a lot of fun but extremely challenging to operate from a boat.  There were two boats, fading daylight, bats and ot</description>
+    </item>
+    <item>
+      <title>Getting Better</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA66KeCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA66KeCQw</guid>
+      <pubDate>Fri, 18 Sep 2015 00:00:00 +0000</pubDate>
+      <description>I&#x27;ve been trying for quite some time to get this shot.  It was interesting because this was also my longest distance flight.  I only went 1000ft&#x27; up the river away and it took a lot of squinting to keep it in sight.</description>
+    </item>
+    <item>
+      <title>Another Try at an Old Location</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAmeeDCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAmeeDCQw</guid>
+      <pubDate>Fri, 28 Aug 2015 00:00:00 +0000</pubDate>
+      <description>This was taken out front of the Austin City Power Plant and is using the new manual camera controls of the Phantom 3 Pro. It is hard to go back to past locations and try to get a fresh take.  The challenge is to that you are no longer looking at it with fresh eyes.  This is made worse if you liked the results from previous tries. I am challenging myself to throw away my previous work.  All locatio</description>
+    </item>
+    <item>
+      <title>Smooth Sailin&#x27;</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3s-NCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3s-NCQw</guid>
+      <pubDate>Sun, 23 Aug 2015 00:00:00 +0000</pubDate>
+      <description>This is video from my first flight with the new Phantom 3 Pro.  I picked it up earlier today and ran it through its paces.  So far, it is a significant improvement from the Phantom 2 Vision +.  The iOS app is the major differentiator.  All the other features are in support of the app.  The remote is the same as the Inspire 1 and feels much more refined.  Common features can be done using hard butt</description>
+    </item>
+    <item>
+      <title>Setbacks and Crashes</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA67iPCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA67iPCQw</guid>
+      <pubDate>Sun, 16 Aug 2015 00:00:00 +0000</pubDate>
+      <description>This is an older video that I hadn&#x27;t posted yet.  It is from a couple months ago and has nothing to do with the rest of the post. I had a crash earlier in the week that has destroyed my Phantom 2.  Almost immediately after take it it lost all power and unceremoniously fell from the sky.  My first reaction was shock.  I don&#x27;t know if the battery wasn&#x27;t seated all the way or it experienced a differe</description>
+    </item>
+    <item>
+      <title>Getting more cinematic</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgLmECQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgLmECQw</guid>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      <description>The goal was to make  a short compilation from several different shots.   I wanted something visually interesting without spending hours on each shot. This was all done on just one battery.  Except for the last shot, we only took one pass at each shot and didn&#x27;t review anything.
+
+I had several more shots in mind, but will save those for another compilation.  I enjoying improvising and the preasu</description>
+    </item>
+    <item>
+      <title>Sunrise Panorama</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAmYOcCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAmYOcCQw</guid>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      <description>This is a composite image from several individual shots.  It was taken a peaceful Sunday morning just after sunrise.  I really enjoy Sunday mornings photo shoots.  Austin is still recovering from its collective hangover, the roads are empty, and the sun isn&#x27;t scorching hot, yet. There is something more challenging about get a sunrise picture.  Sunsets are easy, I can tell how the sunset will turn </description>
+    </item>
+    <item>
+      <title>Making Progress</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA7duLCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA7duLCQw</guid>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <description>I&#x27;m starting to make progress with my ariel photography.  The images and video are making me cringe less.  I&#x27;m starting very basic and working up slowly.  Instead of just cranking up fancy effects in LightRoom or adding some razzle-dazzle from Final Cut Pro.  Right now  it is about making something that works well as Desktop wallpaper. This blog is the new starting point for a gallery.  The goal i</description>
+    </item>
+    <item>
+      <title>Putting in the hours</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3qWFCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3qWFCQw</guid>
+      <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
+      <description>One of the great advantages to sharing your beginner work is that you are able to see rapid progress.  The initial learning curve is usually pretty quick.  Making a Vimeo and YouTube channel and posting to reddit provide quick feedback.  A lot of the feedback will be critical of what you are doing, but this is all part of learning. Once you reach a certain level of achievement you reach a plateau </description>
+    </item>
+    <item>
+      <title>Picking a new hobby and starting over</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3v6YCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3v6YCQw</guid>
+      <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
+      <description>I&#x27;m trying out a new hobby, that has been a casual interest of mine.  This year is going to be the year of GoPro photography.  It is a kind of weird idea, but the idea is really simple.  I&#x27;ve bought  the Hero 4 Black so there isn&#x27;t a better model I can blame  for my shortcomings.  There is also a wide enough group of users posting their content that I have a significant yard stick to compare mysel</description>
+    </item>
+    <item>
+      <title>Talk at Austin Python meetup 10/08</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3uqJCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA3uqJCQw</guid>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
+      <description>I had the opportunity to speak at the Austin Python meetup again.  This is my presentation on how we use Python at Eagle Eye Networks. I love speaking at these events and really appreciate all of the participation. Here is the video Here is my presentation</description>
+    </item>
+    <item>
+      <title>Translating text in Backbone.js templates</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAvJ-bCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAvJ-bCQw</guid>
+      <pubDate>Wed, 24 Sep 2014 00:00:00 +0000</pubDate>
+      <description>We recently added Japanese support to our webapp.  When implementing it, we decided on the most straight-forward method of converting it at run-time by adding a helper method to the view. The first step was to extend Backbone.View to include a translate method (abbreviated as &#x27;t&#x27; to reduce noise in the template).  It performs a simple dictionary lookup.  It falls back to English if a suitable tran</description>
+    </item>
+    <item>
+      <title>Talk at Austin Python Meetup 8/14</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAvMuKCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAvMuKCQw</guid>
+      <pubDate>Thu, 14 Aug 2014 00:00:00 +0000</pubDate>
+      <description>I had a lot of fun speaking at the Austin Python Meetup.  My presentation was on the current options available to those who want use python with embedded hardware.  It was a great group of people and I got the chance to bring some toys. Presentation is here</description>
+    </item>
+    <item>
+      <title>Tales of the install: analog vs digital</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgK6ZCQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgK6ZCQw</guid>
+      <pubDate>Fri, 09 May 2014 00:00:00 +0000</pubDate>
+      <description>We installed some new digital cameras to replace an existing analog setup.  The cameras are both similarly priced.</description>
+    </item>
+    <item>
+      <title>Using animated GIFs to answer support questions</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgICACQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAgICACQw</guid>
+      <pubDate>Wed, 16 Apr 2014 00:00:00 +0000</pubDate>
+      <description>Videos are great at demonstrating a feature, but they are a slow and clunky experience.  Animated GIFs are quick and lightweight, and no voice narration.  I used Licecap to capture these videos.  Embedding them is as easy as an img tag How do I add a bridge? How do I add a camera? How do I get to camera settings? How do I change camera resolution? How do I view cameras? How do I create a layout? H</description>
+    </item>
+    <item>
+      <title>How I use Frontend build tools and Grunt.js</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj61xAM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj61xAM</guid>
+      <pubDate>Tue, 15 Apr 2014 00:00:00 +0000</pubDate>
+      <description>Build tools are traditionally the realm of backend systems.  Recently, as frontend systems have gotten more complex, JavaScript specific tools have emerged.  There are plenty of options and it would be impossible to keep up with them all.  I wanted to explain how we make use of Grunt.js and what it does for us. What are Frontend build tools There are several tasks that need to be done before relea</description>
+    </item>
+    <item>
+      <title>First Demo of my RFID integration</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqiRAM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqiRAM</guid>
+      <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
+      <description>In order to show off the EEN API I made an example access control system out of a Raspberry PI, RFID reader and Node.js Node.js was a natural fit for this project because of how easy it is to handle events from the RFID reader, add realtime support through websockets and pull data out of Eagle Eye Networks with the een module . All the important changes can be made from config.js in the root direc</description>
+    </item>
+    <item>
+      <title>JavaScript Journal - Getting Started with Infinite Scrolling</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjauw8M</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjauw8M</guid>
+      <pubDate>Tue, 04 Feb 2014 00:00:00 +0000</pubDate>
+      <description>Infinite scrolling is a really cool effect and a great use of AJAX.  It also has some weird side-effects that you&#x27;ll need to be aware of.  This is the starting point I used in the event version of the Gallery Viewer.  The major parts are throttling the scroll event and detecting the scrolling direction.  Because I am loading images I want to get started on the request as soon as possible, or I wou</description>
+    </item>
+    <item>
+      <title>Working with the API: getting previews</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK7Q4M</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK7Q4M</guid>
+      <pubDate>Fri, 31 Jan 2014 00:00:00 +0000</pubDate>
+      <description>Introduction This blog post is an example of how you can use the Eagle Eye Networks API to embed the preview stream where ever you want. Background The API makes it very easy to get the preview stream for all the cameras in an account.  The preview stream is a series of JPEG images and requires authentication.  Our code today will show how to use the API to provide the images on a webpage without </description>
+    </item>
+    <item>
+      <title>Getting updated properties</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6nw4M</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6nw4M</guid>
+      <pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+      <description>Sometimes you want to get an updated property .  In this case, I am animating an image to make it 10% bigger when I hover over it.  I also have a slider that allows the grid sizing to change. $(img.currentTarget).animate({
+    &#x27;position&#x27;: &#x27;absolute&#x27;,
+    &#x27;height&#x27;: (function() { return $(&#x27;#slider&#x27;).slider(&#x27;value&#x27;) * 1.1 + &#x27;%&#x27; })(),
+    &#x27;width&#x27;: (function() { return $(&#x27;#slider&#x27;).slider(&#x27;value&#x27;) *</description>
+    </item>
+    <item>
+      <title>New Library: Reactive.js</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq0Q0M</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq0Q0M</guid>
+      <pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate>
+      <description>I had several hours this week as I drove from Austin to Ft. Worth and started thinking about reactive programming.  I would like to be able to attach an event to the value of some other variable.  I put together a little demo page along with the github repo .</description>
+    </item>
+    <item>
+      <title>Making a wireless security system</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiagw0M</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiagw0M</guid>
+      <pubDate>Sun, 20 Oct 2013 16:20:06 +0000</pubDate>
+      <description>Our condo recently had some flood damaged and their are workers coming in and out to do repairs.  My wife and I both work and do not feel comfortable with strangers in our house without us.  We don&#x27;t have the needed wiring in our hallway and my wife didn&#x27;t want to see any wires run down the wall.  So I made a wired camera wireless with parts I had laying around. First I needed a wireless to wired </description>
+    </item>
+    <item>
+      <title>Really easy interview process</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiy-wwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiy-wwM</guid>
+      <pubDate>Sun, 13 Oct 2013 03:05:34 +0000</pubDate>
+      <description>I absolutely love you can&#x27;t javascript under presurre and will be using it next time I am interviewing someone.  It is really just fizzbuzz with a couple really easy problems thrown in up-front. It isn&#x27;t really about the total time the applicant gets, its more about how they approach the problems and then how they refine their solution when they are given more time. I approached them using a simpl</description>
+    </item>
+    <item>
+      <title>Bootstrap menus with Backbone.js and Mobile Safari</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK8wwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK8wwM</guid>
+      <pubDate>Tue, 08 Oct 2013 18:55:45 +0000</pubDate>
+      <description>Bootstrap is great.  Backbone.js is great.  Same with underscore.js and jQuery. These are all great things but there is a problem with clicking on dropdown menu items from mobile safari on iOS devices.  There is an easy fix for regular jQuery and even Backbone.js. Old code: $(&#x27;#userSettings&#x27;).click(function(e) {
+    e.preventDefault();
+    (new EditUserProfileView({ model: userList.getCurrentUser(</description>
+    </item>
+    <item>
+      <title>Multi-threaded JavaScript (sort of)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji6wwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji6wwM</guid>
+      <pubDate>Thu, 12 Sep 2013 19:56:41 +0000</pubDate>
+      <description>[UPDATE: It turns out that we could make a simple change on the server and remove the need for this code to run client-side.  There was nothing wrong with the approach we took in the article, but decided to do it on the server as an enhancement to our API] I just got through experimenting with web workers and pushed it out to production.  Now its time to explain what I&#x27;ve learned. To see historica</description>
+    </item>
+    <item>
+      <title>Install redis on osx</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiU3AwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiU3AwM</guid>
+      <pubDate>Fri, 16 Aug 2013 20:38:45 +0000</pubDate>
+      <description>Since I had to install this on two different machines I thought I&#x27;d be nice and leave this for someone else to find. I store custom compiled stuff  in ~/src but you can put it anywhere you&#x27;d like cd src
+curl -O http://redis.googlecode.com/files/redis-2.6.14.tar.gz tar zxvf redis-2.6.14.tar.gz
+cd redis-2.6.14
+make
+cd /usr/local/bin
+ln -s /Users/cotton/src/redis-2.6.14/src/redis-server redis-server
+</description>
+    </item>
+    <item>
+      <title>My Merging Strategy</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj64wwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj64wwM</guid>
+      <pubDate>Thu, 15 Aug 2013 22:04:10 +0000</pubDate>
+      <description>This is my current merging strategy and workflow.  I have the branch mcotton-next and when I make new features I git checkout -b mcotton-branch-name As I make changes I make incremental commits and run grunt.  I use this command grunt &amp;&amp; git status -s|awk &#x27;{ print $2 }&#x27;|xargs git add; git commit -m &quot;&lt;commit message&gt;&quot; &amp;&amp; git push stage mcotton-branch-name Because I make a lot of little commits I us</description>
+    </item>
+    <item>
+      <title>Making Backbone.js a little nicer</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS3AwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS3AwM</guid>
+      <pubDate>Sat, 10 Aug 2013 17:55:27 +0000</pubDate>
+      <description>I&#x27;ve been working on a little framework for extending Backbone.js. This is largely to reduce the amount of boilerplate I have to write.  I&#x27;ll keep updating, but feel free to look at it and poke around. https://github.com/mcotton/Rocket</description>
+    </item>
+    <item>
+      <title>Deploying with Git</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxAwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxAwM</guid>
+      <pubDate>Thu, 02 May 2013 20:56:29 +0000</pubDate>
+      <description>I want to deploy new code to using a simple command like git push stage master or git push prod master On the server, make a new git repository git init Edit the config file inside of .git/ [core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+
+[receive]
+    denyCurrentBranch = ignore Make a post-receive hook with these commands #!/bin/sh
+cd .. 
+GI</description>
+    </item>
+    <item>
+      <title>Consuming vs Producing</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvAwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvAwM</guid>
+      <pubDate>Sun, 17 Mar 2013 17:39:34 +0000</pubDate>
+      <description>Everyone is up in arms about the ending of Google Reader.  I use it daily and more importantly my iPhone/iPad use it as the syncing protocol for RSS apps. What I don&#x27;t understand is why everyone isn&#x27;t seeing this as an opportunity?  Google created a product and now everyone has their shot to show what they can do. Think that Google is amazing?  Try to make your own version and see how you compare.</description>
+    </item>
+    <item>
+      <title>Presentation idea for local meetup</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKtQwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKtQwM</guid>
+      <pubDate>Sun, 20 Jan 2013 03:40:21 +0000</pubDate>
+      <description>I sent out this email about a presentation I would be willing to give. Are you interested in a node talk about camera uploads directly from iPhone to Node and then to S3? Starting from nothing, then use Why use Node? Why make it async? node-formidable to handle uploads knox to upload to S3 router to make sensible URLs, structure for REST nano to integrate with CouchDB Depending on the experience o</description>
+    </item>
+    <item>
+      <title>JavaScript: quick debugging tip</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiirQwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiirQwM</guid>
+      <pubDate>Wed, 16 Jan 2013 04:35:53 +0000</pubDate>
+      <description>I have been doing a lot of in-browser testing.  Because of this I want an insight to what the browser is doing. console.log(&#x27;DEBUG: &#x27; + data) But this gets unmanageable very quickly.  The next evolution is to place a flag for what should be logged.  It also helps to prefix all the logs with a category (DEBUG, INFO, ERROR, etc) debug = true
+
+if (debug) console.log(&#x27;DEBUG: &#x27; + data) This is a little</description>
+    </item>
+    <item>
+      <title>JavaScript Journal - Updating an image without flickering</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6pQwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6pQwM</guid>
+      <pubDate>Sat, 12 Jan 2013 16:35:37 +0000</pubDate>
+      <description>This is how I&#x27;m approaching the problem of trying to simulate live video from a series of preview images. After initial page setup, we start the polling service After each polling response we look for new preview images (&#x27;pre&#x27;) For each preview response, we ask each camera to update its image As an optimization we only update the cameras that are currently on screen When the new image has loaded, </description>
+    </item>
+    <item>
+      <title>JavaScript Journal - looping</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSnQwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSnQwM</guid>
+      <pubDate>Mon, 24 Dec 2012 23:55:56 +0000</pubDate>
+      <description>Depending on when you started learning JavaScript (and when you stopped keeping up) you might find a lot of this inside your code for(var i=0;i&lt;arr.length;i++) {
+    html = &quot;&lt;li&gt;&quot; + arr[i] + &quot;&lt;/li&gt;&quot;
+} or if you started with jQuery you will have copy and pasted something like this from stackoverflow $.getJSON(url, function(data) {
+    $.each(data, function(item) {
+        $(&#x27;#thing&#x27;).append(&#x27;&lt;li&gt;&#x27; </description>
+    </item>
+    <item>
+      <title>JavaScript Journal - Making a Single Page App</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqlQwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqlQwM</guid>
+      <pubDate>Wed, 05 Dec 2012 22:28:36 +0000</pubDate>
+      <description>Right now I am in the process of creating a large, complex single page app.  Some of the challenges I am running through right now are rendering, user management and API proxying. client-side vs server-side rendering Traditionally the page would be rendered on the server.  When  a page changes the server renders it again and can always return the latest data.  You can then progressively enhance so</description>
+    </item>
+    <item>
+      <title>JavaScript Choices</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiCjgwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiCjgwM</guid>
+      <pubDate>Mon, 03 Dec 2012 18:12:01 +0000</pubDate>
+      <description>On my current project, I would really like to move away from YUI and towards Backbone.js.  I am a believer in using a hybrid approach of the best components instead of using a single monolithic library. YUI is a large, heavy framework that enforces their way of development.  While their way isn&#x27;t wrong, it does makes us beholden to Yahoo and their choices.  YUI has incorporated much of Backbone.js</description>
+    </item>
+    <item>
+      <title>What I learned interviewing</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiahgwM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiahgwM</guid>
+      <pubDate>Sat, 10 Nov 2012 03:22:15 +0000</pubDate>
+      <description>October has been a very strange month and thankfully I came out of it better than I expected.  I had the chance to meet some great people. The Good Swift software had a great idea for the technical phone interview, the team reviewed a project of mine on github and then had me answer questions about it for an hour.  They prepared a follow-up assignment adding features to that project. OKCupid Labs </description>
+    </item>
+    <item>
+      <title>Single Page App</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiy_gsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiy_gsM</guid>
+      <pubDate>Thu, 04 Oct 2012 03:48:15 +0000</pubDate>
+      <description>Want to test your server code but you inherited a code base without tests?  Can&#x27;t justify spending weeks writing test?  Want to prove that your API is working?  Need to debug the iPhone client but don&#x27;t want to open XCode. HTML5 to the rescue! Need the app to be location based?  Use geoLocation . Need to store data localy?  Use localStorage . Not a designer, having trouble laying out your css?  Us</description>
+    </item>
+    <item>
+      <title>Making Python and Django more social with awe.sm</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK9gsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK9gsM</guid>
+      <pubDate>Thu, 20 Sep 2012 01:19:29 +0000</pubDate>
+      <description>Our users like to share the deal they just received with their friends on Facebook.  We would like to know how well those links do and what kind of traffic they receive. awe.sm is a company that does exactly that.  This blog post is about showing how easy it is to integrate into python and Django. def facebook_share_checkin(checkin, points):
+    try:
+        # I removed the code for getting the us</description>
+    </item>
+    <item>
+      <title>Local datastore for Google App Engine</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji7gsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji7gsM</guid>
+      <pubDate>Fri, 14 Sep 2012 23:54:55 +0000</pubDate>
+      <description>You can make life extra nice by specifying a datastore.  Save it or add it .gitignore, it&#x27;s all cool with me. --datastore_path=/tmp/myapp_datastore</description>
+    </item>
+    <item>
+      <title>Making a 3rd-party JavaScript widget</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj65gsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj65gsM</guid>
+      <pubDate>Mon, 03 Sep 2012 17:37:21 +0000</pubDate>
+      <description>At QliqUp, we had the idea of making a widget that merchants could place into their existing webpage that would let them show the current deals they offer.  This was mostly straight forward but I wanted to explain some of the sharp edges that slowed us down. You can see the final product at: http://qliqup.com/widgets/ First we had to make a  public endpoint inside of our API.  I left out some the </description>
+    </item>
+    <item>
+      <title>My new TestRunner</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS3wsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS3wsM</guid>
+      <pubDate>Thu, 16 Aug 2012 02:51:41 +0000</pubDate>
+      <description>I am trying to get some test for our code base that doesn&#x27;t have any.  None at all.  There isn&#x27;t even a documented test plan. Because the API server is the core of our porduct, and because testing RESTful things is easier, we&#x27;ll start by making a JavaScript tester.  And because a webpage is friendlier that a command-line, it&#x27;ll report in the browser. https://github.com/mcotton/TestRunner And becau</description>
+    </item>
+    <item>
+      <title>Making profile pages more sane</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq1wsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq1wsM</guid>
+      <pubDate>Fri, 10 Aug 2012 16:49:00 +0000</pubDate>
+      <description>We encourage our merchants to include a facebook page with their profiles so that users can share that page when they check-in, check-out, unlock a deal, or redeem a deal.  But some people didn&#x27;t understand what that means and we had all sorts of crazy input.  Instead of explaining the steps they&#x27;ll need to get us the correct URL, we&#x27;ll just take whatever they mashed out on their keyboard and fix </description>
+    </item>
+    <item>
+      <title>Making user logins more forgiving</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjCzwsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjCzwsM</guid>
+      <pubDate>Tue, 07 Aug 2012 19:22:23 +0000</pubDate>
+      <description>We are currently working on making our login system more forgiving.   We started by creating usernames, and then people forgot their usernames so we now we are wanting to use e-mail addresses as usernames.  This is great except for the users who remember their username. We decided to try logging in assuming they gave us a username, if that fails, try it again matching against their email. While we</description>
+    </item>
+    <item>
+      <title>How to reset Django admin password</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxwsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxwsM</guid>
+      <pubDate>Thu, 02 Aug 2012 02:41:51 +0000</pubDate>
+      <description>Sometimes you just can&#x27;t remember what you set it to, or like me, you restore from an SQL file that you never knew the password for.  Anyway, python to the rescue. &gt; python manage.py shell
+
+
+from django.contrib.auth.models import User
+
+u = User.objects.all()
+u=User.objects.get(username__exact=’admin’)
+u.set_password(‘whatever’);
+u.save() thanks to http://coderseye.com/2007/howto-reset-the-admin-pa</description>
+    </item>
+    <item>
+      <title>New Job at a Startup</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvwsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvwsM</guid>
+      <pubDate>Sat, 28 Jul 2012 23:02:27 +0000</pubDate>
+      <description>I have a new job as a backend developer at http://Qliqup.com It is a young venture backed tech start-up and I am very excited. Look forward to future posts about what I am doing there.</description>
+    </item>
+    <item>
+      <title>Keeping a secure password list</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKuAsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKuAsM</guid>
+      <pubDate>Fri, 08 Jun 2012 19:02:00 +0000</pubDate>
+      <description>Keeping a secure password list should be an easy task but it isn&#x27;t.  This is the solution I am trying out. Download keepass and install on your laptop. Create a master password. Create entries, for existing passwords you&#x27;ll need to edit the generated password Save it to a file and place in your Dropbox folder Install and login into Dropbox on your iPhone Install MiniKeePass on your iPhone Open the</description>
+    </item>
+    <item>
+      <title>Got a problem, python is usually the answer</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiisAsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiisAsM</guid>
+      <pubDate>Fri, 27 Apr 2012 14:54:56 +0000</pubDate>
+      <description>We had an emergency where our EMR provider isn&#x27;t output the needed government reports.  This wouldn&#x27;t be such a big deal if they weren&#x27;t due on Monday. The problem seems to be with the XML records and some information needed to be striped out and manually looked at. Thankfully python has easy installers for Windows and the standard lib includes xml parsing and csv output. #########################</description>
+    </item>
+    <item>
+      <title>HP N40L and Power Failure</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qAsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qAsM</guid>
+      <pubDate>Mon, 16 Apr 2012 14:30:12 +0000</pubDate>
+      <description>Problem When I restart my HP N40L it does not always recognize both drives.  ESXi is on a thumbdrive and has not problem booting.  Because the two physical drives are seperate datastores hosting different VMs it leaves my system in a in consistent place on restart. Solution Don&#x27;t have one yet.  I am going to investigate a UPS that triggers a shutdown script.</description>
+    </item>
+    <item>
+      <title>How to replicate ubuntu vm on ESXi</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSoAsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSoAsM</guid>
+      <pubDate>Fri, 30 Mar 2012 04:32:22 +0000</pubDate>
+      <description>I wanted to deploy multiple copies of a base ubuntu server, easy right? Well it is now, but it took me a while to get it right.  The whole problem comes from not having &#x27;sysprep&#x27; for linux.  (They probably have a much better way and I just don&#x27;t know it).  Because ESXi makes up a fake MAC address for the network interface, it is smart enough to make up a new MAC for the new machine.  Your old VM i</description>
+    </item>
+    <item>
+      <title>Finally got it working</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqmAsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqmAsM</guid>
+      <pubDate>Tue, 06 Mar 2012 04:40:24 +0000</pubDate>
+      <description>I finally got my HP Proliant N40L doing something useful. Except for trying something new, it only runs a single instance of windows 7.  I have it configured as two logical drives residing on a single 2TB disk.  In my testing I had better performance keeping both logical drives on the same disk.  Weird, it shouldn&#x27;t work like that but it does. I wasn&#x27;t able to stream movies from iTunes until I tri</description>
+    </item>
+    <item>
+      <title>What do you do with a home server?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiCkQsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiCkQsM</guid>
+      <pubDate>Mon, 30 Jan 2012 02:30:28 +0000</pubDate>
+      <description>A home server seems like such a good idea, until you get one and wonder, what the hell am I going to do with this? RIght now I have an instance of Windows 7 running iTunes to sync with the AppleTVs.  This was harder than it should be because I couldn&#x27;t add anything to the library without the system thinking it had a sound card.  I found something to fake it and now it works. Amahi is a really ligh</description>
+    </item>
+    <item>
+      <title>HP Proliant Microserver N40L</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiaiQsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiaiQsM</guid>
+      <pubDate>Fri, 20 Jan 2012 14:52:28 +0000</pubDate>
+      <description>My wife bought me a new toy yesterday. A HP Proliant Microserver N40L.  I upgraded the RAM (8GB) and after some fighting, installed ESXi from a USB drive.  The fighting was because of installing from a USB drive, ESXi recognized all the hardware just fine. I intend on running it headless, so I am using a tv as a monitor.  My little sharp LCD only had dvi.  My Samsung plasma has vga, but I can&#x27;t tu</description>
+    </item>
+    <item>
+      <title>Installing VMWare ESXi</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiygQsM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiygQsM</guid>
+      <pubDate>Thu, 05 Jan 2012 17:28:00 +0000</pubDate>
+      <description>I have wanted to install ESXi for a long time now, thankfully we have a spare Dell PowerEdge 1950 for me to use. I am going to install FreeNAS and pfSense to get the hang of using it.  Later I will install some real machines. Here is a quick audio-less screencast showing how to connect with the vSphere client and create a new virtual machine.</description>
+    </item>
+    <item>
+      <title>Adventures in IT</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK-QoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK-QoM</guid>
+      <pubDate>Thu, 17 Nov 2011 02:25:36 +0000</pubDate>
+      <description>We have an older medical office that we need to upgrade.  It is using XP as a server and several Win2000 boxes as the clients.  The practice management software is not compatible with Windows 7.  We couldn&#x27;t upgrade the software nor could we downgrade the new boxes to XP. I suggest VMWare (my answer for most everything lately) but this time Microsoft&#x27;s Virtual PC and XP mode came to the rescue.  W</description>
+    </item>
+    <item>
+      <title>How to write a bookmarklet</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji8QoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji8QoM</guid>
+      <pubDate>Wed, 02 Nov 2011 00:05:07 +0000</pubDate>
+      <description>Problem :  I have to use a punch clock webapp for work.  It doesn&#x27;t have jQuery already included and I would like it to work from the iPhone. Solution :  Write a bookmarklet in javascript.   Fill-in the text fields and click the submit button. (function(){  
+  // Grab the username and password input fields
+  user = document.getElementById(&#x27;txtUserName&#x27;); 
+  pass = document.getElementById(&#x27;txtPassw</description>
+    </item>
+    <item>
+      <title>Technical questions</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj66QoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj66QoM</guid>
+      <pubDate>Sun, 25 Sep 2011 02:40:40 +0000</pubDate>
+      <description>Here are some interview questions, when I&#x27;m back from vacation I&#x27;ll have proper examples write out a dog class in JavaScript with a color property and a bark method var Dog = function(color)  { this.color = color; this.bark = function() { console.log(&#x27;woof&#x27;); } }; If I wanted to create a new dog var clarence = new Dog(&#x27;black and white&#x27;); and if I wanted to add an eat method to the Dog class.  This</description>
+    </item>
+    <item>
+      <title>Getting JSON from CouchDB into iOS</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS4goM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS4goM</guid>
+      <pubDate>Sun, 18 Sep 2011 03:45:38 +0000</pubDate>
+      <description>In this quick video I show how to use iOS boilerplate to make a quick JSON driven blog.</description>
+    </item>
+    <item>
+      <title>Google App Engine Changes</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq2goM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq2goM</guid>
+      <pubDate>Thu, 15 Sep 2011 19:30:30 +0000</pubDate>
+      <description>Recently Google announced that Google App Engine is leaving preview.  Along with a SLA they are also putting their pricing into effect.  There has been a lot of speculation, but no one knows for sure how things will keep playing out. What does this mean for mcottondesign?  It means that even if everything stays the same, now would be a good time to re-write this blog in Node.js and CouchDB on EC2.</description>
+    </item>
+    <item>
+      <title>This week&#x27;s update</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjC0goM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjC0goM</guid>
+      <pubDate>Wed, 07 Sep 2011 02:35:28 +0000</pubDate>
+      <description>I have been pushing changes to my github repos and haven&#x27;t come up with another screencast yet. The major decision is to stay with Google App Engine or to leave.</description>
+    </item>
+    <item>
+      <title>New game series</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaygoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaygoM</guid>
+      <pubDate>Wed, 24 Aug 2011 00:14:44 +0000</pubDate>
+      <description>I am working on making a new screencasts series  as I make a real-time multiplayer game.  I need a head start before I start recording.  Stay tuned.</description>
+    </item>
+    <item>
+      <title>Plans for future screencasts</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjywgoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjywgoM</guid>
+      <pubDate>Wed, 17 Aug 2011 18:14:09 +0000</pubDate>
+      <description>I have several ideas for future screencasts but am not sure what direction to run in.  Here is my list of future topics Use Socket.io to create a live view of database writes into couchdb Work on a prototype of my self-monitored security system Work on a iOS app used to explore the returned JSON from various APIs Improving my twilio-node module Please let me know if there is another topic you want</description>
+    </item>
+    <item>
+      <title>Experimenting with JSFiddle</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKuwoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKuwoM</guid>
+      <pubDate>Mon, 08 Aug 2011 02:13:39 +0000</pubDate>
+      <description>This week I look at quickly solving problems using JSFiddle.net</description>
+    </item>
+    <item>
+      <title>What I use for project tracking</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiiswoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiiswoM</guid>
+      <pubDate>Mon, 25 Jul 2011 04:18:59 +0000</pubDate>
+      <description>Github repo is at https://github.com/mcotton/GAE-CRM</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 6)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qwoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qwoM</guid>
+      <pubDate>Sun, 17 Jul 2011 19:52:54 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 5)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSowoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSowoM</guid>
+      <pubDate>Thu, 14 Jul 2011 21:22:50 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 4)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqmwoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqmwoM</guid>
+      <pubDate>Sat, 09 Jul 2011 20:53:12 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 3)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiClAoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiClAoM</guid>
+      <pubDate>Sun, 03 Jul 2011 15:39:49 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>37&quot; TV based touchscreen</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiajAoM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiajAoM</guid>
+      <pubDate>Fri, 01 Jul 2011 16:48:36 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Two Great Quotes</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK_AkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK_AkM</guid>
+      <pubDate>Mon, 20 Jun 2011 15:09:59 +0000</pubDate>
+      <description>It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 2)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji9AkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji9AkM</guid>
+      <pubDate>Mon, 20 Jun 2011 01:55:31 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>Making an all javascript blog (part 1)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj57AkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj57AkM</guid>
+      <pubDate>Sat, 11 Jun 2011 13:31:27 +0000</pubDate>
+      <description>The code is open source and on github Part 1 Part 2 Part 3 Part 4 Part 5 Part 6 - CouchDB Map/Reduce explanation</description>
+    </item>
+    <item>
+      <title>This blog is now open-source</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR5QkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR5QkM</guid>
+      <pubDate>Wed, 25 May 2011 22:01:11 +0000</pubDate>
+      <description>The code used in making this blog is now open-source and available on github .   In addition to that, there are several screencasts about how it was created. It feels good to make it available, look for  more contributions in the future.</description>
+    </item>
+    <item>
+      <title>Improving input fields with markdown (part 1)</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjArgkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjArgkM</guid>
+      <pubDate>Sun, 15 May 2011 03:58:15 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>Last week&#x27;s screencast</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjxxQkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjxxQkM</guid>
+      <pubDate>Fri, 13 May 2011 20:31:09 +0000</pubDate>
+      <description>Last week&#x27;s screencast was not good enough to be posted here.  It was something new that didn&#x27;t work the way I expected.  This week&#x27;s should be better.</description>
+    </item>
+    <item>
+      <title>Trying and getting rejected</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi8rgkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi8rgkM</guid>
+      <pubDate>Fri, 13 May 2011 20:28:41 +0000</pubDate>
+      <description>Most instances in life you will get what you want.  You will not starve to death, freeze in the cold, or be eaten by velociraptors. You will get a job doing something close to what you love, and be paid enough to buy lots of stuff.  You will find friends, even if they are just co-workers or that drive-through girl who gives you extra fries.  You will have a good life. But every now and again, you </description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxijtgkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxijtgkM</guid>
+      <pubDate>Thu, 12 May 2011 00:36:46 +0000</pubDate>
+      <description>I am currently working every free hour I can find with JavaScript. From jQuery on the front-end through Node.js on the server. I&#x27;m storing everything with CouchDB. The JSON is just flying all over the place. This site is using python on app engine, it is such a nice combination. [screencasts]</description>
+    </item>
+    <item>
+      <title>Now.js screencast for net.tuts+ contest</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiBlwkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiBlwkM</guid>
+      <pubDate>Thu, 28 Apr 2011 21:01:58 +0000</pubDate>
+      <description>youtube link</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj77wgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj77wgM</guid>
+      <pubDate>Wed, 27 Apr 2011 01:58:52 +0000</pubDate>
+      <description>I am currently working every free hour I can find with JavaScript. From jQuery on the front-end through Node.js on the server. I&#x27;m storing everything with CouchDB. The JSON is just flying all over the place. This site is using python on app engine, it such a nice combination. [screencasts]</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxizhwkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxizhwkM</guid>
+      <pubDate>Wed, 27 Apr 2011 01:57:41 +0000</pubDate>
+      <description>I am currently working every free hour I can find with JavaScript. From jQuery on the front-end through Node.js on the server. I&#x27;m storing everything with CouchDB. The JSON is just flying all over the place. This site is using python on app engine, it such a nice combination. [screencasts]</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZjwkM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZjwkM</guid>
+      <pubDate>Wed, 27 Apr 2011 01:56:41 +0000</pubDate>
+      <description>I am currently working every free hour I can find with JavaScript. From jQuery on the front-end through Node.js on the server. I&#x27;m storing everything with CouchDB. The JSON is just flying all over the place. This site is using python on app engine, it such a nice combination. [screencasts]</description>
+    </item>
+    <item>
+      <title>Using modules for private settings</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR6AgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR6AgM</guid>
+      <pubDate>Sun, 10 Apr 2011 08:00:33 +0000</pubDate>
+      <description>This week&#x27;s screencast is about creating a local module to store your private settings.  This is important because you don&#x27;t want user:pass and IP addresses stored in git or github.</description>
+    </item>
+    <item>
+      <title>How to contact me</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjB2AgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjB2AgM</guid>
+      <pubDate>Thu, 07 Apr 2011 16:52:25 +0000</pubDate>
+      <description>Preferred way to contact me mcotton @ mcottondesign . com You can find me elsewhere github stack overflow stackoverflow careers @mcotton</description>
+    </item>
+    <item>
+      <title>This weeks screencast</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiJwQgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiJwQgM</guid>
+      <pubDate>Fri, 25 Mar 2011 17:04:34 +0000</pubDate>
+      <description>I submitted a screencast to nut.tuts  I am waiting to hear back from them.  It has to be previously unpublished for them to use it.  If they use it I will post the link, if not I&#x27;ll post it hear.</description>
+    </item>
+    <item>
+      <title>Getting started with twilio-node</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxihuQgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxihuQgM</guid>
+      <pubDate>Sat, 19 Mar 2011 18:17:00 +0000</pubDate>
+      <description>You can get the code https://github.com/mcotton/twilio-node or you can just install it with npm npm install twilio-node</description>
+    </item>
+    <item>
+      <title>Why would you write something if no one will use it?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi5sQgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi5sQgM</guid>
+      <pubDate>Thu, 17 Mar 2011 21:43:18 +0000</pubDate>
+      <description>It is easy to get caught up with the web trends and forget about shipping products.  This happens to me all the time.  I have a hard drive full of prototypes and concepts, yet my github account is really sparse. I&#x27;m still going to program in my off-hours, but now will document the changes I make.  I already announced my goal of one screencast a week to be posted to this blog.  Instead of starting </description>
+    </item>
+    <item>
+      <title>Screencasts</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjTqQgM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjTqQgM</guid>
+      <pubDate>Mon, 14 Mar 2011 03:25:13 +0000</pubDate>
+      <description>I love screenr.com and am making a goal to put up one new screencast a week.  I hope it better demonstrates what I&#x27;m working on.</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjj-gcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjj-gcM</guid>
+      <pubDate>Mon, 07 Mar 2011 22:47:52 +0000</pubDate>
+      <description>I don&#x27;t know the specifics but the trajectory is promising.  It is much more rewarding for me to work on an open source project than to haggle for a 3% raise.  Right now I&#x27;m releasing free screencasts each week.</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjh-gcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjh-gcM</guid>
+      <pubDate>Mon, 07 Mar 2011 22:45:52 +0000</pubDate>
+      <description>I am currently working every free hour I can find with JavaScript. From jQuery on the front-end through Node.js on the server. I&#x27;m storing everything with CouchDB. The JSON is just flying all over the place. This site is using python on app engine, it such a nice combination.</description>
+    </item>
+    <item>
+      <title>Untitled</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj58gcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj58gcM</guid>
+      <pubDate>Mon, 07 Mar 2011 22:43:14 +0000</pubDate>
+      <description>I&#x27;ve worked in the home automation industry for the last 7 years. It has been a great experience because all code written is used by real people everyday. Lights, HVAC, Security are all critical systems that have to work.  Here are some crestron examples.</description>
+    </item>
+    <item>
+      <title>Making things more async</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjppAcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjppAcM</guid>
+      <pubDate>Wed, 26 Jan 2011 04:52:49 +0000</pubDate>
+      <description>Right now I&#x27;m finding ways to use more of the awesome APIs provided by google.  Even though the volume is low, memcache and task queues are still great ideas.  I&#x27;m trying to carry over what I&#x27;ve learned from working with Node.js</description>
+    </item>
+    <item>
+      <title>Latest experiment</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZlQcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZlQcM</guid>
+      <pubDate>Wed, 10 Nov 2010 05:40:12 +0000</pubDate>
+      <description>I decided to venture out to the scary world of Amazon Web Services. I am far enough along that it makes sense to update this blog about my experience. I am working with Couchdb and Node.js. I love couch and so far, really enjoy node. I&#x27;m deploying this on ubuntu (which is always awesome) on ec2. My current workflow goes like this.. Reboot in ubuntu Make changes to my app, commit and push from git </description>
+    </item>
+    <item>
+      <title>Little Red Ridding Hood, infographic</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjJhQcM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjJhQcM</guid>
+      <pubDate>Thu, 07 Oct 2010 01:46:26 +0000</pubDate>
+      <description>This is a very clever way to tell a story</description>
+    </item>
+    <item>
+      <title>Crestron portion of the blog is moving</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjh_QYM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjh_QYM</guid>
+      <pubDate>Tue, 27 Jul 2010 19:27:05 +0000</pubDate>
+      <description>I am moving the crestron portion of the blog.  I want to have it non-branded with mcottondesign to prevent a wonk-conflict. http://mcotton.posterous.com/</description>
+    </item>
+    <item>
+      <title>Thoughts on the iPad and Home Automation</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj59QYM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj59QYM</guid>
+      <pubDate>Fri, 23 Jul 2010 01:42:16 +0000</pubDate>
+      <description>I love my iPad and it continues to make me smile when I use it.  I like it more than my iPhone (if I didn&#x27;t need to program, I would say more than my macbook). Since crestron has released a mobile app for it, I have been working on finding how it fits into the home automation landscape.  I don&#x27;t want to endless speculate on it fixing all the world&#x27;s problems, or how it will be cause the end of oth</description>
+    </item>
+    <item>
+      <title>Wordpress vs DIY</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjZ2QUM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjZ2QUM</guid>
+      <pubDate>Thu, 24 Jun 2010 05:35:21 +0000</pubDate>
+      <description>I&#x27;ve decided to write my own blog instead of just using wordpress.  I don&#x27;t know if this is a good thing or not. I wouldn&#x27;t fly a home-made plane.  I wouldn&#x27;t scuba with a home-made tank. But I will make my mark on the world by blazing my own trail. Stay tuned to see how it turns out.</description>
+    </item>
+    <item>
+      <title>IPad review</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj5gQMM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj5gQMM</guid>
+      <pubDate>Thu, 08 Apr 2010 02:45:24 +0000</pubDate>
+      <description>I have my new iPad and I love it.   It might my not be as magical as apple claims, but it is innovative. It it a toy and not a serious computer. As long as you expect it to be beautiful it won&#x27;t disappoint.  For the same price as a net book it is a great purchase   I have shown it some customers and  the real test will be how I can deploy it into the custom installation market. 
+
+Sent from my iPad</description>
+    </item>
+    <item>
+      <title>Re-design of the landscape page</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR-gIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR-gIM</guid>
+      <pubDate>Tue, 23 Mar 2010 19:37:49 +0000</pubDate>
+      <description>I wasn&#x27;t happy with the old page, but after some re-work it is much better.</description>
+    </item>
+    <item>
+      <title>Introduction to this new category</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxip8gIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxip8gIM</guid>
+      <pubDate>Tue, 16 Mar 2010 02:48:38 +0000</pubDate>
+      <description>I am trying a new experiment, I want to see if a programmer in a first world country can earn more than minimum wage.
+I will start posting listings I am interested in and the reasoning behing my bids.</description>
+    </item>
+    <item>
+      <title>Filter for new work</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiDrAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiDrAIM</guid>
+      <pubDate>Sat, 06 Mar 2010 23:51:41 +0000</pubDate>
+      <description>It depresses me how sensational the news media has become. But I have learned that I don&#x27;t have good luck with people who watch fox news. If you&#x27;re offended by this than we aren&#x27;t a good fit</description>
+    </item>
+    <item>
+      <title>Bug in XPanel kiosk mode</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiBrAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiBrAIM</guid>
+      <pubDate>Thu, 04 Mar 2010 23:38:48 +0000</pubDate>
+      <description>It took way too long but I found a solution for the xpanel kiosk mode bug. I was having a weird issue with &#x27;phantom&#x27; button clicks when it was in kiosk mode.  The problem went away if I put it in full-screen. After some tinkering and google-ing the problem here are the new xpanel.ini settings. left=-4 top=-50 right=1028 bottom-772 That completely fills the screen at 1024x768</description>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiapAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiapAIM</guid>
+      <pubDate>Mon, 01 Mar 2010 01:33:04 +0000</pubDate>
+      <description>My name is Mark Cotton.  I&#x27;m convinced my chihuahua is plotting my downfall.  My body stays busy with my day job but my mind is often left to run wild.  This is the place where my latest ideas form. m c o t t o n @ m c o t t o n d e s i g n . c o m</description>
+    </item>
+    <item>
+      <title>Haven&#x27;t we seen this management style before?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjKlAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjKlAIM</guid>
+      <pubDate>Mon, 15 Feb 2010 16:57:27 +0000</pubDate>
+      <description>Here are some guidelines from a WW2 manual on sabotage.  It sounds like people I have worked with in the past. Insist on doing everything through “channels.” Never permit short-cuts to be taken in order to expedite decisions. Make “speeches.” Talk as frequently as possible and at great length. Illustrate your “points” by long anecdotes and accounts of per  sonal experiences. Never hesitate to make</description>
+    </item>
+    <item>
+      <title>How they did it in the 40&#x27;s</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjJlAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjJlAIM</guid>
+      <pubDate>Sun, 14 Feb 2010 00:18:02 +0000</pubDate>
+      <description>I was amazed at this video.  It is a video of how a fire control computer.  The catch is that it is from the 40&#x27;s. http://www.eugeneleeslover.com/VIDEOS/fire_control_computer_1.html</description>
+    </item>
+    <item>
+      <title>Things I&#x27;ve figured out</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj6hAIM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj6hAIM</guid>
+      <pubDate>Mon, 08 Feb 2010 06:11:26 +0000</pubDate>
+      <description>I&#x27;m very excited to start with a series of post about working with Google App Engine. I&#x27;m planning on showing code samples of reducing server load through memcache, creating mashups with other services through urlfetch and JSON, and reducing initial (cold start) page loads through AJAX. Stay tumed for code samples and instructions.</description>
+    </item>
+    <item>
+      <title>Screencast of AMX goodness</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR_QEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiR_QEM</guid>
+      <pubDate>Wed, 09 Dec 2009 06:11:39 +0000</pubDate>
+      <description>or watch it here</description>
+    </item>
+    <item>
+      <title>PHP deserves its bad rap</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiM1gEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiM1gEM</guid>
+      <pubDate>Mon, 05 Oct 2009 02:08:04 +0000</pubDate>
+      <description>I always thought the Ruby on Rails crowd was just being snobbish when they railed on PHP. I started using a hosted server with the classic LAMP stack and it was awful.  Google App Engine and python have spoiled me.</description>
+    </item>
+    <item>
+      <title>Gizmodo&#x27;s Home Theater List</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjRvgEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjRvgEM</guid>
+      <pubDate>Thu, 13 Aug 2009 03:10:03 +0000</pubDate>
+      <description>A project we did made Gizmodo&#x27;s top ten list. Link is here: The whole video is here:</description>
+    </item>
+    <item>
+      <title>Future of Web Apps - Dublin 09</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiapwEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiapwEM</guid>
+      <pubDate>Mon, 27 Jul 2009 03:04:02 +0000</pubDate>
+      <description>David Heinemeier Hansson - FOWA Dublin 2009 from Carsonified on Vimeo .</description>
+    </item>
+    <item>
+      <title>What you need to know about your electrical plan</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiFrwEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiFrwEM</guid>
+      <pubDate>Fri, 24 Jul 2009 03:53:46 +0000</pubDate>
+      <description>In the excitement of building a new house it is easy to gloss over some of the finer details.  You should take care that your electrical system doesn&#x27;t get forgotten about.  Your builder has an electrician that he uses, and there is good reason they work together, but just because he is working on your house doesn&#x27;t mean he is working for you.  He won&#x27;t be able to read your mind and so I&#x27;ve put to</description>
+    </item>
+    <item>
+      <title>As true today as the day it was written</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZpwEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiZpwEM</guid>
+      <pubDate>Wed, 22 Jul 2009 06:04:15 +0000</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>New adventures with Crestron</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjhjwEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjhjwEM</guid>
+      <pubDate>Wed, 08 Jul 2009 03:03:48 +0000</pubDate>
+      <description>We are working on the largest Crestron project we ever head.  It is going to be 8 zones of HD video switching and 34 zones of distributed audio.  We are going to control it with a pair of 37&quot; touchscreen tvs and 22 RTi remotes.  We are going to be doing some tricks to hide electronics without losing control. Look forward to more information and hopefully some freebies and tutorials.</description>
+    </item>
+    <item>
+      <title>What I&#x27;m working on</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj5hwEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj5hwEM</guid>
+      <pubDate>Mon, 29 Jun 2009 04:20:47 +0000</pubDate>
+      <description>I purchased a hardware development kit from synapse-wireless.com .  They make a really unique zigbee platform that runs python byte code quasi-natively.  I am really amazed with it so far.  It is very nice when you come across a product that actually does what it says it will.    The wireless range really goes 75+ feet and it really does turn on in 100 ms.  It joins the network within another 100 </description>
+    </item>
+    <item>
+      <title>What shoes does the shoe maker wear?</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiSgAEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiSgAEM</guid>
+      <pubDate>Sun, 14 Jun 2009 01:20:28 +0000</pubDate>
+      <description>I&#x27;m using AMX at my house and I love it.  In the future I will be posting a screencast of how it operates.  There is a lot of design decisions that need to be made and I&#x27;m trying to make it as open as I can.</description>
+    </item>
+    <item>
+      <title>Control4 project in the wild</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiRgAEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiRgAEM</guid>
+      <pubDate>Sun, 14 Jun 2009 01:17:09 +0000</pubDate>
+      <description>Here is a fairly large control4 installation.  I try to give a good narration but I wish I would have stayed quiet.</description>
+    </item>
+    <item>
+      <title>Security system, phidgets and twitter - published on instructables.com</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjxYAw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjxYAw</guid>
+      <pubDate>Mon, 13 Apr 2009 01:21:44 +0000</pubDate>
+      <description>Combining security system with phidges and twitter for awesomeness - More DIY How To Projects</description>
+    </item>
+    <item>
+      <title>AMX floorplan</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjC7QEM</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjC7QEM</guid>
+      <pubDate>Tue, 07 Apr 2009 03:55:45 +0000</pubDate>
+      <description>Here is a rough and quick walk-through of a deployed AMX system. Our &quot;30 day&quot; trial install has almost been a year without any problems. Its reporting back to a server (so I can confirm my claim).</description>
+    </item>
+    <item>
+      <title>Updated, although still uncomplete, vantage map</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxihUQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxihUQw</guid>
+      <pubDate>Sat, 04 Apr 2009 23:07:37 +0000</pubDate>
+      <description>View Larger Map</description>
+    </item>
+    <item>
+      <title>Inputs, Outputs, Analog Sensors, oh my!</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjSQQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjSQQw</guid>
+      <pubDate>Sat, 28 Mar 2009 05:06:07 +0000</pubDate>
+      <description>I&#x27;m getting into the phidgets more and more.  I&#x27;m including a sample video and the python code used in it.  
+
+Sorry for the awful narration. def interfaceKitSensorChanged(e):
+    #print &quot;Sensor %i: %i&quot; % (e.index, e.value)
+    repeatLoop(e.value)
+    return 0
+
+def interfaceKitOutputChanged(e):
+    print &quot;Output %i: %s&quot; % (e.index, e.state)
+    return 0
+
+def repeatLoop(num):
+    if num &gt; 100:
+     </description>
+    </item>
+    <item>
+      <title>I&#x27;m starting to become a control4 fanboy</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxicKgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxicKgw</guid>
+      <pubDate>Sun, 08 Mar 2009 02:25:41 +0000</pubDate>
+      <description>This is a little scary.  Control4 is working well enough in my house and at our casita that I find myself trying to find ways for them to succeed.  That is a victory in and of itself</description>
+    </item>
+    <item>
+      <title>Elevator pitch</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxi1Igw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxi1Igw</guid>
+      <pubDate>Sun, 08 Mar 2009 02:22:42 +0000</pubDate>
+      <description>What do we do? We are trying to bring home automation to the masses. What makes us different? Instead of trying to launch a new product that users and dealers have to leave their current brands to adopt, we want to commodotize much of the design and programming for them. Who are you competing against? Our strategy is to make (or use existing) dealer agreements with all the major players (Crestron,</description>
+    </item>
+    <item>
+      <title>Installing control4 at home</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjkEgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjkEgw</guid>
+      <pubDate>Fri, 27 Feb 2009 01:21:30 +0000</pubDate>
+      <description>Our demo order just arrived and I brought home an HC-300, ipod dock and wireless outlet switch.  I&#x27;m updating firmware now.  Hopefully I&#x27;ll have a working system in a couple hours.</description>
+    </item>
+    <item>
+      <title>Crestron AES and RTi remotes</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjJGgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxjJGgw</guid>
+      <pubDate>Tue, 24 Feb 2009 05:05:27 +0000</pubDate>
+      <description>I do a lot of complaining about Crestron, but I just completed a project with RTI remote and it made all the difference. The T2-Cs should be sold on every job. It is very straight forward to program in SIMPL. Customers seem to like it. What more could you want. I will be posting a sample project in the [examples] section.</description>
+    </item>
+    <item>
+      <title>Personal Roadmap</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj7Cgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj7Cgw</guid>
+      <pubDate>Tue, 17 Feb 2009 18:43:58 +0000</pubDate>
+      <description>I am working on documenting where I want to go with my career.  I thought that a roadmap may be more accurate than just setting goals. I have work on the calendar until August.  I&#x27;m sure it could run all the way to the end of 2009. Currently, I am most interested in the author/publisher relationship.  I would like to be a content (software) provider and have a publisher/sales/marketing department.</description>
+    </item>
+    <item>
+      <title>Control4 Training</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj6Cgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj6Cgw</guid>
+      <pubDate>Mon, 16 Feb 2009 16:44:07 +0000</pubDate>
+      <description>So far the first day of training is going well.  They are doing a good job explaining their market position and the direction they want to take.</description>
+    </item>
+    <item>
+      <title>cuddle with wonder woman</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj5Cgw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxj5Cgw</guid>
+      <pubDate>Sun, 15 Feb 2009 20:07:49 +0000</pubDate>
+      <description>see!  girls do like me!</description>
+    </item>
+    <item>
+      <title>Waiting in Denver</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxiUAww</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxiUAww</guid>
+      <pubDate>Fri, 13 Feb 2009 20:08:12 +0000</pubDate>
+      <description>I&#x27;m always surprised how flat Denver is.  Southwest is using HP computers running XP for their digital signage.  I&#x27;m sitting her watching it reboot.  I think it is disconcerting.  Aren&#x27;t planes more complex than pretty text?</description>
+    </item>
+    <item>
+      <title>Example bedroom keypad</title>
+      <link>https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxiPWQw</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHILCxIEQmxvZxiPWQw</guid>
+      <pubDate>Thu, 24 Jan 2008 04:17:47 +0000</pubDate>
+      <description></description>
+    </item>
+  </channel>
+</rss>

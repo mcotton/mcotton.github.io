@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}Media{% endblock %}
+{% block body %}
+<div class="admin-top-bar">
+  <h1 class="page-title">Media</h1>
+</div>
+
+<div class="upload-section" style="border-top: none; margin-top: 0; padding-top: 0;">
+  <form method="post" action="{{ url_for('admin_upload') }}" enctype="multipart/form-data" class="upload-form">
+    <input type="file" name="file" accept="image/*">
+    <button type="submit" class="btn btn-primary btn-sm">Upload</button>
+  </form>
+</div>
+
+{% if media %}
+<div class="media-grid">
+  {% for m in media %}
+  <div class="media-item">
+    <img class="media-thumb" src="{{ m['url'] }}" alt="{{ m['filename'] }}" loading="lazy">
+    <div class="media-info">
+      <span class="media-name" title="{{ m['filename'] }}">{{ m['filename'] }}</span>
+      <span class="media-meta">{{ m['folder'] }} &middot; {{ m['size_kb'] }} KB</span>
+      <input class="media-url" type="text" value="{{ m['url'] }}" readonly onclick="this.select()">
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">No media files yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How I use Frontend build tools and Grunt.js — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">How I use Frontend build tools and Grunt.js</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2014-04-15T00:00:00+00:00">2014-04-15</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>Build tools are traditionally the realm of backend systems.  Recently, as frontend systems have gotten more complex, JavaScript specific tools have emerged.  There are plenty of options and it would be impossible to keep up with them all.  I wanted to explain how we make use of <a href="http://gruntjs.com">Grunt.js</a> and what it does for us.</p>
+<h4>What are Frontend build tools</h4>
+<p>There are several tasks that need to be done before releasing a modern webapp.  The JavaScript needs to be concatenated into a single file to improve page speed.  This should also be done with the CSS and all assets should be gzipped.  Files should be minified and uglified as appropiate and in the case of html, prettyprinted.</p>
+<h4>Concatenating Files</h4>
+<p>Web browsers download all the included script files before parsing and evaluating them.  It is best to have the least number of includes and the smallest includes possible.</p>
+<p>On the other hand, in order to develop between team members and keep organized, it is best to break separate code into separate files.  Combining them all when getting ready for a release could be a tedious and error-prone process.  This is something that Grunt.js excels at.  Using the standard 'concat' task you can specify the files and order that you'd like them mashed together.  Doing this from the start lets you use the samething in development that you'll release in production.</p>
+<p>We breakout our JavaScript into separate folders and then have an individual file for each 'class'.  All the Views get rolled together along with Models, Collections, Templates and dependencies.</p>
+<pre><code>JS Folder
+   |
+   |- Views
+   |    |
+   |    |- AccountSummaryView.js
+   |    |- AccountView.js
+   |    |- AddAccountView.js
+   |    |- AddNewCameraView.js
+   |    |- ...
+   |
+   |- Models
+   |    |
+   |    |- Account.js
+   |    |- Bridge.js
+   |    |- Camera.js
+   |    |- ....
+   |
+   |- ...
+</code></pre>
+<p>This all becomes</p>
+<pre><code>JS Folder
+   |
+   |- backbone.views.js
+   |- backbone.models.js
+   |- ...
+</code></pre>
+<p>and then those become</p>
+<pre><code>JS Folder
+   |
+   |- backbone.combined.js
+</code></pre>
+<p>This strategy also makes it easy to stuff templates into the index.html page so they are already in the DOM and speed up selector time.</p>
+<h4>Cache Busting</h4>
+<p>One of the problems with using the same file names is that the browser is cache the files.  Some browser are more aggressive about caching then others.  This is great for files that don't change but for your new concatenated file it is very frustrating.  Thanksfully <a href="http://gruntjs.com">Grunt.js</a> has a hashres module that will look at your index.html and push a file hash into the file name.</p>
+<pre><code>&lt;script src="_js/backbone.combined.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>turns into </p>
+<pre><code>&lt;script src="_js/backbone.combined_58cde93c.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>This is terrific because as files are combined and generated only truely unique files will bust the cache.  Nginx is smart enough to filter out the hash in the filename and serve the correct file but the browser will think it new and different.</p>
+<h4>Watching for changes</h4>
+<p>All of this functionality would be ignored if you had to tab over to the console and re-run the grunt command over and over.  Included with <a href="http://gruntjs.com">Grunt.js</a> is the watch module that lets you define the file patterns that it should watch.  When the files change it will automagically run the grunt tasks and you can safely forget about it.</p>
+<h4>Conclusion</h4>
+<p>There is a lot more to learn about <a href="http://gruntjs.com">Grunt.js</a>, hopefully this has got you excited.  Go dig in and try it out.</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj61xAM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

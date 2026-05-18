@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making a 3rd-party JavaScript widget — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Making a 3rd-party JavaScript widget</h1>
+    <p class="article-meta">
+      
+      <time datetime="2012-09-03T17:37:21+00:00">2012-09-03</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>At QliqUp, we had the idea of making a widget that merchants could place into their existing webpage that would let them show the current deals they offer.  This was mostly straight forward but I wanted to explain some of the sharp edges that slowed us down.</p>
+
+<p>You can see the final product at: <a href="http://qliqup.com/widgets/">http://qliqup.com/widgets/</a></p>
+
+<p>First we had to make a  public endpoint inside of our API.  I left out some the docstrings because it only cluttered this example.</p>
+
+<pre><code>class PublicDealsHandler(BaseHandler):
+    def read(self, request, response, id=''):
+
+        if not id or id is '':
+            return response.send(errors="Please specify a valid business", status=404)
+
+        ret = []
+
+        deals = Deal.objects.filter(business=id)
+        for d in deals:
+            ret.append({'name':d.business.name, 'data':d })
+
+        response.set(deals=ret)
+        return response.send()
+</code></pre>
+
+<p>This outputs JSON that looks like this (shortened down for this blog post):</p>
+
+<pre><code>{
+    "errors": [],
+    "data": {
+        "deals": [
+            {
+                "data": {
+                    "qpoint_cost": 250,
+                    "description": "Receive a free Appetizer from Sam's Burger Joint. ",
+                    "never_expires": true,
+                    "redeemed": 0,
+                    "text": "Free Appetizer From Sam's Burger Joint!",
+                    "expires": null,
+                    "unlimited": false,
+                    "limit": 100,
+                    "purchased": 0,
+                    "additional_details": "Free Appetizer From Sam's Burger Joint!",
+                    "id": 104
+                },
+                "name": "Sam's Burger Joint"
+            }
+        ],
+        "messages": []
+    },
+    "success": true
+}
+</code></pre>
+
+<p>Now on the client side we need make a single script they could include.  We also had to wrap it up in a closure to keep things nice</p>
+
+<pre><code>(function($) {
+
+    var ss = document.createElement("link");
+    ss.type = "text/css";
+    ss.rel = "stylesheet";
+    ss.href = "<a href="http://static.qliqup.com/qliq_deals/style.css">http://static.qliqup.com/qliq_deals/style.css</a>";
+    document.getElementsByTagName("head")[0].appendChild(ss);
+
+    // regular jQuery goes here
+
+})(jQuery)
+</code></pre>
+
+<p>And now you can include it with something like this:</p>
+
+<pre><code>&lt;script type="text/javascript" src="<a href="http://static.qliqup.com/qliq_deals/script.js">http://static.qliqup.com/qliq_deals/script.js</a>"&gt;&lt;/script&gt;
+</code></pre>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj65gsM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

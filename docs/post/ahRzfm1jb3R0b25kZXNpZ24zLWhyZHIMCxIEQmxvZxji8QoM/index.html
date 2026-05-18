@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to write a bookmarklet — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">How to write a bookmarklet</h1>
+    <p class="article-meta">
+      
+      <time datetime="2011-11-02T00:05:07+00:00">2011-11-02</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p><strong>Problem</strong>:  I have to use a punch clock webapp for work.  It doesn't have jQuery already included and I would like it to work from the iPhone.</p>
+
+<p><strong>Solution</strong>:  Write a bookmarklet in javascript.   Fill-in the text fields and click the submit button.</p>
+
+<pre><code>(function(){  
+  // Grab the username and password input fields
+  user = document.getElementById('txtUserName'); 
+  pass = document.getElementById('txtPassword');
+
+  // Grab the submit button, oddly named 'punch'
+  punch = document.getElementById('btnPunch'); 
+
+  // Assign them values and simulate clicking the 'punch' button
+  user.value = 'foo'; 
+  pass.value = 'bar';
+  punch.click()
+
+// Wrap it up in parens so it is a self-calling function
+})();
+</code></pre>
+
+<p>Now you need to make a new bookmark and edit the URL to look like this:</p>
+
+<pre><code> javscript:&lt;function goes here&gt;
+</code></pre>
+
+<p>In mobile safari, use the action button (square box with an arrow escaping) to add the original URL to your home screen.  Once the page loads you will open up your saved bookmarks and choose this bookmarklet.  You can find it and fork it on github [<a href="https://gist.github.com/1332353">https://gist.github.com/1332353</a>]</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji8QoM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

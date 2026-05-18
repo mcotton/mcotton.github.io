@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}mcottondesign{% endblock %}
+{% block body %}
+<ul class="post-list">
+  {% for p in posts %}
+  <li class="post-list-item">
+    <a class="post-list-link" href="{{ url_for('post', key=p['slug']) }}">{{ p['title'] }}</a>
+    <div class="post-list-meta">
+      {% if p['category'] %}
+      <span class="cat">{{ p['category'] }}</span>
+      <span class="sep">·</span>
+      {% endif %}
+      <time datetime="{{ p['published_at'] }}">{{ p['published_at'][:10] }}</time>
+    </div>
+    {% if p['summary'] %}
+    <p class="post-list-summary">{{ p['summary'] }}</p>
+    {% endif %}
+  </li>
+  {% else %}
+  <li class="empty">No posts yet. Run <code>flask --app app import-posts</code>.</li>
+  {% endfor %}
+</ul>
+<nav class="pagination">
+  {% if page > 1 %}
+  <a class="btn" href="{% if page == 2 %}{{ url_for('index') }}{% else %}{{ url_for('index', page=page - 1) }}{% endif %}">&larr; Newer</a>
+  {% endif %}
+  {% if has_next %}
+  <a class="btn" href="{{ url_for('index', page=page + 1) }}">Older &rarr;</a>
+  {% endif %}
+</nav>
+{% endblock %}

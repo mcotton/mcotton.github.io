@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Python use all those Cores and  RAM — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Making Python use all those Cores and  RAM</h1>
+    <p class="article-meta">
+      
+      <span class="cat">work</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2020-07-28T00:00:00+00:00">2020-07-28</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <center><img height="250px" src="https://storage.googleapis.com/public-mcottondesign/cpu_4.png" style="object-fit:cover" width="100%"/></center>
+<p>
+It is cheap and easy to build a machine with 8/16 cores and 32GB of RAM.  It is more complicated to make Python use all those resources.  This blog post will go through strategies to use all the CPU, RAM, and the speed of your storage device.
+<p>
+<p>
+I am using the AMD 3700x from my <a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID06p-PCQw">previous post</a>.  It has 8 cores and 16 threads.  For this post I will be treating it each thread as a core because that is how Ubuntu displays it in System Monitor.
+</p>
+<p>
+Looping through a of  directory of 4 million images and doing inference on them one by one is slow.  Most of time is waiting on system IO.  Loading the image from disk into RAM is slow.  Transforming the image once it is in RAM is very fast and making an inference with the GPU is also fast.  In that case Python will only be using 1/16th of the available total processing power and only that single images will be stored in RAM.  Using a SSD or NVME device instead of a traditional hard drive does speed it up, but not enough.
+</p>
+<p>
+<img src="https://storage.googleapis.com/public-mcottondesign/cpu_2.png" style="width:80%"/>
+<br/>
+Loading images into RAM is great but you will run out at some point so it is best to lazy load them.  In this case I wrote a quick generator function that takes an argument of the batch size it should load.
+</p>
+<p>
+<img src="https://storage.googleapis.com/public-mcottondesign/cpu_3.png" style="width:80%"/>
+<br/>
+Dealing with a batch of images is better than loading them individually but they still need to be pre-processed by the CPU and placed in a queue.  This is slow when the CPU is only apple to use 1/16th of its abilities.
+</p>
+<p>
+<img src="https://storage.googleapis.com/public-mcottondesign/cpu_1.png" style="width:80%"/>
+<br/>
+Using the included <a href="https://docs.python.org/3.6/library/multiprocessing.html">multiprocessing</a> package you can easily create a bunch of processes and use a queue to shuffle data between them.  It also includes the ability to create a pool of processes to make it even more straight forward.
+</p>
+<p>
+In my own testing, my HDD was still slowing down the system because it wasn't able to keep all of the CPU processes busy. I was only able to utilize ~75% of my CPU when loading from a 7200RPM HDD.  For testing purposes I loaded up a batch on my NVME drive and it easily exceed the CPUs ability to process them.  Only having a single NVME drive I will need to wait for prices to come down before I can convert all of my storage over to ultra-fast flash.
+</p>
+<p>
+Using the above code you can easily max out your RAM and CPU.  Doing this for batches of images means that there is always a supply of images in RAM for the GPU to consume.  It also means that going through those 4 million images won't take longer than needed.  Next challenge is to speed up GPU inference.
+</p>
+</p></p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgID0y8COCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

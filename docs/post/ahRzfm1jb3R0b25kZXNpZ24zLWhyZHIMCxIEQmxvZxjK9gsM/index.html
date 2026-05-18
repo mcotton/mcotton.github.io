@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Making Python and Django more social with awe.sm — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Making Python and Django more social with awe.sm</h1>
+    <p class="article-meta">
+      
+      <time datetime="2012-09-20T01:19:29+00:00">2012-09-20</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>Our users like to share the deal they just received with their friends on Facebook.  We would like to know how well those links do and what kind of traffic they receive.  <a href="http://awe.sm">awe.sm</a> is a company that does exactly that.  This blog post is about showing how easy it is to integrate into python and Django.</p>
+
+<pre><code>def facebook_share_checkin(checkin, points):
+    try:
+        # I removed the code for getting the user token
+        graph = facebook.GraphAPI(token)
+
+        # The facebook API specifies what they want as a payload
+        attachment = dict()
+        attachment['picture'] = consts.LOGO
+        attachment['name'] = checkin.location.name
+        msg = 'I just checked in at %s using Qliq' % checkin.location.name
+        attachment['link'] = consts.SOCIAL_NETWORK_DEFAULT_LINK
+
+        # Post it the the user's wall
+        graph.put_wall_post(msg, attachment)
+
+    except facebook.GraphAPIError as e:
+        logger.exception('GraphAPIError')
+    except SocialNetworkCredentials.DoesNotExist:
+        logger.exception('Facebook credentials error')
+</code></pre>
+
+<p>This is real standard and nothing exciting.  The link we are sharing is the same for every user and comes from a file of constants.</p>
+
+<pre><code>attachment['link'] = consts.SOCIAL_NETWORK_DEFAULT_LINK
+</code></pre>
+
+<p>Here is how we would use awe.sm to create a custom link per user and see how well that link does in the real world.</p>
+
+<p>Just above the previous line we will make a network request to awe.sm with 5 parameters</p>
+
+<pre><code>- v: this is ther version of the api we will be using
+- url: this is our original url we were using
+- key: this is our developer key
+- tool: this is the id of the tool we are using
+- channel: this is going to be `facebook-post`
+</code></pre>
+
+<p>Now we just need to make the request and using the great python <a href="https://github.com/kennethreitz/requests">requests</a>       library</p>
+
+<pre><code>      r = requests.post('<a href="http://api.awe.sm/url.txt">http://api.awe.sm/url.txt</a>', 
+          { 'v': 3, 
+            'url': '<a href="http://mcottondesign.com">http://mcottondesign.com</a>', 
+            'key': '5c8b1a212434c2153c2f2c2f2c765a36140add243bf6eae876345f8fd11045d9', 
+            'tool': 'mKU7un', 
+            'channel': 'facebook-post'})
+
+          attachment['link'] = r.body
+</code></pre>
+
+<p>So after everything is all buttoned up, this is what our final code looks like.</p>
+
+<pre><code>def facebook_share_checkin(checkin, points):
+    try:
+        # I remove the code for getting the user token
+        graph = facebook.GraphAPI(token)
+
+        # The facebook API specifies what they want as a payload
+        attachment = dict()
+        attachment['picture'] = consts.SOCIAL_NETWORK_QLIQ_LOGO
+        attachment['name'] = checkin.location.name
+        msg = 'I just checked in at %s using Qliq' % checkin.location.name
+        r = requests.post('<a href="http://api.awe.sm/url.txt">http://api.awe.sm/url.txt</a>', 
+            { 'v': 3, 
+              'url': '<a href="http://mcottondesign.com">http://mcottondesign.com</a>', 
+              'key': '5c8b1a212434c2153c2f2c2f2c765a36140add243bf6eae876345f8fd11045d9', 
+              'tool': 'mKU7un', 
+              'channel': 'facebook-post'})
+
+        if r.headers['status'] == '200':
+            attachment['link'] = r.content
+        else:
+            attachment['link'] = consts.SOCIAL_NETWORK_DEFAULT_LINK
+
+        # Post it the the user's wall
+        graph.put_wall_post(msg, attachment)
+
+    except facebook.GraphAPIError as e:
+        logger.exception('GraphAPIError')
+    except SocialNetworkCredentials.DoesNotExist:
+        logger.exception('Facebook credentials error')
+</code></pre>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK9gsM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

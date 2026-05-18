@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What is the weirdest bug you&#39;ve ever dealt with? — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">What is the weirdest bug you&#39;ve ever dealt with?</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2016-08-14T00:00:00+00:00">2016-08-14</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>I was asked this once at an informal interview and didn't have an immediate answer.  I told a story about the time I was trying to debug RF signals and the ultimate cause was that there was another remote using the same hardware ID.  It was extremely unprobabel, but it turned out to be the cause.</p>
+<p>Since then I've had more time to reflect on how I would answer that question if I was asked again.</p>
+<p>The weirdest bugs I've ever dealt with all have a common theme, distributed systems.  In my last two startups we have used distributed architectures.  This has caused somewhat simple tasks to become very difficult.</p>
+<p>In the old days of a monolithic app server (Django, Rails, PHP) all the logs were in one place.  As you scaled you would need to add a load balancer and then spread the requests over multiple app servers.  Reasoning about the path an HTTP request took was still fairly simple.  At this level a relational database is perfectly able to handle the load.</p>
+<p>In a distributed system, HTTP is used not just for the inital request but also for communication between servers.  This means you now have to deal with internal HTTP responses and they have different meansing from the external request/response that you're used to.  For example, what to do when an internal call to the cache returns a 401, 403, or 502?  Do the unauthorized/forbidden calls mean that the external's request is 401/403 or does this mean your app server is?  What about 502 Gateway Timeout?  You now have to deal with timing and latency between internal services.</p>
+<p>Distributed computer and networking are a reality of life for most new projects.  It is something we'll have to learn and deal with.  In the meantime, it is also the source of my weirdest bugs.</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICA-O2dCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

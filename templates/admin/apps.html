@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}Apps{% endblock %}
+{% block body %}
+<div class="admin-top-bar">
+  <h1 class="page-title">Apps</h1>
+  <a class="btn btn-primary" href="{{ url_for('admin_app_new') }}">New app</a>
+</div>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category tag</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a in apps %}
+    <tr>
+      <td>
+        {% if a['icon_url'] %}
+        <img class="admin-app-icon" src="{{ a['icon_url'] }}" alt="">
+        {% endif %}
+        <a href="{{ url_for('admin_app_edit', app_id=a['id']) }}">{{ a['name'] }}</a>
+      </td>
+      <td>{{ a['category_tag'] }}</td>
+      <td class="admin-actions">
+        <a class="btn btn-sm" href="{{ url_for('admin_app_edit', app_id=a['id']) }}">Edit</a>
+        <form method="post" action="{{ url_for('admin_app_delete', app_id=a['id']) }}" onsubmit="return confirm('Delete this app?')">
+          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="3" class="empty">No apps yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

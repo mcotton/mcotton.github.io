@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Translating text in Backbone.js templates — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Translating text in Backbone.js templates</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2014-09-24T00:00:00+00:00">2014-09-24</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>We recently added Japanese support to our webapp.  When implementing it, we decided on the most straight-forward method of converting it at run-time by adding a helper method to the view.</p>
+<p>The first step was to extend Backbone.View to include a translate method (abbreviated as 't' to reduce noise in the template).  It performs a simple dictionary lookup.  It falls back to English if a suitable translation can not be found.</p>
+<pre><code>BaseView = Backbone.View.extend({
+     t: function(str, skip) {
+        // check if the browser/system language is Japanese
+        var lang = 'ja'
+        var dictionary = {
+                'US': {},
+                'ja': {
+                    'Dashboard': 'ダッシュボード',
+                    'Layouts': 'レイアウト',
+                    'Cameras': 'カメラ',
+                    'Users': 'ユーザー',
+                    'Map': 'マップ',
+                    'Installer Tools': 'インストールツール',
+                    'Status': '状態'
+                }
+        }
+
+        return dictionary[lang][str]== undefined ? str : dictionary[lang][str];
+    }
+});
+</code></pre>
+<p>And the specific view needs to be changed.</p>
+<pre><code>AddCameraMessageView = Backbone.View.extend({
+</code></pre>
+<p>gets changed to be</p>
+<pre><code>AddCameraMessageView = BaseView.extend({
+</code></pre>
+<p>The individual templates now can use the new translate helper method on any string.</p>
+<pre><code>&lt;tr&gt;
+    &lt;td&gt;Device&lt;/td&gt;
+    &lt;td&gt;Name&lt;/td&gt;
+    &lt;td&gt;Status&lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<p>gets changed to be</p>
+<pre><code>&lt;tr&gt;
+    &lt;td&gt;&lt;%= this.t('Device') %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%= this.t('Name') %&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;%= this.t('Status') %&gt;&lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
+<p>The next iteration will perform this translation at the build phase by writing a grunt plugin instead of at run-time.  This will remove any rendering time penalty for our users.</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICAvJ-bCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

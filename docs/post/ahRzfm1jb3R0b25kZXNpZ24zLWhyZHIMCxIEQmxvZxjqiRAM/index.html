@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Demo of my RFID integration — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">First Demo of my RFID integration</h1>
+    <p class="article-meta">
+      
+      <span class="cat">work</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2014-03-17T00:00:00+00:00">2014-03-17</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/BkN5POzb_pI" width="100%"></iframe>
+<p>In order to show off the <a href="http://apidocs.eagleeyenetworks.com">EEN API</a> I made an example access control system out of a Raspberry PI, RFID reader and Node.js</p>
+<p>Node.js was a natural fit for this project because of how easy it is to handle events from the RFID reader, add realtime support through websockets and pull data out of Eagle Eye Networks with the <a href="https://github.com/mcotton/node-een">een module</a>.</p>
+<p>All the important changes can be made from config.js in the root directory.  From there you can define badges and doors.  Each door has its own reader which is defined by the serial port it is connected to.  The doors define the rules of which badges are authorized to open.  Adding time checks would be trivial to extend.</p>
+<p>On startup it opens the serial ports and begins listening for strings that match the know badge format.  Next, it starts a webserver and waits for a websocket connection from a client.  Once the client connects it sends the current state to allow the client to get in sync.</p>
+<p>New events are realtime, the template is rendered on the client to keep server traffic down.  The timestamp is recorded and a preview image is fetched.  The internal webserver acts as a authentication proxy for images and videos.  The image and video link could then be saved for further processing.</p>
+<p>You can find the project on github here: <a href="https://github.com/mcotton/node-rfid">node-rfid</a></p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqiRAM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

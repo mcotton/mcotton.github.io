@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Merging Strategy — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">My Merging Strategy</h1>
+    <p class="article-meta">
+      
+      <time datetime="2013-08-15T22:04:10+00:00">2013-08-15</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>This is my current merging strategy and workflow.  I have the branch <code>mcotton-next</code> and when I make new features I <code>git checkout -b mcotton-branch-name</code></p>
+
+<p>As I make changes I make incremental commits and run grunt.  I use this command <code>grunt &amp;&amp; git status -s|awk '{ print $2 }'|xargs git add; git commit -m "&lt;commit message&gt;" &amp;&amp; git push stage mcotton-branch-name</code></p>
+
+<p>Because I make a lot of little commits I use <code>git merge mcotton-branch-name --squash</code> so that I can make my own commit with a unified message.</p>
+
+<p>After that I merge it to next and push to the next remote. <code>git merge mcotton-next</code>  <code>git push origin next</code> <code>git push next next</code></p>
+
+<p>Once everything is tested and looks good, we <code>git merge next</code> into master, create a new tag <code>git tag &lt;data&gt;</code>, <code>git push origin master --tags</code> and then <code>git push prod master --tags</code> and <code>git push prev master --tags</code>.  </p>
+
+<p>After that I remote to prod and prev and do a <code>git pull --all</code> then <code>git checkout &lt;date&gt;</code></p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj64wwM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

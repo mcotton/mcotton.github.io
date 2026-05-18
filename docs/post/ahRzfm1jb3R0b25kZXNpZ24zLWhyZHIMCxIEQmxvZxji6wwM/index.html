@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-threaded JavaScript (sort of) — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Multi-threaded JavaScript (sort of)</h1>
+    <p class="article-meta">
+      
+      <time datetime="2013-09-12T19:56:41+00:00">2013-09-12</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>[UPDATE: It turns out that we could make a simple change on the server and remove the need for this code to run client-side.  There was nothing wrong with the approach we took in the article, but decided to do it on the server as an enhancement to our API]</p>
+
+<p>I just got through experimenting with web workers and pushed it out to production.  Now its time to explain what I've learned.</p>
+
+<p>To see historicaly videos and events, we launch a new window called the history browser.  It uses SVG to create tiles, these tiles are draggable and vary in size depending on the zoom level.</p>
+
+<p>When zooming out to the week view (each tile represents 24 hours of activity) We are making several requests for days and the resulting JSON can be several MBs.  </p>
+
+<p>We then need to coalesce those activity segments into a single video recording.  This loop is where JavaScript really slows down. [Looping through 5000 records, reducing it down to ~500]</p>
+
+<p>By using a seperate thread we can do the hard work without making the UI unresponsive.</p>
+
+<pre><code>worker = new Worker('../_js/workers/coalesce.js');
+worker.addEventListener('message', function(e) {}, false);
+
+worker.postMessage({ 'name': 'Mr. Orange' })
+</code></pre>
+
+<p>Once you've had your fun, the <code>worker</code> sends a <code>self.postMessage(msg)</code> back to the main thread.</p>
+
+<p>In both cases, the <code>message</code> listener function is passed the event object.  The actual data can be reached using <code>e.data</code>.</p>
+
+<p>There are some restrictions on what the worker can access, the main restrictions are: </p>
+
+<ul>
+<li>window</li>
+<li>document</li>
+<li>the DOM</li>
+<li>complex objects* </li>
+</ul>
+
+<p>Objects are strigified, then passed as strings.  Be aware of this so you don't get various errors thrown.  Objects are passed-by-copy instead of reference so there is a performance hit when sending data back and forth.</p>
+
+<p>It is up to you as a developer to understand the perfocmance implicatons of using web workers.  I wouldn't spin up a web worker everytime I need to add two numbers, so make a try them out and see where they can be deployed wisely.</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji6wwM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

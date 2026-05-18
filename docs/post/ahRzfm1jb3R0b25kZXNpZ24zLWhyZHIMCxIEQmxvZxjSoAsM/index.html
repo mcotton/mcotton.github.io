@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to replicate ubuntu vm on ESXi — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">How to replicate ubuntu vm on ESXi</h1>
+    <p class="article-meta">
+      
+      <time datetime="2012-03-30T04:32:22+00:00">2012-03-30</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>I wanted to deploy multiple copies of a base ubuntu server, easy right?</p>
+
+<p>Well it is now, but it took me a while to get it right.  The whole problem comes from not having 'sysprep' for linux.  (They probably have a much better way and I just don't know it).  Because ESXi makes up a fake MAC address for the network interface, it is smart enough to make up a new MAC for the new machine.  Your old VM is still expecting the old network settings and needs a minor change.  I'm not changing the hostname, ssh keys, users, or any of that other jazz; just getting the network up and running.</p>
+
+<ul>
+<li>browse the datastore</li>
+<li>find the Ubuntu directory</li>
+<li>make a new folder</li>
+<li>copy the VM to the new folder</li>
+<li>right click on the vmx file and 'add it to inventory'</li>
+<li>start the new VM</li>
+<li>vSphere will ask if you moved or copied it, answer that you copied it</li>
+<li>log into your new VM from the console</li>
+<li>figure out what the new interface is: ifconfig -a | grep 'eth'</li>
+<li>it will most likely be eth1</li>
+<li>sudo vi /etc/network/interfaces and change eth0 to the new interface eth1</li>
+<li>save, reboot</li>
+</ul>
+
+<p>You know have a clone of the first machine with a new MAC and IP address.   I will revise this as I learn more and my process becomes more automated.</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSoAsM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

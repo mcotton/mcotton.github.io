@@ -1,0 +1,130 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}{{ "Edit post" if post else "New post" }}{% endblock %}
+{% block body %}
+<h1 class="page-title">{{ "Edit post" if post else "New post" }}</h1>
+<form method="post" class="admin-form">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" required
+      value="{{ form.get('title', '') or (post['title'] if post else '') }}">
+  </div>
+  {% set is_legacy = post and post['legacy_post_key'] and post['slug'] == post['legacy_post_key'] %}
+  {% if is_legacy %}
+  <div class="form-group legacy-slug-banner">
+    <p class="help-text">
+      This post uses a legacy URL: <code>/post/{{ post['legacy_post_key'] }}</code>.
+      Switch to a modern slug below — the legacy URL will continue to work for SEO.
+    </p>
+    <button type="button" class="btn btn-sm" id="suggest-slug">Suggest modern slug</button>
+  </div>
+  {% endif %}
+  <div class="form-group">
+    <label for="slug">Slug</label>
+    <input type="text" id="slug" name="slug" required
+      value="{{ form.get('slug', '') or (post['slug'] if post else '') }}">
+    {% if post and post['legacy_post_key'] %}
+    <p class="help-text">Legacy URL (still active): <code>/post/{{ post['legacy_post_key'] }}</code></p>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input type="text" id="category" name="category"
+      value="{{ form.get('category', '') or (post['category'] if post else '') or '' }}">
+  </div>
+  <div class="form-group">
+    <label for="published_at">Published date</label>
+    <input type="datetime-local" id="published_at" name="published_at"
+      value="{{ form.get('published_at', '') or (post['published_at'][:16] if post else '') }}">
+  </div>
+  <div class="form-group">
+    <label for="summary">Summary</label>
+    <textarea id="summary" name="summary" rows="3">{{ form.get('summary', '') or (post['summary'] if post else '') or '' }}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="redirect_url">Custom page</label>
+    <input type="text" id="redirect_url" name="redirect_url"
+      value="{{ form.get('redirect_url', '') or (post['redirect_url'] if post and 'redirect_url' in post.keys() else '') or '' }}"
+      placeholder="/static/my-infographic.html">
+    <p class="help-text">If set, this static HTML file is served at the post's URL (URL stays at <code>/post/&lt;slug&gt;</code>). Use for interactive infographics. Relative asset paths resolve against the file's directory. External URLs (http(s)://) will redirect instead.</p>
+  </div>
+  <div class="form-group">
+    <label for="body_html">Body HTML</label>
+    <textarea id="body_html" name="body_html" rows="20">{{ form.get('body_html', '') or (post['body_html'] if post else '') }}</textarea>
+  </div>
+  <div class="form-group form-check">
+    <label>
+      <input type="checkbox" name="hidden_from_index"
+        {% if form.get('hidden_from_index') or (post and post['hidden_from_index']) %}checked{% endif %}>
+      Hide from blog index
+    </label>
+    <p class="help-text">Post will still appear on app pages and be accessible by direct link.</p>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">{{ "Update" if post else "Create" }}</button>
+    <a class="btn" href="{{ url_for('admin_posts') }}">Cancel</a>
+  </div>
+</form>
+
+<div class="upload-section">
+  <h2 class="section-heading">Upload image</h2>
+  <p class="help-text">Upload an image to get a URL you can paste into the body HTML.</p>
+  <form method="post" action="{{ url_for('admin_upload') }}" enctype="multipart/form-data" class="upload-form">
+    <input type="file" name="file" accept="image/*">
+    <button type="submit" class="btn btn-sm">Upload</button>
+  </form>
+</div>
+
+<script>
+(function () {
+  function slugify(s) {
+    return (s || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+  }
+
+  var titleEl = document.getElementById("title");
+  var slugEl = document.getElementById("slug");
+  var pubEl = document.getElementById("published_at");
+
+  // Auto-suggest slug: track whether the slug is "linked" to the title.
+  // It's linked if it's empty or matches slugify(currentTitle) on load.
+  var initialTitle = titleEl.value;
+  var slugLinked = !slugEl.value || slugEl.value === slugify(initialTitle);
+
+  titleEl.addEventListener("input", function () {
+    if (slugLinked) {
+      slugEl.value = slugify(titleEl.value);
+    }
+  });
+
+  slugEl.addEventListener("input", function () {
+    // User manually changed slug; stop auto-tracking.
+    slugLinked = slugEl.value === slugify(titleEl.value);
+  });
+
+  // Default published_at to now if empty.
+  if (!pubEl.value) {
+    var now = new Date();
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    pubEl.value = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate())
+      + "T" + pad(now.getHours()) + ":" + pad(now.getMinutes());
+  }
+
+  // "Suggest modern slug" button on legacy posts: fill slug with slugify(title).
+  var suggestBtn = document.getElementById("suggest-slug");
+  if (suggestBtn) {
+    suggestBtn.addEventListener("click", function () {
+      var suggested = slugify(titleEl.value);
+      if (suggested) {
+        slugEl.value = suggested;
+        slugLinked = true;
+        slugEl.focus();
+      }
+    });
+  }
+})();
+</script>
+{% endblock %}

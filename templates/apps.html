@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Apps — mcottondesign{% endblock %}
+{% block body %}
+<h1 class="page-title">Apps</h1>
+<div class="app-grid">
+  {% for app in apps %}
+  <a class="app-card" href="{{ url_for('app_detail', slug=app['slug']) }}">
+    {% if app['icon_url'] %}
+    <img class="app-icon" src="{{ app['icon_url'] }}" alt="{{ app['name'] }} icon">
+    {% endif %}
+    <div class="app-card-info">
+      <h2 class="app-card-name">{{ app['name'] }}</h2>
+      {% if app['tagline'] %}
+      <p class="app-card-tagline">{{ app['tagline'] }}</p>
+      {% endif %}
+    </div>
+  </a>
+  {% else %}
+  <p class="empty">No apps yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}

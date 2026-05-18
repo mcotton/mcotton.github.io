@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn Similarity Search by Writing a Vector Database — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Learn Similarity Search by Writing a Vector Database</h1>
+    <p class="article-meta">
+      
+      <span class="cat">work</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2026-03-30T00:00:00+00:00">2026-03-30</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>I want to be technically correct.  I don’t want “You’re absolutely right…” or “That’s a great point”.</p>
+<p>The idea that I’ve stumbled on is that Claude Code can be an excellent teacher for building a vector db when given the right set of rules.  Specifically the key for me has been adding this as a ground rule
+<pre>
+Do not just write the code. I want you to ask questions to ensure I am
+learning. Do not be my friend, be tough and critical in evaluating my understanding.
+</pre>
+</p>
+<p>Even though Claude Code can write up similarity search faster than I can write this blog post, I believe there is still value in understanding how things work.  The best way I know to understand how things work is to deal with the friction and details of building it.</p>
+<p>I decided to create a personal learning course on similarity search and writing a vector db in order to learn.  It is free and open on my <a href="https://github.com/mcotton/toy_vector_db" target="_blank">Github</a>.</p>
+<p>Indexes are the magic in databases.  That is where it is easiest to glaze over the ugliness of implementation.  Why is Cosine better, worse, or just different from Euclidean distance?  Why do tree structures fall apart at higher dimension data? What about Locality-Sensitive Hashing and Product Quantization?  They both are really cool, and seem promising, right up until you benchmark them.  There is a reason everyone is using HNSW.</p>
+<p>Implementing <a href="https://en.wikipedia.org/wiki/Hierarchical_navigable_small_world" target="_blank"> HNSW (Hierarchical Navigable Small Worlds)</a> is a very clever algorithm but the smart decisions get lost when an AI assistant chooses it for you.  It is both more and less than a skip list but it is hard to get it from a two line summary.</p>
+<p>With a fixed course or a traditional textbook, you can’t push back on the instructor when you want a visualization to confirm your intuition.  When dealing with Claude, it is more than happy to go down that rabbit hole.    </p>
+<p>If you have to stop working on it, then stop.  It won’t judge you.  When you come back to it and need a reminder on what you were trying to do, Claude doesn’t mind that either.  Try to implement it, try something new, throw it away and ask Claude to start this module over.</p>
+<p>It is frustrating and annoying to have an AI assistant that pushes you to understand and show your work.  It is tedious to have to write a benchmark script to confirm it actually performs the way you think it does.  It is a pain to struggle with the syntax (looking at you numpy) when you think you are close enough but these are exactly the points where you learn something new that will hopefully stick with you.</p>
+<p>It is working for me, try it out or use this idea for another topic.  My next course is on recommendation engines.</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgIDM3eTOCAw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

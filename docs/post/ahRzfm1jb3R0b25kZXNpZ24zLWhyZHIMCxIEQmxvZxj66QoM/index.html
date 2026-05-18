@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technical questions — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Technical questions</h1>
+    <p class="article-meta">
+      
+      <time datetime="2011-09-25T02:40:40+00:00">2011-09-25</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>Here are some interview questions, when I'm back from vacation I'll have proper examples</p>
+
+<h3>write out a dog class in JavaScript with a color property and a bark method</h3>
+
+<p><code><br />var Dog = function(color)  {<br />    this.color = color;<br />    this.bark = function() {<br />        console.log('woof');<br />    }<br />};<br /></code></p>
+
+<p>If I wanted to create a new dog <br /><code><br /> var clarence = new Dog('black and white');<br /></code><br />and if I wanted to add an eat method to the Dog class.  This is will add it for all previously defined instances of the Dog class.</p>
+
+<p><code><br />Dog.prototype.eat = function()  { <br />    console.log('yum yum yum'); <br />};<br /></code></p>
+
+<h3>jQuery.live() vs jQuery.delegate()</h3>
+
+<p><code><br />$('#profs li').live("click", function() {<br />    alert('clicked');<br />});<br /></code><br />vs</p>
+
+<p><code><br />$('#profs').delegate("li", "click", function() {<br />    alert('clicked');<br />});<br /></code></p>
+
+<p>They both provide the same functionality, but the difference is that live() attaches to the document.  </p>
+
+<h3>implement jQuery.delegate() in pure JavaScript</h3>
+
+<p><code><br />function doSomething() {<br />    alert('click');<br />}<br /></code><br /><code><br />ul = document.getElementById('profs');<br />ul.addEventListener('click', doSomething, false);<br /></code></p>
+
+<p>I didn't know the syntax for addEventListener().  Once I looked that up it was extremely simple.</p>
+
+<h3>custom event listeners in JavaScript</h3>
+
+<p>This is another one I needed to look up.  I'll need to look at it more to understand it better.  Unfortunately it is different in Node.js, socket.io, and CouchDB.</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj66QoM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Journal - Making a Single Page App — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">JavaScript Journal - Making a Single Page App</h1>
+    <p class="article-meta">
+      
+      <time datetime="2012-12-05T22:28:36+00:00">2012-12-05</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>Right now I am in the process of creating a large, complex single page app.  Some of the challenges I am running through right now are rendering, user management and API proxying.</p>
+
+<h3>client-side vs server-side rendering</h3>
+
+<p>Traditionally the page would be rendered on the server.  When  a page changes the server renders it again and can always return the latest data.  You can then progressively enhance some of the data client-side to make it nicer.  Everything is just a refresh away.  There is very little state to manage.</p>
+
+<p>Rendering it on the client-side means that the page does not get fully refresh.  The page is broken-up into separate views that can be updated and re-rendered in place.  View should be updated by changing the actual data and having the events bubble up.  </p>
+
+<h3>user management</h3>
+
+<p>Creating the app client-side raises some problems when it comes to authentication and authorization.  Because everything needs to comunicate with the server has to be sent to the client first.  We are using a server to provide a session cookie.  It sent with every request.</p>
+
+<h3>API Proxying</h3>
+
+<p>In order to make AJAX calls to the API server, we have to overcome the same origin policy problem.  In short, browsers limit javascript calls to any other than the originating domain.  I have decided to get around this by standing up another server that can proxy the API for me.  This strategy would also work if you wanted to integrate our platform into your existing webapp or if you have your own login system.  This is a fine solution if you have full-stack experience.</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqlQwM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

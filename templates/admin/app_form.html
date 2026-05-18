@@ -1,0 +1,51 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}{{ "Edit app" if app else "New app" }}{% endblock %}
+{% block body %}
+<h1 class="page-title">{{ "Edit app" if app else "New app" }}</h1>
+<form method="post" enctype="multipart/form-data" class="admin-form">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required
+      value="{{ form.get('name', '') or (app['name'] if app else '') }}">
+  </div>
+  <div class="form-group">
+    <label for="slug">Slug</label>
+    <input type="text" id="slug" name="slug" required
+      value="{{ form.get('slug', '') or (app['slug'] if app else '') }}">
+  </div>
+  <div class="form-group">
+    <label for="tagline">Tagline</label>
+    <input type="text" id="tagline" name="tagline"
+      value="{{ form.get('tagline', '') or (app['tagline'] if app else '') or '' }}">
+  </div>
+  <div class="form-group">
+    <label for="category_tag">Category tag</label>
+    <input type="text" id="category_tag" name="category_tag" required
+      value="{{ form.get('category_tag', '') or (app['category_tag'] if app else '') }}">
+    <p class="help-text">Must match the category on blog posts for this app.</p>
+  </div>
+  <div class="form-group">
+    <label for="app_store_url">App Store URL</label>
+    <input type="url" id="app_store_url" name="app_store_url"
+      value="{{ form.get('app_store_url', '') or (app['app_store_url'] if app else '') or '' }}">
+  </div>
+  <div class="form-group">
+    <label for="icon">Icon</label>
+    {% if app and app['icon_url'] %}
+    <div class="current-icon">
+      <img src="{{ app['icon_url'] }}" alt="Current icon">
+      <span class="help-text">Upload a new file to replace.</span>
+    </div>
+    {% endif %}
+    <input type="file" id="icon" name="icon" accept="image/*">
+  </div>
+  <div class="form-group">
+    <label for="description">Description (HTML)</label>
+    <textarea id="description" name="description" rows="10">{{ form.get('description', '') or (app['description'] if app else '') or '' }}</textarea>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">{{ "Update" if app else "Create" }}</button>
+    <a class="btn" href="{{ url_for('admin_apps') }}">Cancel</a>
+  </div>
+</form>
+{% endblock %}

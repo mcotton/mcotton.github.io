@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}mcottondesign{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ url_for('rss_feed') }}">
+</head>
+<body>
+  {% block header %}
+  <header class="site-header">
+    <a class="site-title" href="{{ url_for('index') }}">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      {% if nav_apps %}
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            {% for a in nav_apps %}
+            <a href="{{ url_for('app_detail', slug=a['slug']) }}">
+              {%- if a['icon_url'] %}<img class="nav-dropdown-icon" src="{{ a['icon_url'] }}" alt="">{% endif -%}
+              {{ a['name'] }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <a href="{{ url_for('index') }}">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="{{ url_for('rss_feed') }}">RSS</a>
+    </nav>
+  </header>
+  {% endblock %}
+  <main class="main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <span>&copy; {{ current_year }}</span>
+  </footer>
+</body>
+</html>

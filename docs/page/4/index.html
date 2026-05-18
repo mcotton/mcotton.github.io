@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<ul class="post-list">
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiirQwM">JavaScript: quick debugging tip</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2013-01-16T04:35:53+00:00">2013-01-16</time>
+    </div>
+    
+    <p class="post-list-summary">I have been doing a lot of in-browser testing.  Because of this I want an insight to what the browser is doing. console.log(&#39;DEBUG: &#39; + data) But this gets unmanageable very quickly.  The next evolution is to place a flag for what should be logged.  It also helps to prefix all the logs with a category (DEBUG, INFO, ERROR, etc) debug = true
+
+if (debug) console.log(&#39;DEBUG: &#39; + data) This is a little better but still isn&#39;t that much better.  The next jump is to make debug into an object and get mor</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6pQwM">JavaScript Journal - Updating an image without flickering</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2013-01-12T16:35:37+00:00">2013-01-12</time>
+    </div>
+    
+    <p class="post-list-summary">This is how I&#39;m approaching the problem of trying to simulate live video from a series of preview images. After initial page setup, we start the polling service After each polling response we look for new preview images (&#39;pre&#39;) For each preview response, we ask each camera to update its image As an optimization we only update the cameras that are currently on screen When the new image has loaded, we swap it with the one being displayed (this eliminates flickering) If the image has taken longer t</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSnQwM">JavaScript Journal - looping</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-12-24T23:55:56+00:00">2012-12-24</time>
+    </div>
+    
+    <p class="post-list-summary">Depending on when you started learning JavaScript (and when you stopped keeping up) you might find a lot of this inside your code for(var i=0;i&lt;arr.length;i++) {
+    html = &#34;&lt;li&gt;&#34; + arr[i] + &#34;&lt;/li&gt;&#34;
+} or if you started with jQuery you will have copy and pasted something like this from stackoverflow $.getJSON(url, function(data) {
+    $.each(data, function(item) {
+        $(&#39;#thing&#39;).append(&#39;&lt;li&gt;&#39; + item + &#39;&lt;/li&gt;&#39;)
+    }
+} or you could be doing something like this and use a client-side templete, </p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqlQwM">JavaScript Journal - Making a Single Page App</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-12-05T22:28:36+00:00">2012-12-05</time>
+    </div>
+    
+    <p class="post-list-summary">Right now I am in the process of creating a large, complex single page app.  Some of the challenges I am running through right now are rendering, user management and API proxying. client-side vs server-side rendering Traditionally the page would be rendered on the server.  When  a page changes the server renders it again and can always return the latest data.  You can then progressively enhance some of the data client-side to make it nicer.  Everything is just a refresh away.  There is very litt</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiCjgwM">JavaScript Choices</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-12-03T18:12:01+00:00">2012-12-03</time>
+    </div>
+    
+    <p class="post-list-summary">On my current project, I would really like to move away from YUI and towards Backbone.js.  I am a believer in using a hybrid approach of the best components instead of using a single monolithic library. YUI is a large, heavy framework that enforces their way of development.  While their way isn&#39;t wrong, it does makes us beholden to Yahoo and their choices.  YUI has incorporated much of Backbone.js into their later releases but it is  significantly behind where Backbone.js is.   It is also forced</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiahgwM">What I learned interviewing</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-11-10T03:22:15+00:00">2012-11-10</time>
+    </div>
+    
+    <p class="post-list-summary">October has been a very strange month and thankfully I came out of it better than I expected.  I had the chance to meet some great people. The Good Swift software had a great idea for the technical phone interview, the team reviewed a project of mine on github and then had me answer questions about it for an hour.  They prepared a follow-up assignment adding features to that project. OKCupid Labs and CrowdFlower both had me pair-program with a team member and work a real bug on their actual code</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiy_gsM">Single Page App</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-10-04T03:48:15+00:00">2012-10-04</time>
+    </div>
+    
+    <p class="post-list-summary">Want to test your server code but you inherited a code base without tests?  Can&#39;t justify spending weeks writing test?  Want to prove that your API is working?  Need to debug the iPhone client but don&#39;t want to open XCode. HTML5 to the rescue! Need the app to be location based?  Use geoLocation . Need to store data localy?  Use localStorage . Not a designer, having trouble laying out your css?  Use twitter bootstrap . Want to use a design pattern like the cool kids?  How about pub/sub with ampli</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjK9gsM">Making Python and Django more social with awe.sm</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-09-20T01:19:29+00:00">2012-09-20</time>
+    </div>
+    
+    <p class="post-list-summary">Our users like to share the deal they just received with their friends on Facebook.  We would like to know how well those links do and what kind of traffic they receive. awe.sm is a company that does exactly that.  This blog post is about showing how easy it is to integrate into python and Django. def facebook_share_checkin(checkin, points):
+    try:
+        # I removed the code for getting the user token
+        graph = facebook.GraphAPI(token)
+
+        # The facebook API specifies what they wa</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxji7gsM">Local datastore for Google App Engine</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-09-14T23:54:55+00:00">2012-09-14</time>
+    </div>
+    
+    <p class="post-list-summary">You can make life extra nice by specifying a datastore.  Save it or add it .gitignore, it&#39;s all cool with me. --datastore_path=/tmp/myapp_datastore</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxj65gsM">Making a 3rd-party JavaScript widget</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-09-03T17:37:21+00:00">2012-09-03</time>
+    </div>
+    
+    <p class="post-list-summary">At QliqUp, we had the idea of making a widget that merchants could place into their existing webpage that would let them show the current deals they offer.  This was mostly straight forward but I wanted to explain some of the sharp edges that slowed us down. You can see the final product at: http://qliqup.com/widgets/ First we had to make a  public endpoint inside of our API.  I left out some the docstrings because it only cluttered this example. class PublicDealsHandler(BaseHandler):
+    def re</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiS3wsM">My new TestRunner</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-08-16T02:51:41+00:00">2012-08-16</time>
+    </div>
+    
+    <p class="post-list-summary">I am trying to get some test for our code base that doesn&#39;t have any.  None at all.  There isn&#39;t even a documented test plan. Because the API server is the core of our porduct, and because testing RESTful things is easier, we&#39;ll start by making a JavaScript tester.  And because a webpage is friendlier that a command-line, it&#39;ll report in the browser. https://github.com/mcotton/TestRunner And because a working webapp is even better documentation than a simple test suite. https://github.com/mcotto</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiq1wsM">Making profile pages more sane</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-08-10T16:49:00+00:00">2012-08-10</time>
+    </div>
+    
+    <p class="post-list-summary">We encourage our merchants to include a facebook page with their profiles so that users can share that page when they check-in, check-out, unlock a deal, or redeem a deal.  But some people didn&#39;t understand what that means and we had all sorts of crazy input.  Instead of explaining the steps they&#39;ll need to get us the correct URL, we&#39;ll just take whatever they mashed out on their keyboard and fix it. Django has some weird points, but it mostly has awesome ones.  I needed to clean up our database</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjCzwsM">Making user logins more forgiving</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-08-07T19:22:23+00:00">2012-08-07</time>
+    </div>
+    
+    <p class="post-list-summary">We are currently working on making our login system more forgiving.   We started by creating usernames, and then people forgot their usernames so we now we are wanting to use e-mail addresses as usernames.  This is great except for the users who remember their username. We decided to try logging in assuming they gave us a username, if that fails, try it again matching against their email. While we are at it we also smush everything down to lowercase so that we can eliminate some typos.  We are d</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxwsM">How to reset Django admin password</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-08-02T02:41:51+00:00">2012-08-02</time>
+    </div>
+    
+    <p class="post-list-summary">Sometimes you just can&#39;t remember what you set it to, or like me, you restore from an SQL file that you never knew the password for.  Anyway, python to the rescue. &gt; python manage.py shell
+
+
+from django.contrib.auth.models import User
+
+u = User.objects.all()
+u=User.objects.get(username__exact=’admin’)
+u.set_password(‘whatever’);
+u.save() thanks to http://coderseye.com/2007/howto-reset-the-admin-password-in-django.html and the first comment</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvwsM">New Job at a Startup</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-07-28T23:02:27+00:00">2012-07-28</time>
+    </div>
+    
+    <p class="post-list-summary">I have a new job as a backend developer at http://Qliqup.com It is a young venture backed tech start-up and I am very excited. Look forward to future posts about what I am doing there.</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiKuAsM">Keeping a secure password list</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-06-08T19:02:00+00:00">2012-06-08</time>
+    </div>
+    
+    <p class="post-list-summary">Keeping a secure password list should be an easy task but it isn&#39;t.  This is the solution I am trying out. Download keepass and install on your laptop. Create a master password. Create entries, for existing passwords you&#39;ll need to edit the generated password Save it to a file and place in your Dropbox folder Install and login into Dropbox on your iPhone Install MiniKeePass on your iPhone Open the encrypted keepass database on your phone from Dropbox. It won&#39;t be able to display anything, but th</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxiisAsM">Got a problem, python is usually the answer</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-04-27T14:54:56+00:00">2012-04-27</time>
+    </div>
+    
+    <p class="post-list-summary">We had an emergency where our EMR provider isn&#39;t output the needed government reports.  This wouldn&#39;t be such a big deal if they weren&#39;t due on Monday. The problem seems to be with the XML records and some information needed to be striped out and manually looked at. Thankfully python has easy installers for Windows and the standard lib includes xml parsing and csv output. ##########################################
+###   Get info from xml and make a csv ###
+#######################################</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qAsM">HP N40L and Power Failure</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-04-16T14:30:12+00:00">2012-04-16</time>
+    </div>
+    
+    <p class="post-list-summary">Problem When I restart my HP N40L it does not always recognize both drives.  ESXi is on a thumbdrive and has not problem booting.  Because the two physical drives are seperate datastores hosting different VMs it leaves my system in a in consistent place on restart. Solution Don&#39;t have one yet.  I am going to investigate a UPS that triggers a shutdown script.</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjSoAsM">How to replicate ubuntu vm on ESXi</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-03-30T04:32:22+00:00">2012-03-30</time>
+    </div>
+    
+    <p class="post-list-summary">I wanted to deploy multiple copies of a base ubuntu server, easy right? Well it is now, but it took me a while to get it right.  The whole problem comes from not having &#39;sysprep&#39; for linux.  (They probably have a much better way and I just don&#39;t know it).  Because ESXi makes up a fake MAC address for the network interface, it is smart enough to make up a new MAC for the new machine.  Your old VM is still expecting the old network settings and needs a minor change.  I&#39;m not changing the hostname,</p>
+    
+  </li>
+  
+  <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjqmAsM">Finally got it working</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2012-03-06T04:40:24+00:00">2012-03-06</time>
+    </div>
+    
+    <p class="post-list-summary">I finally got my HP Proliant N40L doing something useful. Except for trying something new, it only runs a single instance of windows 7.  I have it configured as two logical drives residing on a single 2TB disk.  In my testing I had better performance keeping both logical drives on the same disk.  Weird, it shouldn&#39;t work like that but it does. I wasn&#39;t able to stream movies from iTunes until I tried a million things, the last being adding a new ethernet card as a VMXNET3 instead of E1000. It is </p>
+    
+  </li>
+  
+</ul>
+<nav class="pagination">
+  
+  <a class="btn" href="/page/3/">&larr; Newer</a>
+  
+  
+  <a class="btn" href="/page/5/">Older &rarr;</a>
+  
+</nav>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

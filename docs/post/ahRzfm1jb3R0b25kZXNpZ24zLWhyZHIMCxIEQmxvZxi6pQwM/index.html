@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Journal - Updating an image without flickering — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">JavaScript Journal - Updating an image without flickering</h1>
+    <p class="article-meta">
+      
+      <time datetime="2013-01-12T16:35:37+00:00">2013-01-12</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>This is how I'm approaching the problem of trying to simulate live video from a series of preview images.</p>
+
+<ul>
+<li>After initial page setup, we start the polling service</li>
+<li>After each polling response we look for new preview images ('pre')</li>
+<li>For each preview response, we ask each camera to update its image</li>
+<li>As an optimization we only update the cameras that are currently on screen</li>
+<li>When the new image has loaded, we swap it with the one being displayed (this eliminates flickering)</li>
+<li>If the image has taken longer than two seconds to load than display a 'Loading…'  message</li>
+<li>Update the time display in the corner with the timestamp of the image</li>
+</ul>
+
+<p>I am made an updateImage method on my Cameras model.  When the new image is loaded into a dummy space, I copy it to the actual model's image and the view re-renders.</p>
+
+<p>To eliminate the flickering, bind to the load event on the new image and wait unti it is fired before changing the src on the image.</p>
+
+<p>I also added some convenience methods to the Collection.  I filter down the models based and return it based on status.  As long as I return an array of models everything else works.</p>
+  </div>
+  
+  <p class="source-link"><a href="http://mcottondesign3.appspot.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6pQwM" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

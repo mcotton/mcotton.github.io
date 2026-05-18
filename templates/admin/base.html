@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin — {% block admin_title %}Dashboard{% endblock %}{% endblock %}
+{% block header %}
+<header class="site-header admin-header">
+  <a class="site-title" href="{{ url_for('admin_dashboard') }}">mcottondesign <span class="admin-badge">admin</span></a>
+  <nav class="site-nav" aria-label="Admin">
+    <a href="{{ url_for('admin_posts') }}">Posts</a>
+    <a href="{{ url_for('admin_apps') }}">Apps</a>
+    <a href="{{ url_for('admin_media') }}">Media</a>
+    <a href="{{ url_for('index') }}">View Site</a>
+    <a href="{{ url_for('admin_logout') }}">Log out</a>
+  </nav>
+</header>
+{% endblock %}

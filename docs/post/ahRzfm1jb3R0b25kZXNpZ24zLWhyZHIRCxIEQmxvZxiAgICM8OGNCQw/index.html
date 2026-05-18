@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where I Use Docker Containers — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Where I Use Docker Containers</h1>
+    <p class="article-meta">
+      
+      <span class="cat">programming</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2020-11-02T00:00:00+00:00">2020-11-02</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>
+Skipping the hype around Docker, Kubernetes, and containers in general; I wanted to talk through how I use them and where they have been very helpful.  The three use cases I want to highlight are local development, API examples, and deployment.
+</p>
+<p>
+Local development with Python is a headache of dependencies and conflicting Python versions.  You can use virtual environments or Docker containers, but docker containers have several other advantages when deploying or sharing.  If you start from a fresh python image you will have to explicitly declare your module dependencies which becomes great documentation.
+</p>
+<p>
+Providing API examples inside of a Docker container is another great use.  When bringing people up to speed with a new API it is vital to get them early success and it is important to quickly get past the drudgery of getting an example to run.  If you keep the docker container as a very light wrapper, there is very little confusion versus delivering them just the source directly.
+</p>
+<p>
+Example API scripts for the Eagle Eye Networks Cloud VMS are available <a href="
+https://github.com/mcotton/EE-API-examples">here on github</a>.
+</p>
+<p>
+I prefer to use Docker-compose for deployments in production.  If there is a chance that I will deploy it at some point, than I start with docker-compose even when just running it locally.  I find that the full DevOps-level tools are too much overhead for not enough gain.  I feel the same about container registries.  I haven't found the advantage to publishing the complete example back to a registry.
+</p>
+<p>
+I run nginx locally on each instance for SSL termination and then use "proxy_pass" to send the traffic to the correct Docker container.  This works great locally also because you can access those same entry points on localhost.  The basic structure is shown below:
+</p>
+<pre>
+
+server {
+
+    root /var/www/html;
+
+    client_max_body_size 100M;
+
+    server_name xxxx.een.cloud;
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+
+}
+</pre>
+<p>
+Running it locally you can have all requests go to the single container running on port 3000 as shown above.  When you are in production, you can split up your traffic by URL requests to go to additional copies of the same container.  In this case, I want to work on my main webapp, ingestion API, and notification system to work independently.  I can do this by modifying my nginx config and docker-compose.yaml as shown below.
+</p>
+<pre>
+
+server {
+
+    root /var/www/html;
+
+    client_max_body_size 100M;
+
+    server_name xxxx.een.cloud;
+
+    location /api/ingest {
+        proxy_pass http://localhost:3001;
+    }
+
+    location /api/notification {
+        proxy_pass http://localhost:3002;
+    }
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+
+}
+</pre>
+<pre>
+version: '3'
+  
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3002:3000"
+    restart: always
+    tty: true
+
+  ingestor:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3000"
+    restart: always
+    tty: true
+
+  notification:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "3002:3000"
+    restart: always
+    tty: true
+
+</pre>
+<p>
+This isn't the complete answer for how everyone should use Docker everywhere, it is just want I've found helpful.  Hopefully it is helpful to others.
+</p>
+  </div>
+  
+  <p class="source-link"><a href="https://mcottondesign.com/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIRCxIEQmxvZxiAgICM8OGNCQw" rel="noopener">Original URL</a></p>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

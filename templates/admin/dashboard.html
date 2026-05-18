@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block admin_title %}Dashboard{% endblock %}
+{% block body %}
+<h1 class="page-title">Dashboard</h1>
+<div class="dash-stats">
+  <a class="dash-card" href="{{ url_for('admin_posts') }}">
+    <span class="dash-number">{{ post_count }}</span>
+    <span class="dash-label">Posts</span>
+  </a>
+  <a class="dash-card" href="{{ url_for('admin_apps') }}">
+    <span class="dash-number">{{ app_count }}</span>
+    <span class="dash-label">Apps</span>
+  </a>
+</div>
+{% if recent_posts %}
+<h2 class="section-heading">Recent posts</h2>
+<ul class="post-list">
+  {% for p in recent_posts %}
+  <li class="post-list-item">
+    <a class="post-list-link" href="{{ url_for('admin_post_edit', post_id=p['id'] if p['id'] is defined else 0) }}">{{ p['title'] }}</a>
+    <div class="post-list-meta">
+      {% if p['category'] %}
+      <span class="cat">{{ p['category'] }}</span>
+      <span class="sep">&middot;</span>
+      {% endif %}
+      <time datetime="{{ p['published_at'] }}">{{ p['published_at'][:10] }}</time>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

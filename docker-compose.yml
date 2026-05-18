@@ -1,0 +1,10 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./data:/app/data
+      - ./static:/app/static
+      - ./docs:/app/docs
+    restart: unless-stopped
