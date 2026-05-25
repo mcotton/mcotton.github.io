@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why iOS Local AI is What Your Users Need — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Why iOS Local AI is What Your Users Need</h1>
+    <p class="article-meta">
+      
+      <time datetime="2026-05-25T11:00">2026-05-25</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <p>
+I wanted to handle natural language queries and voice dictation.  In the year 2026, the default answer is to use some big cloud LLM.  This is the current answer de jure, but it raises additional problems.  
+
+
+<ul>
+<li>Do I embed the API key in the code?  <a href="https://www.reddit.com/r/iOSProgramming/comments/11so8z0/how_to_embed_api_key_in_app/" target="_blank">Bad idea</a></li>
+<li>Do I let users bring their own key?  <a href="https://community.openai.com/t/bring-your-own-key-policy/446168" target="_blank">Bad idea</a></li>
+<li>Do I proxy the request through a server? If I proxy the request through a server, now I have to run a server.  Running a server includes costs.  I should probably also have an in-app purchase subscription, user accounts for authentication, and rate-limiting.</li>
+</ul>
+</p>
+
+<p>
+This is overkill for a calculator app.
+</p>
+
+<p>
+If the users are already suffering through iOS26 on their phones, then we should see if we can use Apple Intelligence (Foundation Models).
+</p>
+
+<p>
+Why do we need Foundation Models at all?  Can't we just use SFSpeechRecognizer?
+</p>
+
+<p>
+We are going to use SFSpeechRecognizer for transcribing the user's voice and returning text.  After we have the text, we need to go through LanguageModelSession in order to reduce it into a valid formula.  I have a custom grammar with a  range ('between') and special cases like 'percent tip'.  This outputs a formula that the user can verify before running.
+</p>
+
+<p>
+That's it.  No need to get sent voice records off to a 3rd party or charge money for something your phone can already do.
+</p>
+
+<p>
+I think you should try local AI and see if it works for your app.  You probably don't need voice-dictated Monte Carlo simulations, but if you do, <a href="https://apps.apple.com/us/app/guesstimate-calculator/id6761731404?uo=4" target="_blank">Guesstimate</a> is free on the App Store.
+</p>
+
+<img src="/static/uploads/550c270992764157afbaec02e78d603a.png">
+  </div>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>
