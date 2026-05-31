@@ -101,7 +101,8 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 input[type="range"].red-thumb::-webkit-slider-thumb  { background: var(--accent); }
 input[type="range"].gold-thumb::-webkit-slider-thumb { background: var(--accent-2); }
 input[type="range"].green-thumb::-webkit-slider-thumb { background: var(--green); }
-input[type="range"].ml-thumb::-webkit-slider-thumb { background: var(--ml); }
+input[type="range"].ml-thumb::-webkit-slider-thumb   { background: var(--ml); }
+input[type="range"].teal-thumb::-webkit-slider-thumb { background: var(--teal); }
 
 /* ── Metric cards ─────────────────────────────────────────── */
 .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -254,7 +255,7 @@ input.mini.ml-thumb::-webkit-slider-thumb { background: var(--ml); }
       <label>Daily Revenue per Store</label>
       <div class="num-row">
         <span class="unit-pre">$</span>
-        <input type="number" id="dailyRevenue" value="3000" min="500" max="500000" step="500">
+        <input type="number" id="dailyRevenue" value="3500" min="500" max="500000" step="500">
       </div>
       <div class="input-hint" id="dailyRevenueHint">—</div>
     </div>
@@ -304,6 +305,7 @@ input.mini.ml-thumb::-webkit-slider-thumb { background: var(--ml); }
       <div class="input-hint">Expected % of fraud caught <em>with</em> ML active. Must be ≥ baseline. Drives "Additional Fraud Found by ML" directly.</div>
     </div>
   </div>
+
 </div>
 
 <!-- ════════════════════════════════════════════════════════ -->
@@ -482,6 +484,46 @@ input.mini.ml-thumb::-webkit-slider-thumb { background: var(--ml); }
   </div>
 </div>
 
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SECTION 6: DYNAMIC FRAUD CYCLE PROJECTION             -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head"><div class="step-badge">6</div> 3-Year Fraud Cycle Projection</div>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6;max-width:900px;">
+    Fraud is not static. As ML detection flags incidents, fraud <em>occurrence</em> drops (deterrence effect). Over time, patterns adapt and re-emerge in new forms — then ML catches up again. The cycle repeats. The shaded area below represents the cumulative deterrence benefit over 36 months vs. a no-ML static baseline. Vertical markers <span style="color:var(--accent);">↻</span> show each adaptation cycle reset.
+  </p>
+
+  <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:14px;">Dynamic Fraud Cycle Model</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--rule);">
+    <div class="input-group">
+      <label>Deterrence Factor</label>
+      <div class="slider-row">
+        <input type="range" id="deterrence" class="green-thumb" min="0" max="80" step="5" value="30">
+        <span class="slider-display" id="deterrenceVal">30</span>
+        <span class="slider-unit">%</span>
+      </div>
+      <div class="input-hint">% drop in fraud <em>occurrence</em> when ML is active — fraudsters get caught and modify behavior. Does not reduce over time; only occurrence rate drops.</div>
+    </div>
+    <div class="input-group">
+      <label>Adaptation Period</label>
+      <div class="slider-row">
+        <input type="range" id="adaptMonths" class="teal-thumb" min="3" max="36" step="3" value="12">
+        <span class="slider-display" id="adaptMonthsVal">12</span>
+        <span class="slider-unit">mo</span>
+      </div>
+      <div class="input-hint">Months before fraud patterns fully re-emerge in new forms — completing one detect → deter → adapt cycle.</div>
+    </div>
+  </div>
+
+  <div id="projYearCards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;"></div>
+  <div style="position:relative;height:300px;margin-bottom:8px;">
+    <canvas id="projChart"></canvas>
+  </div>
+  <div style="font-size:10px;color:var(--muted);text-align:center;margin-top:6px;">
+    Monthly fraud exposure · shaded area = deterrence benefit from ML · <span style="color:var(--accent);">↻</span> = fraud adaptation cycle reset
+  </div>
+</div>
+
 <div class="top-bar">
   <span class="top-bar-title">Estimates only — calibrate with real data before program reporting</span>
   <button class="btn-reset" onclick="resetDefaults()">↺ Reset to Defaults</button>
@@ -492,12 +534,14 @@ input.mini.ml-thumb::-webkit-slider-thumb { background: var(--ml); }
 <script>
 // ── Default state ─────────────────────────────────────────────────────────
 const DEFAULTS = {
-  dailyRevenue: 10000,
+  dailyRevenue: 3500,
   numStores: 200,
   systemCost: 100,
   fraudRate: 1.5,
   baselineDetect: 80,
   mlDetect: 85,
+  deterrence: 30,
+  adaptMonths: 12,
   period: 'monthly',
   s2period: 'monthly',
   cats: [
@@ -806,6 +850,139 @@ function updateCharts(r) {
   charts.det.update('none');
 }
 
+// ── Projection model ──────────────────────────────────────────────────────
+function buildProjection() {
+  const s = S;
+  const monthlyFraud  = s.dailyRevenue * s.numStores * 30 * (s.fraudRate / 100);
+  const deterredFraud = monthlyFraud * (1 - s.deterrence / 100);
+  const MONTHS = 36;
+
+  const labels    = Array.from({length: MONTHS}, (_, i) => `Mo ${i + 1}`);
+  const withoutML = Array.from({length: MONTHS}, () => monthlyFraud);
+  const withML    = Array.from({length: MONTHS}, (_, t) => {
+    const phase = t % s.adaptMonths;
+    // Linear ramp: starts deterred, climbs back to full over adaptMonths
+    return deterredFraud + (monthlyFraud - deterredFraud) * (phase / s.adaptMonths);
+  });
+
+  const avgSlice = (arr, a, b) => arr.slice(a, b).reduce((s, v) => s + v, 0) / (b - a);
+  const totalBenefit = withoutML.reduce((s, v) => s + v, 0) - withML.reduce((s, v) => s + v, 0);
+
+  return {
+    labels, withoutML, withML, monthlyFraud,
+    avgY1: avgSlice(withML, 0,  12),
+    avgY2: avgSlice(withML, 12, 24),
+    avgY3: avgSlice(withML, 24, 36),
+    totalBenefit,
+  };
+}
+
+function renderProjCards(proj) {
+  const staticVal = proj.monthlyFraud;
+  const pctBelow  = n => Math.round((staticVal - n) / staticVal * 100);
+  const card = (label, val, sub, accent) => `
+    <div style="background:var(--ink-2);border-radius:6px;padding:18px 16px;text-align:center;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:${accent};margin-bottom:8px;">${label}</div>
+      <div style="font-size:22px;font-weight:800;color:#fff;">${val}</div>
+      <div style="font-size:11px;color:#8b9fc0;margin-top:5px;">${sub}</div>
+    </div>`;
+  document.getElementById('projYearCards').innerHTML =
+    card('No-ML Static Model', fmt$(staticVal), 'per month · no deterrence', '#5a6271') +
+    card('Year 1 Avg / Month',  fmt$(proj.avgY1), pctBelow(proj.avgY1) + '% below baseline', 'var(--accent-2)') +
+    card('Year 2 Avg / Month',  fmt$(proj.avgY2), pctBelow(proj.avgY2) + '% below baseline', 'var(--accent-2)') +
+    card('Year 3 Avg / Month',  fmt$(proj.avgY3), pctBelow(proj.avgY3) + '% below baseline · 36-mo benefit: ' + fmt$(proj.totalBenefit), 'var(--green)');
+}
+
+function initProjChart() {
+  const ctx = document.getElementById('projChart').getContext('2d');
+  charts.proj = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [
+        {
+          label: 'Without ML (static baseline)',
+          data: [],
+          borderColor: 'rgba(90,98,113,0.55)',
+          borderDash: [6, 4],
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: false,
+          tension: 0,
+          order: 2,
+        },
+        {
+          label: 'Effective Fraud with ML Deterrence',
+          data: [],
+          borderColor: '#4f46c4',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          fill: { target: 0, above: 'rgba(47,125,79,0.18)', below: 'rgba(47,125,79,0.18)' },
+          tension: 0,
+          order: 1,
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { labels: { color: '#0e1a2b', font: { size: 11 }, boxWidth: 20, padding: 16 } },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${fmt$(ctx.raw)}/mo` } },
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { color: '#5a6271', font: { size: 10 }, maxTicksLimit: 13,
+            callback: (_, i) => (i % 3 === 0) ? `Mo ${i + 1}` : '' }
+        },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.05)' },
+          ticks: { color: '#5a6271', font: { size: 10 }, callback: v => fmtShort$(v) },
+        }
+      }
+    },
+    // Inline plugin: draw cycle-reset vertical markers
+    plugins: [{
+      id: 'cycleMarkers',
+      afterDraw(chart) {
+        try {
+          const x = chart.scales && chart.scales.x;
+          const y = chart.scales && chart.scales.y;
+          if (!x || !y || !chart.data.labels || chart.data.labels.length === 0) return;
+          const ctx = chart.ctx;
+          const adaptM = S.adaptMonths;
+          ctx.save();
+          ctx.strokeStyle = 'rgba(208,66,58,0.35)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([4, 4]);
+          ctx.font = 'bold 10px sans-serif';
+          ctx.fillStyle = 'rgba(208,66,58,0.7)';
+          for (let i = adaptM; i < 36; i += adaptM) {
+            const px = x.getPixelForValue(i - 0.5);
+            if (!isFinite(px)) continue;
+            ctx.beginPath();
+            ctx.moveTo(px, y.top);
+            ctx.lineTo(px, y.bottom);
+            ctx.stroke();
+            ctx.fillText('↻', px - 5, y.top + 12);
+          }
+          ctx.restore();
+        } catch (e) { /* swallow plugin errors so they don't break update loop */ }
+      }
+    }]
+  });
+}
+
+function updateProjChart(proj) {
+  const c = charts.proj;
+  c.data.labels = proj.labels;
+  c.data.datasets[0].data = proj.withoutML;
+  c.data.datasets[1].data = proj.withML;
+  c.update('none');
+}
+
 // ── Master update ─────────────────────────────────────────────────────────
 function update() {
   const r = calc();
@@ -813,6 +990,9 @@ function update() {
   renderROI(r);
   renderCatTable(r);
   updateCharts(r);
+  const proj = buildProjection();
+  renderProjCards(proj);
+  updateProjChart(proj);
 }
 
 // ── Category input handler ────────────────────────────────────────────────
@@ -854,6 +1034,8 @@ function resetDefaults() {
   syncSlider('fraudRate',      S.fraudRate);
   syncSlider('baselineDetect', S.baselineDetect);
   syncSlider('mlDetect',       S.mlDetect);
+  syncSlider('deterrence',     S.deterrence);
+  syncSlider('adaptMonths',    S.adaptMonths);
   document.querySelectorAll('[data-p]').forEach(b => b.classList.toggle('active', b.dataset.p === 'monthly'));
   document.querySelectorAll('[data-s2]').forEach(b => b.classList.toggle('active', b.dataset.s2 === 'monthly'));
   update();
@@ -869,7 +1051,7 @@ function bindEvents() {
   document.getElementById('numStores').addEventListener('input',    e => { S.numStores    = +e.target.value || 0; update(); });
   document.getElementById('systemCost').addEventListener('input',   e => { S.systemCost   = +e.target.value || 0; update(); });
 
-  [['fraudRate','fraudRate'],['baselineDetect','baselineDetect'],['mlDetect','mlDetect']].forEach(([id, key]) => {
+  [['fraudRate','fraudRate'],['baselineDetect','baselineDetect'],['mlDetect','mlDetect'],['deterrence','deterrence'],['adaptMonths','adaptMonths']].forEach(([id, key]) => {
     document.getElementById(id).addEventListener('input', e => {
       const v = parseFloat(e.target.value);
       S[key] = v;
@@ -884,10 +1066,15 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCatLegend();
   bindEvents();
   initCharts();
+  initProjChart();
   syncSlider('fraudRate',      S.fraudRate);
   syncSlider('baselineDetect', S.baselineDetect);
   syncSlider('mlDetect',       S.mlDetect);
+  syncSlider('deterrence',     S.deterrence);
+  syncSlider('adaptMonths',    S.adaptMonths);
   update();
+  // Second pass after layout settles — fixes any timing-related blank renders
+  requestAnimationFrame(() => update());
 });
 </script>
 </body>
