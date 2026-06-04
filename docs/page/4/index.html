@@ -43,6 +43,27 @@
 <ul class="post-list">
   
   <li class="post-list-item">
+    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjaxAwM">Deploying with Git</a>
+    <div class="post-list-meta">
+      
+      <time datetime="2013-05-02T20:56:29+00:00">2013-05-02</time>
+    </div>
+    
+    <p class="post-list-summary">I want to deploy new code to using a simple command like git push stage master or git push prod master On the server, make a new git repository git init Edit the config file inside of .git/ [core]
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+
+[receive]
+    denyCurrentBranch = ignore Make a post-receive hook with these commands #!/bin/sh
+cd .. 
+GIT_DIR=&#39;.git&#39; 
+umask 002 &amp;&amp; git reset --hard Make that hook exacutable chmod +x post-receive On your </p>
+    
+  </li>
+  
+  <li class="post-list-item">
     <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxjyvAwM">Consuming vs Producing</a>
     <div class="post-list-meta">
       
@@ -272,17 +293,6 @@ u.save() thanks to http://coderseye.com/2007/howto-reset-the-admin-password-in-d
     <p class="post-list-summary">We had an emergency where our EMR provider isn&#39;t output the needed government reports.  This wouldn&#39;t be such a big deal if they weren&#39;t due on Monday. The problem seems to be with the XML records and some information needed to be striped out and manually looked at. Thankfully python has easy installers for Windows and the standard lib includes xml parsing and csv output. ##########################################
 ###   Get info from xml and make a csv ###
 #######################################</p>
-    
-  </li>
-  
-  <li class="post-list-item">
-    <a class="post-list-link" href="/post/ahRzfm1jb3R0b25kZXNpZ24zLWhyZHIMCxIEQmxvZxi6qAsM">HP N40L and Power Failure</a>
-    <div class="post-list-meta">
-      
-      <time datetime="2012-04-16T14:30:12+00:00">2012-04-16</time>
-    </div>
-    
-    <p class="post-list-summary">Problem When I restart my HP N40L it does not always recognize both drives.  ESXi is on a thumbdrive and has not problem booting.  Because the two physical drives are seperate datastores hosting different VMs it leaves my system in a in consistent place on restart. Solution Don&#39;t have one yet.  I am going to investigate a UPS that triggers a shutdown script.</p>
     
   </li>
   

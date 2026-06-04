@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C-Store POS Fraud — Detection Funnel</title>
+<style>
+:root {
+  --ink: #0e1a2b;
+  --ink-2: #1c2c45;
+  --paper: #f6f3ec;
+  --paper-2: #ffffff;
+  --accent: #d8423a;
+  --accent-2: #f0a830;
+  --teal: #1f7a8c;
+  --green: #2f7d4f;
+  --ml: #4f46c4;
+  --rule: #d9d2c2;
+  --muted: #5a6271;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+}
+.page { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* Header */
+header {
+  background: var(--ink-2);
+  padding: 26px 24px 22px;
+  margin-bottom: 22px;
+  border-bottom: 4px solid var(--accent-2);
+}
+.kicker { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-2); font-weight: 700; margin-bottom: 7px; }
+h1 { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.01em; margin-bottom: 6px; }
+.dek { font-size: 13px; color: #8b9fc0; max-width: 760px; line-height: 1.6; }
+
+/* Section card */
+.section {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+}
+.section-head {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ml); margin-bottom: 18px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.step-badge {
+  width: 22px; height: 22px; background: var(--ml); color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; flex-shrink: 0;
+}
+
+/* Top input */
+.top-input-row { display: flex; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.input-group label { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 8px; }
+.input-hint { font-size: 10px; color: var(--muted); margin-top: 5px; font-style: italic; line-height: 1.5; }
+.num-row { display: flex; align-items: center; gap: 8px; }
+.unit-pre, .unit-suf { font-size: 16px; font-weight: 700; color: var(--muted); }
+input[type="number"] {
+  padding: 8px 10px; border: 1.5px solid var(--rule); border-radius: 4px;
+  font-size: 16px; font-weight: 700; color: var(--ink); background: #fff;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"]:focus { outline: none; border-color: var(--ml); box-shadow: 0 0 0 2px rgba(79,70,196,.18); }
+.amount-input { width: 180px; }
+
+/* Funnel */
+.funnel-wrap {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+}
+.funnel-svg-wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 8px 0;
+}
+.funnel-svg-wrap svg { width: 100%; height: auto; max-width: 720px; }
+
+.layer-stack { display: flex; flex-direction: column; gap: 10px; }
+.layer-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--ml);
+  border-radius: 5px;
+  padding: 14px 16px;
+  transition: box-shadow .15s;
+}
+.layer-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.layer-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; margin-bottom: 6px;
+}
+.layer-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--ink);
+}
+.layer-num { font-size: 10px; color: var(--muted); font-weight: 700; }
+.layer-dollar {
+  font-size: 22px; font-weight: 800; color: var(--ink);
+  margin-bottom: 4px; line-height: 1.1;
+}
+.layer-sub { font-size: 11px; color: var(--muted); }
+
+.pct-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px dashed var(--rule);
+}
+.pct-row label { font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin: 0; flex: 1; }
+.pct-input {
+  width: 70px; padding: 5px 7px; border: 1.5px solid var(--rule);
+  border-radius: 4px; font-size: 13px; font-weight: 700;
+  color: var(--ink); background: #fff; text-align: right;
+}
+.pct-input:focus { outline: none; border-color: var(--ml); box-shadow: 0 0 0 2px rgba(79,70,196,.18); }
+.pct-unit { font-size: 13px; font-weight: 700; color: var(--muted); }
+
+/* Color variations per layer */
+.layer-card.l1 { border-left-color: var(--ink-2); }
+.layer-card.l2 { border-left-color: var(--teal); }
+.layer-card.l3 { border-left-color: var(--accent-2); }
+.layer-card.l4 { border-left-color: var(--accent); }
+
+/* Summary footer */
+.summary-row {
+  margin-top: 22px;
+  background: var(--ink-2);
+  border-radius: 6px;
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.summary-stat .stat-label {
+  font-size: 10px; color: #8b9fc0; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .12em; margin-bottom: 6px;
+}
+.summary-stat .stat-value { font-size: 22px; font-weight: 800; color: #fff; line-height: 1.1; }
+.summary-stat .stat-sub { font-size: 11px; color: #8b9fc0; margin-top: 4px; }
+
+/* Reset */
+.top-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 18px; background: var(--paper-2); border: 1px solid var(--rule);
+  border-radius: 5px; margin-bottom: 16px;
+}
+.top-bar-title { font-size: 11px; font-weight: 600; color: var(--muted); }
+.btn-reset {
+  background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 6px 12px; font-size: 11px; font-weight: 700; color: var(--ink);
+  cursor: pointer; text-transform: uppercase; letter-spacing: .08em;
+}
+.btn-reset:hover { background: var(--ink-2); color: #fff; border-color: var(--ink-2); }
+
+@media (max-width: 980px) {
+  .funnel-wrap { grid-template-columns: 1fr; }
+  .summary-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="page" style="padding-bottom:0;">
+    <div class="kicker">C-Store POS Fraud · Detection Funnel</div>
+    <h1>Transaction → Detection Funnel</h1>
+    <p class="dek">Start with total transaction value and progressively narrow down to fraud actually detected and acted on. Adjust the percentage that flows through each stage to model different detection rates and review workflows. All values shown in dollars.</p>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- TOP INPUT -->
+<div class="section">
+  <div class="section-head"><div class="step-badge">1</div> Funnel Input</div>
+  <div class="top-input-row" style="gap:18px;flex-wrap:wrap;align-items:flex-end;">
+    <div class="input-group">
+      <label>Stores</label>
+      <input type="number" id="storeCount" value="176" min="1" step="10" style="width:90px;">
+      <div class="input-hint">number of stores</div>
+    </div>
+    <span style="font-size:20px;color:var(--muted);padding-bottom:14px;">×</span>
+    <div class="input-group">
+      <label>$ / Store / Day</label>
+      <div class="num-row">
+        <span class="unit-pre">$</span>
+        <input type="number" id="storeDaily" value="3500" min="0" step="500" style="width:110px;">
+      </div>
+      <div class="input-hint">avg revenue per store per day</div>
+    </div>
+    <button class="btn-reset" id="applyPreset" style="height:36px;margin-bottom:14px;">Apply →</button>
+    <div class="input-group">
+      <label>Total Transaction Volume</label>
+      <div class="num-row">
+        <span class="unit-pre">$</span>
+        <input type="number" id="topAmount" class="amount-input" value="224840000" min="0" step="1000000">
+      </div>
+      <div class="input-hint" id="topAmountHint">Annual gross transaction dollars across the portfolio</div>
+    </div>
+  </div>
+</div>
+
+<!-- FUNNEL -->
+<div class="section">
+  <div class="section-head"><div class="step-badge">2</div> Detection Funnel</div>
+  <div class="funnel-wrap">
+    <div class="funnel-svg-wrap">
+      <svg id="funnelSvg" viewBox="0 0 720 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="layer-stack" id="layerStack"></div>
+  </div>
+
+  <div class="summary-row">
+    <div class="summary-stat">
+      <div class="stat-label">Detected Fraud</div>
+      <div class="stat-value" id="finalDollar">—</div>
+      <div class="stat-sub" id="finalSub">—</div>
+    </div>
+    <div class="summary-stat">
+      <div class="stat-label">End-to-End Funnel Yield</div>
+      <div class="stat-value" id="finalPct">—</div>
+      <div class="stat-sub">Detected fraud ÷ total transactions</div>
+    </div>
+    <div class="summary-stat">
+      <div class="stat-label">Filtered Out at Each Stage</div>
+      <div class="stat-value" id="dropDollar">—</div>
+      <div class="stat-sub">Total transactions not flagged as fraud</div>
+    </div>
+  </div>
+</div>
+
+<div class="top-bar">
+  <span class="top-bar-title">Adjust any percentage or amount — funnel updates in real time</span>
+  <button class="btn-reset" onclick="resetDefaults()">↺ Reset to Defaults</button>
+</div>
+</div>
+
+<script>
+// ── Layer definitions (5 layers) ──────────────────────────────────────────
+const DEFAULTS = {
+  topAmount: 224840000, // ≈ 176 stores × $3500/day × 365
+  storeCount: 176,
+  storeDaily: 3500,
+  layers: [
+    { label: 'Total Transactions',           color: '#1c2c45', pctToNext: 10.0,
+      sub: 'All POS transactions across the portfolio' },
+    { label: 'Rule-Flagged Suspicious',      color: '#1f7a8c', pctToNext: 10.0,
+      sub: 'Caught by rule engine — voids, no-sales, refund anomalies, restricted-item flags' },
+    { label: 'ML High-Anomaly Score',        color: '#f0a830', pctToNext: 10.0,
+      sub: 'IForest / LOF / autoencoder reconstruction error above threshold' },
+    { label: 'Recovered / Actioned',         color: '#d8423a', pctToNext: null,
+      sub: 'Final stage — recovery initiated or operational action taken' },
+  ]
+};
+
+let S = JSON.parse(JSON.stringify(DEFAULTS));
+
+// ── Format helpers ────────────────────────────────────────────────────────
+function fmt$(n) {
+  const sign = n < 0 ? '-' : '';
+  n = Math.abs(n);
+  if (n >= 1e9) return sign + '$' + (n/1e9).toFixed(2) + 'B';
+  if (n >= 1e6) return sign + '$' + (n/1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return sign + '$' + (n/1e3).toFixed(1) + 'K';
+  return sign + '$' + Math.round(n).toLocaleString();
+}
+function fmtFull$(n) { return '$' + Math.round(n).toLocaleString(); }
+function fmtPct(n) {
+  if (n >= 1) return n.toFixed(2) + '%';
+  if (n >= 0.01) return n.toFixed(3) + '%';
+  if (n > 0) return n.toFixed(4) + '%';
+  return '0%';
+}
+
+// ── Calculate funnel values ───────────────────────────────────────────────
+function computeValues() {
+  const vals = [S.topAmount];
+  for (let i = 0; i < S.layers.length - 1; i++) {
+    const pct = Math.max(0, Math.min(100, S.layers[i].pctToNext)) / 100;
+    vals.push(vals[i] * pct);
+  }
+  return vals;
+}
+
+// ── Render layer cards ────────────────────────────────────────────────────
+function renderLayers() {
+  const vals = computeValues();
+  const stack = document.getElementById('layerStack');
+  stack.innerHTML = '';
+
+  S.layers.forEach((layer, i) => {
+    const card = document.createElement('div');
+    card.className = `layer-card l${i + 1}`;
+    const pctOfTop = vals[0] > 0 ? (vals[i] / vals[0] * 100) : 0;
+    const isLast = (i === S.layers.length - 1);
+
+    card.innerHTML = `
+      <div class="layer-head">
+        <div class="layer-label">${layer.label}</div>
+        <div class="layer-num">Layer ${i + 1} / ${S.layers.length}</div>
+      </div>
+      <div class="layer-dollar" title="${fmtFull$(vals[i])}">${fmt$(vals[i])}</div>
+      <div class="layer-sub">${layer.sub} · ${fmtPct(pctOfTop)} of total</div>
+      ${ isLast ? '' : `
+        <div class="pct-row">
+          <label>→ % passing to next layer</label>
+          <input type="number" class="pct-input" data-pct-idx="${i}"
+                 min="0" max="100" step="0.1" value="${layer.pctToNext}">
+          <span class="pct-unit">%</span>
+        </div>
+      `}
+    `;
+    stack.appendChild(card);
+  });
+
+  // Wire up % inputs
+  stack.querySelectorAll('.pct-input').forEach(inp => {
+    inp.addEventListener('input', e => {
+      const idx = parseInt(e.target.dataset.pctIdx, 10);
+      let v = parseFloat(e.target.value);
+      if (isNaN(v)) v = 0;
+      S.layers[idx].pctToNext = v;
+      update(); // re-render
+    });
+  });
+}
+
+// ── Render funnel SVG (proportional widths with min-width clamp) ──────────
+function renderFunnel() {
+  const vals = computeValues();
+  const svg = document.getElementById('funnelSvg');
+  const W = 720, H = 560;
+  const padX = 60;
+  const maxW = W - padX * 2;
+  const minW = 90;  // keep last layer visible
+  const layerH = (H - 40) / S.layers.length;
+  const gap = 6;
+
+  // Normalize widths between minW and maxW based on values relative to top
+  const top = vals[0] || 1;
+  const widths = vals.map(v => {
+    const ratio = Math.max(0, v) / top;
+    return minW + (maxW - minW) * Math.sqrt(ratio); // sqrt scale for visibility
+  });
+
+  let out = '';
+
+  // Background
+  out += `<rect x="0" y="0" width="${W}" height="${H}" fill="transparent"/>`;
+
+  for (let i = 0; i < S.layers.length; i++) {
+    const w1 = widths[i];
+    const w2 = i < S.layers.length - 1 ? widths[i + 1] : widths[i] * 0.65;
+    const y1 = 20 + i * layerH;
+    const y2 = y1 + layerH - gap;
+    const x1L = (W - w1) / 2;
+    const x1R = x1L + w1;
+    const x2L = (W - w2) / 2;
+    const x2R = x2L + w2;
+    const color = S.layers[i].color;
+
+    // Trapezoid
+    out += `<polygon points="${x1L},${y1} ${x1R},${y1} ${x2R},${y2} ${x2L},${y2}"
+              fill="${color}" opacity="0.92" stroke="#fff" stroke-width="2"/>`;
+
+    // Label inside trapezoid
+    const cy = (y1 + y2) / 2;
+    out += `<text x="${W/2}" y="${cy - 6}" text-anchor="middle"
+              fill="#fff" font-size="11" font-weight="700"
+              style="text-transform:uppercase;letter-spacing:.08em;">
+              ${S.layers[i].label}
+            </text>`;
+    out += `<text x="${W/2}" y="${cy + 12}" text-anchor="middle"
+              fill="#fff" font-size="16" font-weight="800">
+              ${fmt$(vals[i])}
+            </text>`;
+
+    // Drop-off connector annotation (between this layer and next)
+    if (i < S.layers.length - 1) {
+      const dropped = vals[i] - vals[i + 1];
+      const pct = S.layers[i].pctToNext;
+      const yMid = y2 + gap / 2;
+      out += `<text x="${W - 18}" y="${yMid + 4}" text-anchor="end"
+                fill="#5a6271" font-size="10" font-weight="600">
+                ${pct}% pass · ${fmt$(dropped)} filtered
+              </text>`;
+    }
+  }
+
+  svg.innerHTML = out;
+}
+
+// ── Render summary footer ─────────────────────────────────────────────────
+function renderSummary() {
+  const vals = computeValues();
+  const top = vals[0];
+  const final = vals[vals.length - 1];
+  const dropped = top - final;
+  const yield_ = top > 0 ? (final / top * 100) : 0;
+
+  document.getElementById('finalDollar').textContent = fmt$(final);
+  document.getElementById('finalSub').textContent = `${fmtFull$(final)} of ${fmtFull$(top)}`;
+  document.getElementById('finalPct').textContent = fmtPct(yield_);
+  document.getElementById('dropDollar').textContent = fmt$(dropped);
+
+  // Top amount hint
+  document.getElementById('topAmountHint').textContent =
+    `${fmtFull$(S.topAmount)} · ≈ ${fmt$(S.topAmount / 365)} per day`;
+}
+
+// ── Master update ─────────────────────────────────────────────────────────
+function update() {
+  renderLayers();
+  renderFunnel();
+  renderSummary();
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────
+function resetDefaults() {
+  S = JSON.parse(JSON.stringify(DEFAULTS));
+  document.getElementById('topAmount').value = S.topAmount;
+  document.getElementById('storeCount').value = S.storeCount;
+  document.getElementById('storeDaily').value = S.storeDaily;
+  update();
+}
+
+// ── Event binding ─────────────────────────────────────────────────────────
+function bindEvents() {
+  document.getElementById('topAmount').addEventListener('input', e => {
+    S.topAmount = parseFloat(e.target.value) || 0;
+    update();
+  });
+  document.getElementById('storeCount').addEventListener('input', e => {
+    S.storeCount = parseFloat(e.target.value) || 0;
+  });
+  document.getElementById('storeDaily').addEventListener('input', e => {
+    S.storeDaily = parseFloat(e.target.value) || 0;
+  });
+  document.getElementById('applyPreset').addEventListener('click', () => {
+    const computed = Math.round(S.storeCount * S.storeDaily * 365);
+    S.topAmount = computed;
+    document.getElementById('topAmount').value = computed;
+    update();
+  });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  bindEvents();
+  update();
+});
+</script>
+</body>
+</html>
