@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nearest Neighbors: kNN vs ANN — mcottondesign</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+<body>
+  
+  <header class="site-header">
+    <a class="site-title" href="/">mcottondesign</a>
+    <nav class="site-nav" aria-label="Elsewhere">
+      
+      <div class="nav-dropdown">
+        <input type="checkbox" id="apps-toggle" class="nav-dropdown-check" aria-hidden="true">
+        <label for="apps-toggle" class="nav-dropdown-trigger">Apps</label>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            
+            <a href="/apps/antisocial"><img class="nav-dropdown-icon" src="/img/app-icons/antisocial.png" alt="">Antisocial Feed
+            </a>
+            
+            <a href="/apps/guesstimate"><img class="nav-dropdown-icon" src="/img/app-icons/guesstimate.png" alt="">Guesstimate
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+      <a href="/">Blog</a>
+      <a href="https://github.com/mcotton" rel="noopener">GitHub</a>
+      <a href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+  
+  <main class="main">
+    
+      
+    
+    
+<article class="article">
+  <header class="article-head">
+    <h1 class="article-title">Nearest Neighbors: kNN vs ANN</h1>
+    <p class="article-meta">
+      
+      <span class="cat">ml</span>
+      <span class="sep">·</span>
+      
+      <time datetime="2026-06-05T18:50">2026-06-05</time>
+    </p>
+  </header>
+  <div class="article-body prose">
+    <img src="/static/uploads/09b890e4bbae407797f122748c44941d.png">
+
+<p>
+There are not many data problems that my answer doesn't start with clustering, and when the problem calls for clustering, kNN is my favorite method.
+</p>
+
+<p>
+kNN is a well-used friend and a great starting point. As the problem size grows, you have to get into the nuance of kNN vs ANN. Let's start with some quick terminology.
+</p>
+
+<p>
+kNN stands for K Nearest Neighbors; it is an algorithm for grouping data by looking at the items most common to them. If we had a dataset of animals that lists them by common attributes. Given a attributes about a new mystery animal, we could make a good guess at the type of animal by figuring out what its 16 nearest neighbors are.
+</p>
+
+<p>
+(Footnote: In this example, k=16. This example value of k is arbitrary, and your results will vary with different values of k.)
+</p>
+
+<p>
+One advantage of this method is that it is a great way to classify data in a highly explainable fashion. It is just math. There isn't a black box providing the classification; it is just your data, and you see exactly how it came to the answer. No training data or introduced bias form it.
+</p>
+
+<p>
+When I say it is just math, I mean simple math. Loop through all the data and compute Euclidean distance to each, then sort and return k results.
+</p>
+
+<p>
+So what are the disadvantages? It can be horrifically slow as the data gets bigger. It is O(n).  O(n) is bad. You have to brute force compare every item in the dataset.
+</p>
+
+<p>
+This is where Approximate Nearest Neighbor comes in. With millions or billions of data points, there is no advantage to look at all of them if you only want k.
+</p>
+
+<p>In a future post, we will look at my favorite ANN algorithm, but the short idea is you can get 95% of the results by over-sampling (for example, 500) and then brute forcing to get the final k neighbors.
+</p>
+  </div>
+  
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <span>&copy; 2026</span>
+  </footer>
+</body>
+</html>

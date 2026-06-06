@@ -5,6 +5,13 @@
     <link>https://mcottondesign.com/</link>
     <description>Blog</description>
     <item>
+      <title>Nearest Neighbors: kNN vs ANN</title>
+      <link>https://mcottondesign.com/post/nearest-neighbors-knn-vs-ann</link>
+      <guid isPermaLink="true">https://mcottondesign.com/post/nearest-neighbors-knn-vs-ann</guid>
+      <pubDate>Fri, 05 Jun 2026 18:50:00 -0000</pubDate>
+      <description>There&#x27;s not many data problems that my answer doesn&#x27;t start with clustering, and when the problem calls for clustering, kNN is my favorite method.</description>
+    </item>
+    <item>
       <title>C-Store Fraud Funnel</title>
       <link>https://mcottondesign.com/post/c-store-fraud-funnel</link>
       <guid isPermaLink="true">https://mcottondesign.com/post/c-store-fraud-funnel</guid>
